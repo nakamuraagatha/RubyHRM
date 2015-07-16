@@ -1,0 +1,7 @@
+<%= form_for (@location) do |f| %>
+
+	<%= f.text_field :name %>
+	<%= f.text_field :address_line1 %>
+	<%= f.text_field :address_line2 %>
+	<%= f.submit "create" %>
+<% end %>

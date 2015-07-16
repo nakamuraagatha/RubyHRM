@@ -1,0 +1,26 @@
+<div class="row">
+	<div class="col-lg-12">
+		<ol class="breadcrumb">
+			<li><a href="#">Home</a></li>
+			<li><a href="#">Employees</a></li>
+		</ol>
+    </div>
+</div>
+
+<%= render 'person_details_nav' %>
+
+<div class="row">
+    <div class="col-lg-12">
+		<%= render 'person_errors' %>
+	</div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+		<div class="panel panel-primary">
+			<div class="panel-heading"><h3 class="panel-title"><span class="glyphicon glyphicon-pencil white"></span> Edit Job Details</h3></div>
+			<div class="panel-body">	
+				<%= render 'edit_job_details_form' %>
+			</div>
+		</div>
+	</div>
+</div>

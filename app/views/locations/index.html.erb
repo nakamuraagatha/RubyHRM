@@ -1,0 +1,30 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Locations</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+
+
+<div class="table-responsive">
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Location Name</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @locations.each do |l| %>
+			<tr>
+				<td><%= l.name %></td>
+				<td><%= link_to "update location", edit_location_path(l.id) %></td>
+			</tr>
+			<% end %>
+		</tbody>
+
+	</table>
+</div>
+<br/>
+<%= link_to "Create Location", new_location_path %>

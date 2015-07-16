@@ -1,0 +1,2 @@
+module PersonEducationsHelper
+end

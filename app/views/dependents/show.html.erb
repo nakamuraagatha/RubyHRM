@@ -1,0 +1,7 @@
+<%= form_for (@dependent) do |f| %>
+	<%= f.hidden_field :person_id, :value => params[:person_id] %>
+	<%= f.text_field :name %>
+	<%= f.text_field :relationship %>
+	<%= f.date :date_of_birth %>
+	<%= f.submit "create" %>
+<% end %>

@@ -1,0 +1,2 @@
+module PayDetailsHelper
+end

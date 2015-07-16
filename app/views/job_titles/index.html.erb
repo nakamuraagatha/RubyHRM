@@ -1,0 +1,32 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Job Titles</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+
+
+<div class="table-responsive">
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Job Title</th>
+				<th>Job Description</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @job_titles.each do |j| %>
+			<tr>
+				<td><%= j.job_title %></td>
+				<td><%= j.job_description %></td>
+				<td><%= link_to "update job_title", edit_user_path(j.id) %></td>
+			</tr>
+			<% end %>
+		</tbody>
+
+	</table>
+</div>
+<br/>
+<%= link_to "Create Job Title", new_job_title_path %>

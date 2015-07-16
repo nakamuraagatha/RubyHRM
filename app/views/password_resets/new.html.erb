@@ -1,0 +1,11 @@
+<div class = "col-lg-4"></div>
+<div class = "col-lg-4">
+	<%= form_tag password_resets_path, :method => :post do %>
+			<h2 class = 'form-signin-heading'>Reset password</h2>
+			<div class="form-group">
+				<%= text_field_tag :username, params[:username], :class => 'form-control', :placeholder => 'username' %>
+			</div>
+			<%= submit_tag "Submit", :class => 'btn btn-primary btn-block' %>
+	<% end %>
+</div>
+<div class = "col-lg-4"></div>

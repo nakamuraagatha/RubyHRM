@@ -1,0 +1,20 @@
+<div class="row">
+	<div class="col-lg-12">	
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-lg-2">
+						<div class-"thumbnail">
+							<%= image_tag "missing.png", :size => "150x150", :class => "img-circle" %>
+						</div>
+					</div>
+					<div class="col-lg-10">
+						<h2><%= @person.full_name %></h2>
+						<p><i class="fa fa-phone fa-fw"></i> <%= @person.business_phone %>  <i class="fa fa-envelope fa-fw"></i> <%= @person.business_email %></p>
+						<p><strong>Employee ID:</strong> <%= @person.employee_id %></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

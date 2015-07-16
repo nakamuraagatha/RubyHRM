@@ -1,0 +1,100 @@
+<%= form_for @person, :html => { :class => 'form-horizontal'} do |f| %>
+	<div class="row">
+		<p class="col-lg-2 text-muted small hidden-sm hidden-xs"> </p>
+		<p class="col-lg-2 text-muted small hidden-sm hidden-xs"><strong>First Name<span class="text-danger">*</span></strong></p>
+		<p class="col-lg-2 text-muted small hidden-sm hidden-xs"><strong>Middle Name</strong></p>
+		<p class="col-lg-2 text-muted small hidden-sm hidden-xs"><strong>Last Name<span class="text-danger">*</span></strong></p>
+	</div>
+	<div class="form-group">
+		<%= f.label "Full Name", :class => 'col-lg-2 control-label' %>
+		<div class="col-lg-2">
+			<%= f.text_field :first_name, :class => 'form-control' %>
+		</div>
+		<div class="col-lg-2">
+			<%= f.text_field :middle_name, :class => 'form-control' %>
+		</div>
+		<div class="col-lg-2">
+			<%= f.text_field :last_name, :class => 'form-control' %>
+		</div>
+	</div>
+	<div class="form-group">
+		<%= f.label "Preferred Name", :class => 'col-lg-2 control-label' %>
+		<div class="col-lg-2">
+			<%= f.text_field :preferred_first, :class => 'form-control' %>
+		</div>
+		<%= f.label "Suffix", :class => 'col-lg-2 control-label' %>
+		<div class="col-lg-2">
+			<%= f.select :name_suffix, options_for_select(["Jr.", "Sr.", "III", "IV"], :selected => f.object.name_suffix ), {:prompt => 'Select'}, { :class => 'form-control'} %>
+		</div>
+	</div>
+	<div class="form-group">
+
+	</div>
+	<div class="form-group">
+		<%= f.label "National ID (SSN)", :class => 'col-lg-2 control-label' %>
+		<div class="col-lg-2">
+			<%= f.text_field :national_id, :class => 'form-control' %>
+		</div>
+		<%= f.label "Date of Birth", :class => 'col-lg-2 control-label' %>
+		<div class="col-lg-2">
+			<%= f.date_field :date_of_birth, :class => 'form-control' %>
+		</div>
+	</div>
+	<div class="form-group">
+		<%= f.label "Gender", :class => 'col-lg-2 control-label' %>
+		<div class="col-lg-2">
+			<%= f.select :gender, options_for_select(["Male", "Female"], :selected => f.object.gender ), {:prompt => 'Select'}, { :class => 'form-control'} %>
+		</div>
+		<%= f.label "Marital Status", :class => 'col-lg-2 control-label' %>
+		<div class="col-lg-2">
+			<%= f.select :marital_status, options_for_select(["Married", "Single", "Divorced", "Widowed", "Other"], :selected => f.object.marital_status ), {:prompt => 'Select'}, { :class => 'form-control'} %>
+		</div>
+	</div>
+	<div class="form-group">
+		<%= f.label "Nationality", :class => 'col-lg-2 control-label' %>
+		<div class="col-lg-2">
+			<%= f.text_field :nationality, :class => 'form-control' %>
+		</div>
+	</div>
+	<div class="form-group">
+
+	</div>
+	<div class="form-group">
+		<%= f.label "Military Status", :class => 'col-lg-2 control-label' %>
+		<div class="col-lg-2">
+			<%= f.select :military_status, options_for_select(["Not a Veteran", "Other Protected Veteran", "Recently Separated Veteran", "Armed Forces Service Medal Veteran", "US Veteran - None of the Above", "Did Not Disclose"], :selected => f.object.military_status ), {:prompt => 'Select'}, { :class => 'form-control'} %>
+		</div>
+		<%= f.label "Smoker?", :class => 'col-lg-2 control-label' %>
+		<div class="col-lg-2">
+			<div class="checkbox">
+				<label>
+					<%= f.check_box :smoker, {}, "1", "0" %>
+				</label>
+			</div>
+		</div>
+	</div>
+	<div class="form-group">
+		<%= f.label "Ethnicity", :class => 'col-lg-2 control-label' %>
+		<div class="col-lg-2">
+			<%= f.select :ethnicity, options_for_select(["White", "Black", "Hispanic", "Native American", "Hawiaian Native", "Asian"], :selected => f.object.ethnicity ), {:prompt => 'Select'}, { :class => 'form-control'} %>
+		</div>
+		<%= f.label "Disabled?", :class => 'col-lg-2 control-label' %>
+		<div class="col-lg-2">
+			<div class="checkbox">
+				<label>
+					<%= f.check_box :disabled, {}, "1", "0" %>
+				</label>
+			</div>
+		</div>
+	</div>
+	<div class="form-group">
+	
+	</div>
+	<div class="form-group">
+		<div class="col-lg-offset-1 col-lg-11">
+			<%= button_tag(:class => 'btn btn-primary') do %>
+				<span class="glyphicon glyphicon-floppy-save"></span> Save Changes
+			<% end %>
+		</div>
+	</div>
+<% end %>

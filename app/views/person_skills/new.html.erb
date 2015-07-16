@@ -1,0 +1,7 @@
+<%= form_for (@person_skill) do |f| %>
+	<%= f.hidden_field :person_id, :value => params[:person_id] %>
+	<%= f.text_field :skill_id %>
+	<%= f.text_field :years_experience %>
+	<%= f.text_field :note %>
+	<%= f.submit "create" %>
+<% end %>

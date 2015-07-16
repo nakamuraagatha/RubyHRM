@@ -1,0 +1,26 @@
+class PayDetailsController < ApplicationController
+
+	def new
+		@pay_detail = PayDetail.new
+	end
+
+	def create
+		@pay_detail = PayDetail.new(pay_detail_params)
+		if @pay_detail.save
+			flash[:notice] = "Pay Component has been added"
+			redirect_to show_pay_details_path(@pay_detail.person_id)
+		else
+			render 'new'
+		end
+	end
+
+	def destroy
+		@pay_detail = PayDetail.find(params[:id])
+		@pay_detail.destroy
+	end
+
+	private
+		def pay_detail_params
+			params.require(:pay_detail).permit(:person_id, :component_name, :pay_rate, :pay_frequency, :currency_code, :note)
+		end
+end

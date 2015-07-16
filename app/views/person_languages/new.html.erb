@@ -1,0 +1,8 @@
+<%= form_for (@person_language) do |f| %>
+	<%= f.hidden_field :person_id, :value => params[:person_id] %>
+	<%= f.text_field :language_id %>
+	<%= f.text_field :reading_proficiency %>
+	<%= f.text_field :writing_proficiency %>
+	<%= f.text_field :speaking_proficiency %>
+	<%= f.submit "create" %>
+<% end %>

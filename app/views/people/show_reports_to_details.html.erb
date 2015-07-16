@@ -1,0 +1,40 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Supervisor Details</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+
+<%= render 'person_details_nav' %>
+
+<div class="row">
+	<div class="col-lg-12">	
+		<div class="panel with-nav-tabs panel-default">
+			<div class="panel-heading">
+				<%= render 'person_tab_navigation' %>
+			</div>	
+			<div class="panel-body">
+				<%= link_to "Add Manager", new_reporting_relationship_path(:person_id => @person.id), :class => 'btn btn-primary' %><br/><br/>
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>Manager</th>
+							<th>Reporting Type</th>
+						</tr>
+					</thead>
+					<tbody>
+						<% @person.reporting_relationships.each do |rr| %>
+						<tr>
+							<td><%= rr.manager_id %></td>
+							<td><%= rr.reporting_type %></td>
+						</tr>
+						<% end %>
+					</tbody>
+
+				</table>
+			</div>
+		</div>
+		<br/>
+	</div>
+</div>

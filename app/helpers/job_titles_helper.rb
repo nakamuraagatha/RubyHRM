@@ -1,0 +1,2 @@
+module JobTitlesHelper
+end

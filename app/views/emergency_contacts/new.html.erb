@@ -1,0 +1,9 @@
+<%= form_for (@emergency_contact) do |f| %>
+	<%= f.hidden_field :person_id, :value => params[:person_id] %>
+	<%= f.text_field :name %>
+	<%= f.text_field :relationship %>
+	<%= f.text_field :home_phone %>
+	<%= f.text_field :business_phone %>
+	<%= f.text_field :mobile_phone %>
+	<%= f.submit "create" %>
+<% end %>

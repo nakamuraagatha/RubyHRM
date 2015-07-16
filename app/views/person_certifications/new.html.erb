@@ -1,0 +1,8 @@
+<%= form_for (@person_certification) do |f| %>
+	<%= f.hidden_field :person_id, :value => params[:person_id] %>
+	<%= f.text_field :certification_id %>
+	<%= f.text_field :institute %>
+	<%= f.date_field :grant_date %>
+	<%= f.date_field :valid_thru_date %>
+	<%= f.submit "create" %>
+<% end %>

@@ -1,0 +1,20 @@
+== Ruby HRM
+
+This project is my attempt at creating an open source human resource management system powered by Ruby on Rails. This project is an exercise in demonstrating my understanding of Ruby on Rails via a large-ish project encompasing many  HCM Modules.
+
+This project was developed on...
+
+* Rails versio 4.2.1
+* Ruby version 2.2.2
+
+This project uses Postgresql via the "pg" gem
+
+	gem "pg" .
+
+This project also uses Bootstrap (not via gem)
+
+	http://http://getbootstrap.com/ .
+
+SB Admin 2 Dashboard template
+
+	http://startbootstrap.com/template-overviews/sb-admin-2/ .

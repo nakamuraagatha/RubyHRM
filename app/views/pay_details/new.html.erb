@@ -1,0 +1,9 @@
+<%= form_for (@pay_detail) do |f| %>
+	<%= f.hidden_field :person_id, :value => params[:person_id] %>
+	<%= f.text_field :component_name %>
+	<%= f.text_field :pay_rate %>
+	<%= f.text_field :pay_frequency %>
+	<%= f.text_field :currency_code %>
+	<%= f.text_field :note %>
+	<%= f.submit "create" %>
+<% end %>

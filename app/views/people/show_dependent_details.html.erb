@@ -1,0 +1,33 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Employees</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+
+<%= render 'person_details_nav' %>
+
+
+<div class="panel with-nav-tabs panel-default">
+	<div class="panel-heading">
+		<%= render 'person_tab_navigation' %>
+	</div>	
+	<div class="panel-body">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Name</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @person.dependents.each do |d| %>
+				<tr>
+					<td><%= d.name %></td>
+				</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+</div>
+<%= link_to "Add Dependent", new_dependent_path(:person_id => @person.id), :class => 'btn btn-success' %>

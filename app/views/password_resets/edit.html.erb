@@ -1,0 +1,12 @@
+<div class = "col-lg-4"></div>
+<div class = "col-lg-4">
+	<%= form_for @user, :url => password_reset_path(params[:id]) do |f| %>
+		<h2 class = 'form-signin-heading'>Change Password</h2>
+		<div class="form-group">
+			<%= f.label "Password", :class => 'sr-only' %>
+			<%= f.password_field :password, :class => 'form-control', :placeholder => 'new password'  %>
+		</div>
+		<%= f.submit "Update Password", :class => 'btn btn-primary btn-block' %>
+	<% end %>
+</div>
+<div class = "col-lg-4"></div>

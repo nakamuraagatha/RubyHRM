@@ -1,0 +1,100 @@
+<%= form_for @person, :html => { :class => 'form-horizontal'} do |f| %>
+	<div class="row">
+		<p class="col-lg-2 text-muted small hidden-sm hidden-xs"> </p>
+		<p class="col-lg-3 text-muted small hidden-sm hidden-xs"><strong>First Name<span class="text-danger">*</span></strong></p>
+		<p class="col-lg-3 text-muted small hidden-sm hidden-xs"><strong>Middle Name</strong></p>
+		<p class="col-lg-3 text-muted small hidden-sm hidden-xs"><strong>Last Name<span class="text-danger">*</span></strong></p>
+	</div>
+	<div class="form-group">
+		<%= f.label "Full Name", :class => 'col-lg-2 control-label' %>
+		<div class="col-lg-3">
+			<%= f.text_field :first_name, :class => 'form-control', :disabled => true %>
+		</div>
+		<div class="col-lg-3">
+			<%= f.text_field :middle_name, :class => 'form-control', :disabled => true %>
+		</div>
+		<div class="col-lg-3">
+			<%= f.text_field :last_name, :class => 'form-control', :disabled => true %>
+		</div>
+	</div>
+	<div class="form-group">
+		<%= f.label "Preferred Name", :class => 'col-lg-2 control-label' %>
+		<div class="col-lg-3">
+			<%= f.text_field :preferred_first, :class => 'form-control', :disabled => true %>
+		</div>
+		<%= f.label "Suffix", :class => 'col-lg-3 control-label' %>
+		<div class="col-lg-3">
+			<%= f.text_field :name_suffix, :class => 'form-control', :disabled => true %>
+		</div>
+	</div>
+	<div class="form-group">
+		<hr>
+	</div>
+	<div class="form-group">
+		<%= f.label "National ID (SSN)", :class => 'col-lg-2 control-label' %>
+		<div class="col-lg-3">
+			<%= f.text_field :national_id, :class => 'form-control', :disabled => true %>
+		</div>
+		<%= f.label "Date of Birth", :class => 'col-lg-3 control-label' %>
+		<div class="col-lg-3">
+			<%= f.date_field :date_of_birth, :class => 'form-control', :disabled => true %>
+		</div>
+	</div>
+	<div class="form-group">
+		<%= f.label "Gender", :class => 'col-lg-2 control-label' %>
+		<div class="col-lg-3">
+			<%= f.text_field :gender, :class => 'form-control', :disabled => true %>
+		</div>
+		<%= f.label "Marital Status", :class => 'col-lg-3 control-label' %>
+		<div class="col-lg-3">
+			<%= f.text_field :marital_status, :class => 'form-control', :disabled => true %>
+		</div>
+	</div>
+	<div class="form-group">
+		<%= f.label "Nationality", :class => 'col-lg-2 control-label' %>
+		<div class="col-lg-3">
+			<%= f.text_field :nationality, :class => 'form-control', :disabled => true %>
+		</div>
+	</div>
+	<div class="form-group">
+		<hr>
+	</div>
+	<div class="form-group">
+		<%= f.label "Military Status", :class => 'col-lg-2 control-label' %>
+		<div class="col-lg-3">
+			<%= f.text_field :military_status, :class => 'form-control', :disabled => true %>
+		</div>
+		<%= f.label "Smoker?", :class => 'col-lg-3 control-label' %>
+		<div class="col-lg-3">
+			<div class="checkbox">
+				<label>
+					<%= f.check_box :smoker, :disabled => true %>
+				</label>
+			</div>
+		</div>
+	</div>
+	<div class="form-group">
+		<%= f.label "Ethnicity", :class => 'col-lg-2 control-label' %>
+		<div class="col-lg-3">
+			<%= f.text_field :ethnicity, :class => 'form-control', :disabled => true %>
+		</div>
+		<%= f.label "Disabled?", :class => 'col-lg-3 control-label' %>
+		<div class="col-lg-3">
+			<div class="checkbox">
+				<label>
+					<%= f.check_box :disabled, :disabled => true %>
+				</label>
+			</div>
+		</div>
+	</div>
+	<div class="form-group">
+		<hr>
+	</div>
+	<div class="form-group">
+		<div class="col-lg-offset-2 col-lg-1">
+			<%= link_to edit_person_path(@person), :class => 'btn btn-primary'  do %>
+				<span class="glyphicon glyphicon-pencil"></span> Edit Employee
+			<% end %>
+		</div>
+	</div>
+<% end %>
