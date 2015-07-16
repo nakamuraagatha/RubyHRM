@@ -7,14 +7,12 @@ This project was developed on...
 * Rails versio 4.2.1
 * Ruby version 2.2.2
 
-This project uses Postgresql via the "pg" gem
+* This project uses Postgresql via the "pg" gem
 
-	gem "pg" .
+* This project also uses Bootstrap (not via gem)
 
-This project also uses Bootstrap (not via gem)
-
-	http://http://getbootstrap.com/ .
+	http://http://getbootstrap.com/
 
 SB Admin 2 Dashboard template
 
-	http://startbootstrap.com/template-overviews/sb-admin-2/ .
+	http://startbootstrap.com/template-overviews/sb-admin-2/
