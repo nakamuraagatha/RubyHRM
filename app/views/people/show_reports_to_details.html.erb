@@ -15,8 +15,11 @@
 				<%= render 'person_tab_navigation' %>
 			</div>	
 			<div class="panel-body">
-				<%= link_to "Add Manager", new_reporting_relationship_path(:person_id => @person.id), :class => 'btn btn-primary' %><br/><br/>
-				<table class="table table-striped">
+				<%= link_to new_reporting_relationship_path(:person_id => @person.id), :class => 'btn btn-success' do %>
+					<i class="fa fa-plus fa-fw"></i> Add Manager
+				<% end %>
+				<br/><br/>
+				<table class="table table-striped table-bordered table-hover">
 					<thead>
 						<tr>
 							<th>Manager</th>

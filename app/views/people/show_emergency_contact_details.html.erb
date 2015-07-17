@@ -14,7 +14,11 @@
 		<%= render 'person_tab_navigation' %>
 	</div>	
 	<div class="panel-body">
-		<table class="table table-striped">
+		<%= link_to new_emergency_contact_path(:person_id => @person.id), :class => 'btn btn-success' do %>
+			<i class="fa fa-plus fa-fw"></i> Add Emergency Contact
+		<% end %>
+		<br/><br/>
+		<table class="table table-striped table-bordered table-hover">
 			<thead>
 				<tr>
 					<th>Name</th>
@@ -31,4 +35,3 @@
 		</table>
 	</div>
 </div>
-<%= link_to "Add Emergency Contact", new_emergency_contact_path(:person_id => @person.id), :class => 'btn btn-primary' %>

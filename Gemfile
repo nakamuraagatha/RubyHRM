@@ -46,4 +46,5 @@ end
 # Use for deploying to Heroku
 gem 'rails_12factor', group: :production
 
+# Define Euby version for Heroku
 ruby "2.2.2"

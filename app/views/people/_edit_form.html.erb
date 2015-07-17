@@ -91,9 +91,14 @@
 	
 	</div>
 	<div class="form-group">
-		<div class="col-lg-offset-1 col-lg-11">
-			<%= button_tag(:class => 'btn btn-primary') do %>
-				<span class="glyphicon glyphicon-floppy-save"></span> Save Changes
+		<div class="col-lg-offset-1 col-lg-2">
+			<%= button_tag(:class => 'btn btn-success') do %>
+				<span class="fa fa-save fa-fw"></span> Save Changes
+			<% end %>
+		</div>
+		<div class="col-lg-offset-6 col-lg-1">
+			<%= link_to person_path(@person), :class => 'btn btn-success'  do %>
+				<span class="fa fa-arrow-left fa-fw"></span> Cancel
 			<% end %>
 		</div>
 	</div>
