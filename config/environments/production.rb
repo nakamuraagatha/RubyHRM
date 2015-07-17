@@ -37,7 +37,7 @@ Rails.application.configure do
 
   config.serve_static_assets = true
 
-  config.assets.precompile = ['*.js', '*.css', '*.css.erb']
+  config.assets.precompile = ['*.js', '*.css', '*.css.erb', '*.svg', '*.eot', '*.woff', '*.ttf']
 
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
