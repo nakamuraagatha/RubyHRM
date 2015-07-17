@@ -8,7 +8,6 @@
 ._.DS_STORE
 
 # Ignore bundler config.
-/bin
 /.bundle
 /vendor/bundle
 
