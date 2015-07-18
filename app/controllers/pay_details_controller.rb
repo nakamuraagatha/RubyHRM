@@ -21,6 +21,7 @@ class PayDetailsController < ApplicationController
 	def destroy
 		@pay_detail = PayDetail.find(params[:id])
 		if @pay_detail.destroy
+			flash[:success] = "Pay Component has been deleted"
 			redirect_to show_pay_details_path(@pay_detail.person_id)
 		end
 	end
