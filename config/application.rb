@@ -26,3 +26,7 @@ module RubyHRM
     config.assets.paths << "#{Rails}/app/assets/fonts"
   end
 end
+
+ActionView::Base.field_error_proc = Proc.new do | html_tag, instance_tag |
+    html_tag
+end

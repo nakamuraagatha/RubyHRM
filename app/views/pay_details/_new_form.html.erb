@@ -1,0 +1,40 @@
+<%= form_for @pay_detail, :html => { :class => 'form-horizontal'}  do |f| %>
+	<%= f.hidden_field :person_id, :value => params[:person_id] %>
+	<div class="form-group">
+		<%= f.label "component Name", :class => 'col-lg-2 control-label' %>
+		<div class="col-lg-3">
+			<%= f.text_field :component_name, :class => 'form-control' %>
+		</div>
+	</div>
+	<div class="form-group">
+		<%= f.label "Pay Rate", :class => 'col-lg-2 control-label' %>
+		<div class="col-lg-3">
+			<%= f.text_field :pay_rate, :class => 'form-control' %>
+		</div>
+	</div>
+	<div class="form-group">
+		<%= f.label "Pay Frequency", :class => 'col-lg-2 control-label' %>
+		<div class="col-lg-3">
+			<%= f.text_field :pay_frequency, :class => 'form-control' %>
+		</div>
+	</div>
+	<div class="form-group">
+		<%= f.label "Currency", :class => 'col-lg-2 control-label' %>
+		<div class="col-lg-3">
+			<%= f.text_field :currency_code, :class => 'form-control' %>
+		</div>
+	</div>
+	<div class="form-group">
+		<%= f.label "Note", :class => 'col-lg-2 control-label' %>
+		<div class="col-lg-3">
+			<%= f.text_area :note, :class => 'form-control' %>
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="col-lg-offset-1 col-lg-2">
+			<%= button_tag(:class => 'btn btn-success') do %>
+				<span class="fa fa-save fa-fw"></span> Save Pay Component
+			<% end %>
+		</div>
+	</div>
+<% end %>

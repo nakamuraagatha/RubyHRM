@@ -3,7 +3,7 @@
 		<% if @person.errors.any? %>
 			<div class="alert alert-danger alert-dismissable">
 				<div id="error_explanation">
-					<h3><%= pluralize(@person.errors.count, "error") %> prohibited this person from being saved:</h3>
+					<h3><i class="fa fa-warning fa-fw"></i> <%= pluralize(@person.errors.count, "error") %> prohibited this person from being saved:</h3>
 					<ul>
 						<% @person.errors.full_messages.each do |message| %>
 							<li><%= message %></li>

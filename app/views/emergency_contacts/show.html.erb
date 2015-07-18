@@ -1,9 +1,21 @@
-<%= form_for (@emergency_contact) do |f| %>
-	<%= f.hidden_field :person_id, :value => params[:person_id] %>
-	<%= f.text_field :name %>
-	<%= f.text_field :relationship %>
-	<%= f.text_field :home_phone %>
-	<%= f.text_field :business_phone %>
-	<%= f.text_field :mobile_phone %>
-	<%= f.submit "create" %>
-<% end %>
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Emergency Contact</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+
+</div>
+<div class="row">
+    <div class="col-lg-12">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<i class="fa fa-plus fa-fw"></i> Emergency Contact
+			</div>
+			<div class="panel-body">	
+				<%= render 'show_form' %>
+			</div>
+		</div>
+	</div>
+</div>

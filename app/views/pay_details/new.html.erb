@@ -1,9 +1,25 @@
-<%= form_for (@pay_detail) do |f| %>
-	<%= f.hidden_field :person_id, :value => params[:person_id] %>
-	<%= f.text_field :component_name %>
-	<%= f.text_field :pay_rate %>
-	<%= f.text_field :pay_frequency %>
-	<%= f.text_field :currency_code %>
-	<%= f.text_field :note %>
-	<%= f.submit "create" %>
-<% end %>
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Pay Component</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+
+<div class="row">
+    <div class="col-lg-12">
+		<%= render 'pay_detail_errors' %>
+	</div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<i class="fa fa-plus fa-fw"></i> Add Pay Component
+			</div>
+			<div class="panel-body">	
+				<%= render 'new_form' %>
+			</div>
+		</div>
+	</div>
+</div>

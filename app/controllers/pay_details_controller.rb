@@ -1,5 +1,9 @@
 class PayDetailsController < ApplicationController
 
+	def show
+		@pay_detail = PayDetail.find(params[:id])
+	end
+
 	def new
 		@pay_detail = PayDetail.new
 	end
@@ -16,7 +20,9 @@ class PayDetailsController < ApplicationController
 
 	def destroy
 		@pay_detail = PayDetail.find(params[:id])
-		@pay_detail.destroy
+		if @pay_detail.destroy
+			redirect_to show_pay_details_path(@pay_detail.person_id)
+		end
 	end
 
 	private
