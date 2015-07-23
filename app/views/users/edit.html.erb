@@ -1,29 +1,35 @@
-<%= form_for(@user) do |f| %>
-	<div class="form-group">
-		<%= f.label "Username" %>
-		<%= f.text_field :username, :class => 'form-control' %>
-	</div>
-	<div class="form-group">
-		<%= f.label "Password" %>
-		<%= f.password_field :password, :class => 'form-control' %>
-	</div>
-	<div class="form-group">
-		<%= f.label "Password Confirmation" %>
-		<%= f.password_field :password_confirmation, :class => 'form-control' %>
-	</div>
-	<div class="form-group">
-		<%= f.label "Role" %>
-		<%= f.text_field :role, :class => 'form-control' %>
-	</div>
-	<div class="form-group">
-		<%= f.label "Person ID" %>
-		<%= f.text_field :person_id, :class => 'form-control' %>
-	</div>
-	<div class="form-group">
-		<%= f.label "Email Address" %>
-		<%= f.text_field :email, :class => 'form-control' %>
-	</div>
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Users</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
 
+<div class="row">
+    <div class="col-lg-12">
+		<%= render 'user_errors' %>
+	</div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+		<div class="panel panel-default">
+			<div class="panel-heading"><i class="fa fa-th-list fa-fw"></i> Users</div>
+			<div class="panel-body">	
+				<%= render 'edit_form' %>
+			</div>
+		</div>
+	</div>
+</div>
 
-	<%= f.submit "Update User", :class => 'btn btn-primary btn-block' %>
-<% end %>
+<script type="text/javascript">
+	var checkbox = document.getElementById('change_password');
+	var user_details_div = document.getElementById('user_fields');
+	checkbox.onchange = function() {
+		if(this.checked) {
+			user_details_div.style['display'] = 'block';
+		} else {
+			user_details_div.style['display'] = 'none';
+		}
+	};
+</script>

@@ -4,7 +4,11 @@ class PeopleController < ApplicationController
 	before_action :require_admin, only: [:index, :show, :new, :create, :edit, :update]
 
 	def index
-		@people = Person.all
+		if params[:search]
+			@people = Person.search(params[:search])
+		else
+			@people = Person.all
+		end
 	end
 
 	def show
@@ -46,7 +50,7 @@ class PeopleController < ApplicationController
 		@person = Person.new(person_params)
 		if @person.save
 
-			flash[:notice] = "Person was successfully created!"
+			flash[:success] = "Person was successfully created!"
 			redirect_to edit_person_path(@person)
 		else
 			render "new"
@@ -58,7 +62,7 @@ class PeopleController < ApplicationController
 
 	def update
 		if @person.update_attributes(person_params)
-			flash[:notice] = "Person was successfully updated!"
+			flash[:success] = "Person was successfully updated!"
 			redirect_to @person
 		else
 			render "edit"

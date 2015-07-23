@@ -1,39 +1,44 @@
-<ul class="nav nav-tabs nav-justified">
-	<li class="<%= controller.class == PeopleController and controller.action_name == 'show' ? 'active' : '' %>">
-		<%= link_to person_path(@person) do %>
-			<i class="fa fa-th-list fa-fw"></i> Personal Details
-		<% end %>
+<ul class="nav nav-tabs">
+	<li class="dropdown <%= controller.class == PeopleController and controller.action_name != 'show_qualifications' ? 'active' : '' %>">
+		<a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-th-list fa-fw"></i> Person Details <span class="caret"></span></a>
+		<ul class="dropdown-menu">
+			<li class="<%= controller.class == PeopleController and controller.action_name == 'show' ? 'active' : '' %>">
+				<%= link_to person_path(@person) do %>
+					<i class="fa fa-th-list fa-fw"></i> Personal Details
+				<% end %>
+			</li>
+			<li class="<%= controller.class == PeopleController and controller.action_name == 'show_contact_details' ? 'active' : '' %>">
+				<%= link_to contact_details_path(@person) do %>
+					<i class="fa fa-phone fa-fw"></i> Contact Details
+				<% end %>
+			</li>
+			<li class="<%= controller.class == PeopleController and controller.action_name == 'show_emergency_contact_details' ? 'active' : '' %>">
+				<%= link_to emergency_contact_details_path(@person) do %>
+					<i class="fa fa-warning fa-fw"></i> Emergency Contacts
+				<% end %>
+			</li>
+			<li class="<%= controller.class == PeopleController and controller.action_name == 'show_job_details' ? 'active' : '' %>">
+				<%= link_to job_details_path(@person) do %>
+					<i class="fa fa-th-list fa-fw"></i> Job Details
+				<% end %>
+			</li>
+			<li class="<%= controller.class == PeopleController and controller.action_name == 'show_pay_details' ? 'active' : '' %>">
+				<%= link_to show_pay_details_path(@person) do %>
+					<i class="fa fa-money fa-fw"></i> Pay Details
+				<% end %>
+			</li>
+			<li class="<%= controller.class == PeopleController and controller.action_name == 'show_reports_to_details' ? 'active' : '' %>">
+				<%= link_to reports_to_details_path(@person) do %>
+					<i class="fa fa-sitemap fa-fw"></i> Supervisor Details
+				<% end %>
+			</li>
+			<li class="<%= controller.class == PeopleController and controller.action_name == 'show_dependent_details' ? 'active' : '' %>">
+				<%= link_to dependent_details_path(@person) do %>
+					<i class="fa fa-child fa-fw"></i> Dependents
+				<% end %>
+			</li>
+		</ul>
 	</li>
-	<li class="<%= controller.class == PeopleController and controller.action_name == 'show_contact_details' ? 'active' : '' %>">
-		<%= link_to contact_details_path(@person) do %>
-			<i class="fa fa-phone fa-fw"></i> Contact Details
-		<% end %>
-	</li>
-	<li class="<%= controller.class == PeopleController and controller.action_name == 'show_emergency_contact_details' ? 'active' : '' %>">
-		<%= link_to emergency_contact_details_path(@person) do %>
-			<i class="fa fa-warning fa-fw"></i> Emergency Contacts
-		<% end %>
-	</li>
-	<li class="<%= controller.class == PeopleController and controller.action_name == 'show_job_details' ? 'active' : '' %>">
-		<%= link_to job_details_path(@person) do %>
-			<i class="fa fa-th-list fa-fw"></i> Job Details
-		<% end %>
-	</li>
-	<li class="<%= controller.class == PeopleController and controller.action_name == 'show_pay_details' ? 'active' : '' %>">
-		<%= link_to show_pay_details_path(@person) do %>
-			<i class="fa fa-money fa-fw"></i> Pay Details
-		<% end %>
-	</li>
-	<li class="<%= controller.class == PeopleController and controller.action_name == 'show_reports_to_details' ? 'active' : '' %>">
-		<%= link_to reports_to_details_path(@person) do %>
-			<i class="fa fa-sitemap fa-fw"></i> Supervisor Details
-		<% end %>
-	</li>
-	<li class="<%= controller.class == PeopleController and controller.action_name == 'show_dependent_details' ? 'active' : '' %>">
-		<%= link_to dependent_details_path(@person) do %>
-			<i class="fa fa-child fa-fw"></i> Dependents
-		<% end %>
-	</li>	
 	<li class="<%= controller.class == PeopleController and controller.action_name == 'show_qualifications' ? 'active' : '' %>">
 		<%= link_to qualifications_path(@person) do %>
 			<i class="fa fa-certificate fa-fw"></i> Qualifications

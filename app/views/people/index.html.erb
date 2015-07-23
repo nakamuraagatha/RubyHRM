@@ -9,7 +9,14 @@
 
 <div class="panel panel-default">
 	<div class="panel-heading"><i class="fa fa-search fa-fw"></i> Search Employees</div>
-	<div class="panel-body">Search?</div>
+	<div class="panel-body">
+		<%= form_tag(people_path, :method => "get", id: "search-form", :class => "form-inline") do %>
+			<div class="form-group col-lg-3">
+				<%= text_field_tag :search, params[:search], :placeholder => "Search Name", :class => "form-control" %>
+				<%= submit_tag "Search", :name => nil, :class =>  "btn btn-default" %>
+			</div>
+		<% end %>
+	</div>
 </div>
 
 <div class="panel panel-default">
@@ -26,6 +33,9 @@
 						<th>Employee ID</th>
 						<th>First Name</th>
 						<th>Last Name</th>
+						<th>Job Title</th>
+						<th>Department</th>
+						<th>Supervisor(s)</th>
 						<th></th>
 					</tr>
 				</thead>
@@ -35,6 +45,11 @@
 						<td><%= p.employee_id %></td>
 						<td><%= p.first_name %></td>
 						<td><%= p.last_name %></td>
+						<td><%= p.job_title.job_title unless p.job_title_id.blank? %></td>
+						<td><%= p.department.name unless p.department_id.blank? %></td>
+						<td>
+							<%= p.reporting_relationships.map { |rr| rr.manager.full_name}.join(", ") %>
+						</td>
 						<td>
 							<%= link_to person_path(p.id), :class => "btn btn-success btn-xs" do %>
 								<i class="fa fa-search fa-fw"></i> View

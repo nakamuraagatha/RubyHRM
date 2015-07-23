@@ -1,0 +1,50 @@
+<%= form_for @user, :html => { :class => 'form-horizontal'} do |f| %>
+	<div class="form-group">
+		<%= f.label "Username", :class => 'col-lg-2 control-label' %>
+		<div class="col-lg-2">
+			<%= f.text_field :username, :class => 'form-control' %>
+		</div>
+	</div>
+	<div class="form-group">
+		<%= f.label "Role", :class => 'col-lg-2 control-label' %>
+		<div class="col-lg-2">
+			<%= f.select :role, options_for_select([["Manager","manager"],["Employee","employee"],["Administrator","admin"]]), {:prompt => 'Select Role'}, { :class => 'form-control'} %>
+		</div>
+	</div>
+	<div class="form-group">
+		<%= f.label "Language Preference", :class => 'col-lg-2 control-label' %>
+		<div class="col-lg-2">
+			<%= f.text_field :locale, :class => 'form-control' %>
+		</div>
+	</div>
+	<div class="form-group">
+		<%= f.label "Employee", :class => 'col-lg-2 control-label' %>
+		<div class="col-lg-2">
+			<%= f.collection_select :person_id, Person.all, :id, :full_name, { :include_blank => "Select Employee" }, { :class => 'form-control' } %>
+		</div>
+	</div>
+	<div class="form-group">
+		<%= f.label "Email", :class => 'col-lg-2 control-label' %>
+		<div class="col-lg-2">
+			<%= f.text_field :email, :class => 'form-control' %>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<hr>
+	</div>
+
+	<div class="form-group">
+		<%= f.label "Password", :class => 'col-lg-2 control-label' %>
+		<div class="col-lg-2">
+			<%= f.password_field :password, :class => 'form-control' %>
+		</div>
+	</div>
+	<div class="form-group">
+		<%= f.label "Password Confirmation", :class => 'col-lg-2 control-label' %>
+		<div class="col-lg-2">
+			<%= f.password_field :password_confirmation, :class => 'form-control' %>
+		</div>
+	</div>
+	<%= f.submit "Update User", :class => 'btn btn-success' %>
+<% end %>
