@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+  before_filter :set_locale
+
   helper_method :current_user
 
   def current_user
@@ -23,4 +25,13 @@ class ApplicationController < ActionController::Base
       redirect_to login_path
     end
   end
+
+  private
+    def set_locale
+      #Set locale based on the current users preferred language in the user profile
+      I18n.locale = current_user.locale
+      
+      #Set locale based on the current users browser language default
+      #request.env["HTTP_ACCEPT_LANGUAGE"]
+    end
 end
