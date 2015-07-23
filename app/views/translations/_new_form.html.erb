@@ -1,0 +1,27 @@
+<%= form_for @translation, :html => { :class => 'form-horizontal'}  do |f| %>
+	<div class="form-group">
+		<%= f.label "Locale", :class => 'col-lg-2 control-label' %>
+		<div class="col-lg-3">
+			<%= f.text_field :locale, :class => 'form-control' %>
+		</div>
+	</div>
+	<div class="form-group">
+		<%= f.label "Key", :class => 'col-lg-2 control-label' %>
+		<div class="col-lg-3">
+			<%= f.text_field :key, :class => 'form-control' %>
+		</div>
+	</div>
+	<div class="form-group">
+		<%= f.label "Value", :class => 'col-lg-2 control-label' %>
+		<div class="col-lg-3">
+			<%= f.text_area :value, :class => 'form-control' %>
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="col-lg-offset-1 col-lg-2">
+			<%= button_tag(:class => 'btn btn-success') do %>
+				<span class="fa fa-save fa-fw"></span> Save
+			<% end %>
+		</div>
+	</div>
+<% end %>

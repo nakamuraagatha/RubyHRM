@@ -5,9 +5,9 @@ class PeopleController < ApplicationController
 
 	def index
 		if params[:search]
-			@people = Person.search(params[:search])
+			@people = Person.search(params[:search]).order("employee_id ASC")
 		else
-			@people = Person.all
+			@people = Person.all.order("employee_id ASC")
 		end
 	end
 

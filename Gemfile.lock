@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/svenfuchs/i18n-active_record.git
+  revision: 8a38eeb8e2cf6be53ecc1240da6f11c8b24945cb
+  specs:
+    i18n-active_record (0.0.2)
+      i18n (>= 0.5.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -150,6 +157,7 @@ DEPENDENCIES
   bcrypt (~> 3.1.7)
   byebug
   coffee-rails (~> 4.1.0)
+  i18n-active_record!
   jbuilder (~> 2.0)
   jquery-rails
   pg
