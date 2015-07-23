@@ -3,7 +3,11 @@ class UsersController < ApplicationController
 	#before_action :require_admin
 
 	def index
-		@users = User.all
+		if params[:search]
+			@users = User.search(params[:search]).order("person_id ASC")
+		else
+			@users = User.all.order("person_id ASC")
+		end
 	end
 
 	def show

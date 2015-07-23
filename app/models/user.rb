@@ -23,6 +23,11 @@ class User < ActiveRecord::Base
 		UserMailer.password_reset(self).deliver
 	end
 
+
+	def self.search(query)
+		where("username ILIKE ? OR role ILIKE ?", "%#{query}%", "%#{query}%")
+	end
+
 	def employee?
 		self.role == 'employee'
 	end

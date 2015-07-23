@@ -1,0 +1,27 @@
+<%= form_for @department, :html => { :class => 'form-horizontal'}  do |f| %>
+	<div class="form-group">
+		<%= f.label "Department Number", :class => 'col-lg-2 control-label' %>
+		<div class="col-lg-3">
+			<%= f.text_field :department_number, :class => 'form-control' %>
+		</div>
+	</div>
+	<div class="form-group">
+		<%= f.label "Department Name", :class => 'col-lg-2 control-label' %>
+		<div class="col-lg-3">
+			<%= f.text_field :name, :class => 'form-control' %>
+		</div>
+	</div>
+	<div class="form-group">
+		<%= f.label "Description", :class => 'col-lg-2 control-label' %>
+		<div class="col-lg-3">
+			<%= f.text_area :description, :class => 'form-control' %>
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="col-lg-offset-1 col-lg-2">
+			<%= button_tag(:class => 'btn btn-success') do %>
+				<span class="fa fa-save fa-fw"></span> Save Department
+			<% end %>
+		</div>
+	</div>
+<% end %>

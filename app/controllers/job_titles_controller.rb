@@ -16,7 +16,7 @@ class JobTitlesController < ApplicationController
 	def create
 		@job_title = JobTitle.new(job_title_params)
 		if @job_title.save
-			flash[:notice] = "Job Title was successfully created!"
+			flash[:success] = "Job Title was successfully created!"
 			redirect_to @job_title
 		else
 			render "new"
@@ -29,7 +29,7 @@ class JobTitlesController < ApplicationController
 
 	def update
 		if @job_title.update(job_title_params)
-			flash[:notice] = "Job Title was successfully updated!"
+			flash[:success] = "Job Title was successfully updated!"
 			redirect_to @job_title
 		else
 			render "edit"

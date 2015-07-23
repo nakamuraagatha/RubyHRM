@@ -1,6 +1,20 @@
-<%= form_for (@job_title) do |f| %>
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Job Title</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
 
-	<%= f.text_field :job_title %>
-	<%= f.text_field :job_description %>
-	<%= f.submit "create" %>
-<% end %>
+<div class="row">
+    <div class="col-lg-12">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<i class="fa fa-plus fa-fw"></i> View Job Title
+			</div>
+			<div class="panel-body">	
+				<%= render 'show_form' %>
+			</div>
+		</div>
+	</div>
+</div>

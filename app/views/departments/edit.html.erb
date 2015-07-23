@@ -1,7 +1,25 @@
-<%= form_for (@department) do |f| %>
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Department</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
 
-	<%= f.text_field :department_number %>
-	<%= f.text_field :name %>
-	<%= f.text_field :description %>
-	<%= f.submit "update" %>
-<% end %>
+<div class="row">
+    <div class="col-lg-12">
+		<%= render 'department_errors' %>
+	</div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<i class="fa fa-plus fa-fw"></i> Edit Department
+			</div>
+			<div class="panel-body">	
+				<%= render 'edit_form' %>
+			</div>
+		</div>
+	</div>
+</div>

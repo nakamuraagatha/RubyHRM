@@ -13,7 +13,7 @@ class DepartmentsController < ApplicationController
   def create
     @department = Department.new(department_params)
     if @department.save
-      flash[:notice] = "Department was successfully saved"
+      flash[:success] = "Department was successfully saved"
       redirect_to @department
     else
       render 'new'
@@ -28,7 +28,7 @@ class DepartmentsController < ApplicationController
 
   def update
     if @department.update(department_params)
-      flash[:notice] = "Department was successfully updated"
+      flash[:success] = "Department was successfully updated"
       redirect_to @department
     else
       render 'edit'

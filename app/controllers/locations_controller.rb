@@ -12,7 +12,7 @@ class LocationsController < ApplicationController
   def create
     @location = Location.new(location_params)
     if @location.save
-      flash[:notice] = "Location was successfully saved"
+      flash[:success] = "Location was successfully saved"
       redirect_to @location
     else
       render 'new'
@@ -27,7 +27,7 @@ class LocationsController < ApplicationController
 
   def update
     if @location.update(location_params)
-      flash[:notice] = "Location was successfully updated"
+      flash[:success] = "Location was successfully updated"
       redirect_to @location
     else
       render 'edit'

@@ -1,30 +1,44 @@
 <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header">Locations</h1>
+        <h1 class="page-header">Location</h1>
     </div>
     <!-- /.col-lg-12 -->
 </div>
 <!-- /.row -->
 
-
-<div class="table-responsive">
-	<table class="table table-striped">
-		<thead>
-			<tr>
-				<th>Location Name</th>
-				<th>Actions</th>
-			</tr>
-		</thead>
-		<tbody>
-			<% @locations.each do |l| %>
-			<tr>
-				<td><%= l.name %></td>
-				<td><%= link_to "update location", edit_location_path(l.id) %></td>
-			</tr>
-			<% end %>
-		</tbody>
-
-	</table>
+<div class="panel panel-default">
+	<div class="panel-heading"><i class="fa fa-th-list fa-fw"></i> Locations</div>
+	<div class="panel-body">
+		<%= link_to new_location_path, :class => "btn btn-success" do %>
+			<i class="fa fa-plus fa-fw"></i> Add New Location
+		<% end %>
+		<br/><br/>
+		<div class="table-responsive">
+			<table class="table table-striped table-bordered table-hover">
+				<thead>
+					<tr>
+						<th>Location Name</th>
+						<th>Country</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @locations.each do |j| %>
+					<tr>
+						<td><%= j.name %></td>
+						<td><%= j.country %></td>
+						<td>
+							<%= link_to location_path(j.id), :class => "btn btn-success btn-xs" do %>
+								<i class="fa fa-search fa-fw"></i> View
+							<% end %>
+							<%= link_to edit_location_path(j.id), :class => "btn btn-warning btn-xs" do %>
+								<i class="fa fa-pencil fa-fw"></i> Edit
+							<% end %>
+						</td>
+					</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+	</div>
 </div>
-<br/>
-<%= link_to "Create Location", new_location_path %>
