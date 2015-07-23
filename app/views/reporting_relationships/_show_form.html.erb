@@ -1,0 +1,16 @@
+<%= form_for @reporting_relationship, :html => { :class => 'form-horizontal'} do |f| %>
+	<%= f.hidden_field :person_id, :value => params[:person_id] %>
+	<div class="form-group">
+		<%= f.label "Manager", :class => 'col-lg-2 control-label' %>
+		<div class="col-lg-3">
+			<%= f.collection_select :manager_id, Person.all, :id, :full_name, { :include_blank => "Select Manager" }, { :class => 'form-control' } %>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<%= f.label "Reporting Type", :class => 'col-lg-2 control-label' %>
+		<div class="col-lg-3">
+			<%= f.select :reporting_type, options_for_select(["Direct", "Indirect", "Temporary"], :selected => f.object.reporting_type ), {:prompt => 'Select'}, { :class => 'form-control'} %>
+		</div>
+	</div>
+<% end %>

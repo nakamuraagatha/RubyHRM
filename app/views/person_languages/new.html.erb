@@ -1,8 +1,25 @@
-<%= form_for (@person_language) do |f| %>
-	<%= f.hidden_field :person_id, :value => params[:person_id] %>
-	<%= f.text_field :language_id %>
-	<%= f.text_field :reading_proficiency %>
-	<%= f.text_field :writing_proficiency %>
-	<%= f.text_field :speaking_proficiency %>
-	<%= f.submit "create" %>
-<% end %>
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Language</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+
+<div class="row">
+    <div class="col-lg-12">
+		<%= render 'language_errors' %>
+	</div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<i class="fa fa-plus fa-fw"></i> Add Language
+			</div>
+			<div class="panel-body">	
+				<%= render 'new_form' %>
+			</div>
+		</div>
+	</div>
+</div>

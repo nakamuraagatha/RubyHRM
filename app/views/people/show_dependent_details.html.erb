@@ -26,6 +26,7 @@
 							<tr>
 								<th>Name</th>
 								<th>Relationship</th>
+								<th></th>
 							</tr>
 						</thead>
 						<tbody>
@@ -33,6 +34,14 @@
 							<tr>
 								<td><%= d.name %></td>
 								<td><%= d.relationship %></td>
+								<td>
+									<%= link_to dependent_path(d.id), :class => "btn btn-success btn-xs" do %>
+										<i class="fa fa-search fa-fw"></i> View
+									<% end %>
+									<%= link_to dependent_path(d.id), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-xs" do %>
+										<i class="fa fa-times fa-fw"></i> Delete
+									<% end %>
+								</td>
 							</tr>
 							<% end %>
 						</tbody>

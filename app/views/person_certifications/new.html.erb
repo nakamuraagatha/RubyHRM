@@ -1,8 +1,25 @@
-<%= form_for (@person_certification) do |f| %>
-	<%= f.hidden_field :person_id, :value => params[:person_id] %>
-	<%= f.text_field :certification_id %>
-	<%= f.text_field :institute %>
-	<%= f.date_field :grant_date %>
-	<%= f.date_field :valid_thru_date %>
-	<%= f.submit "create" %>
-<% end %>
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Certification</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+
+<div class="row">
+    <div class="col-lg-12">
+		<%= render 'certification_errors' %>
+	</div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<i class="fa fa-plus fa-fw"></i> Add Certification
+			</div>
+			<div class="panel-body">	
+				<%= render 'new_form' %>
+			</div>
+		</div>
+	</div>
+</div>

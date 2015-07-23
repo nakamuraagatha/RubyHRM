@@ -1,4 +1,8 @@
 class DependentsController < ApplicationController
+	def show 
+		@dependent = Dependent.find(params[:id])
+	end
+
 	def new
 		@dependent = Dependent.new
 	end
@@ -6,16 +10,31 @@ class DependentsController < ApplicationController
 	def create
 		@dependent = Dependent.new(dependent_params)
 		if @dependent.save
-			flash[:notice] = "Dependent has been added"
+			flash[:success] = "Dependent has been added"
 			redirect_to dependent_details_path(@dependent.person_id)
 		else
 			render 'new'
 		end
 	end
 
+	def edit
+	end
+
+	def update
+		if @dependent.update_attributes(dependent_params)
+			flash[:success] = "Dependent was successfully updated!"
+			redirect_to dependent_details_path(@dependent.person_id)
+		else
+			render "edit"
+		end
+	end
+
 	def destroy
 		@dependent = Dependent.find(params[:id])
-		@dependent.destroy
+		if @dependent.destroy
+			flash[:success] = "Dependent has been deleted"
+			redirect_to dependent_details_path(@dependent.person_id)
+		end
 	end
 
 	private

@@ -6,7 +6,7 @@ class ReportingRelationshipsController < ApplicationController
 	def create
 		@reporting_relationship = ReportingRelationship.new(reporting_relationship_params)
 		if @reporting_relationship.save
-			flash[:notice] = "Manager has been added"
+			flash[:success] = "Reporting Relationship has been added"
 			redirect_to reports_to_details_path(@reporting_relationship.person_id)
 		else
 			render 'new'
@@ -15,7 +15,10 @@ class ReportingRelationshipsController < ApplicationController
 
 	def destroy
 		@reporting_relationship = ReportingRelationship.find(params[:id])
-		@reporting_relationship.destroy
+		if @reporting_relationship.destroy
+			flash[:success] = "Reporting Relationship has been deleted"
+			redirect_to reports_to_details_path(@reporting_relationship.person_id)
+		end
 	end
 
 	private

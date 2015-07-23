@@ -6,7 +6,7 @@ class PersonCertificationsController < ApplicationController
 	def create
 		@person_certification = PersonCertification.new(person_certification_params)
 		if @person_certification.save
-			flash[:notice] = "Certification has been added"
+			flash[:success] = "Certification has been added"
 			redirect_to qualifications_path(@person_certification.person_id)
 		else
 			render 'new'
@@ -15,7 +15,10 @@ class PersonCertificationsController < ApplicationController
 
 	def destroy
 		@person_certification = PersonCertification.find(params[:id])
-		@person_certification.destroy
+		if @person_certification.destroy
+			flash[:success] = "Certification has been deleted"
+			redirect_to qualifications_path(@person_certification.person_id)
+		end
 	end
 
 	private

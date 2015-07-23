@@ -1,8 +1,26 @@
-<%= form_for (@person_education) do |f| %>
-	<%= f.hidden_field :person_id, :value => params[:person_id] %>
-	<%= f.text_field :education_level_id %>
-	<%= f.text_field :institute %>
-	<%= f.date_field :start_date %>
-	<%= f.date_field :completed_date %>
-	<%= f.submit "create" %>
-<% end %>
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Education</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+
+<div class="row">
+    <div class="col-lg-12">
+		<%= render 'education_errors' %>
+	</div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<i class="fa fa-plus fa-fw"></i> Add Education
+			</div>
+			<div class="panel-body">	
+				<%= render 'new_form' %>
+			</div>
+		</div>
+	</div>
+</div>
+

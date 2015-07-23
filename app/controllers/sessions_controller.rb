@@ -3,7 +3,6 @@ class SessionsController < ApplicationController
 	layout "login"
 
 	def new 
-
 	end
 
 	def create
@@ -15,7 +14,7 @@ class SessionsController < ApplicationController
 			else
 				cookies[:auth_token] = @user.auth_token
 			end
-			flash[:notice] = "Login Successful!"
+			flash[:success] = "Login Successful!"
 			redirect_to root_url
 		else
 			flash.now[:error] = "Username or password is invalid. Please try again."
@@ -26,7 +25,7 @@ class SessionsController < ApplicationController
 	def destroy
 		#session[:user_id] = nil
 		cookies.delete(:auth_token)
-		flash[:notice] = "You have been logged out successfully"
+		flash[:success] = "You have been logged out successfully"
 		redirect_to login_path
 	end
 end

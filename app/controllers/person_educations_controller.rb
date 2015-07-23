@@ -6,7 +6,7 @@ class PersonEducationsController < ApplicationController
 	def create
 		@person_education = PersonEducation.new(person_education_params)
 		if @person_education.save
-			flash[:notice] = "Education has been added"
+			flash[:success] = "Education has been added"
 			redirect_to qualifications_path(@person_education.person_id)
 		else
 			render 'new'
@@ -15,7 +15,10 @@ class PersonEducationsController < ApplicationController
 
 	def destroy
 		@person_education = PersonEducation.find(params[:id])
-		@person_education.destroy
+		if @person_education.destroy
+			flash[:success] = "Education has been deleted"
+			redirect_to qualifications_path(@person_education.person_id)
+		end
 	end
 
 	private

@@ -6,7 +6,7 @@ class PersonLanguagesController < ApplicationController
 	def create
 		@person_language = PersonLanguage.new(person_language_params)
 		if @person_language.save
-			flash[:notice] = "Language has been added"
+			flash[:success] = "Language has been added"
 			redirect_to qualifications_path(@person_language.person_id)
 		else
 			render 'new'
@@ -15,7 +15,10 @@ class PersonLanguagesController < ApplicationController
 
 	def destroy
 		@person_language = PersonLanguage.find(params[:id])
-		@person_language.destroy
+		if @person_language.destroy
+			flash[:success] = "Language has been deleted"
+			redirect_to qualifications_path(@person_language.person_id)
+		end
 	end
 
 	private

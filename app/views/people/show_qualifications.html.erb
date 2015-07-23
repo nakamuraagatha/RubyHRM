@@ -29,7 +29,24 @@
 							</div>
 							<div class="panel-body">
 								<% @person.person_skills.each do |ps| %>
-									<%= ps.skill_id %>
+									<table class="table">
+										<tbody>
+											<tr>
+												<td>
+													<strong>Skill:</strong> <%= ps.skill_id %><br/>
+													<strong>Years Experience:</strong> <%= ps.years_experience %>
+												</td>
+												<td class="text-right">
+													<%= link_to person_skill_path(ps.id), :class => "btn btn-success btn-xs" do %>
+														<i class="fa fa-pencil fa-fw"></i>
+													<% end %>
+													<%= link_to person_skill_path(ps.id), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-xs" do %>
+														<i class="fa fa-trash-o fa-fw"></i>
+													<% end %>	
+												</td>
+											</tr>
+										</tbody>
+									</table>
 								<% end %>
 							</div>
 						</div>
@@ -47,7 +64,26 @@
 							</div>
 							<div class="panel-body">
 								<% @person.person_certifications.each do |pc| %>
-									<%= pc.certification_id %>
+									<table class="table">
+										<tbody>
+											<tr>
+												<td>
+													<strong>Certification:</strong> <%= pc.certification_id %><br/>
+													<strong>Institute:</strong> <%= pc.institute %><br/>
+													<strong>Granted Date:</strong> <%= pc.grant_date %><br/>
+													<strong>Valid Through:</strong> <%= pc.valid_thru_date %><br/>
+												</td>
+												<td class="text-right">
+													<%= link_to person_certification_path(pc.id), :class => "btn btn-success btn-xs" do %>
+														<i class="fa fa-pencil fa-fw"></i>
+													<% end %>
+													<%= link_to person_certification_path(pc.id), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-xs" do %>
+														<i class="fa fa-trash-o fa-fw"></i>
+													<% end %>	
+												</td>
+											</tr>
+										</tbody>
+									</table>
 								<% end %>
 							</div>
 						</div>
@@ -65,7 +101,26 @@
 							</div>
 							<div class="panel-body">
 								<% @person.person_educations.each do |pe| %>
-									<%= pe.education_level_id %>
+									<table class="table">
+										<tbody>
+											<tr>
+												<td>
+													<strong>Education Level:</strong> <%= pe.education_level_id %><br/>
+													<strong>Institute:</strong> <%= pe.institute %><br/>
+													<strong>Start Date:</strong> <%= pe.start_date %><br/>
+													<strong>Completed Date:</strong> <%= pe.completed_date %><br/>
+												</td>
+												<td class="text-right">
+													<%= link_to person_education_path(pe.id), :class => "btn btn-success btn-xs" do %>
+														<i class="fa fa-pencil fa-fw"></i>
+													<% end %>
+													<%= link_to person_education_path(pe.id), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-xs" do %>
+														<i class="fa fa-trash-o fa-fw"></i>
+													<% end %>	
+												</td>
+											</tr>
+										</tbody>
+									</table>
 								<% end %>
 							</div>
 						</div>
@@ -83,7 +138,26 @@
 							</div>
 							<div class="panel-body">
 								<% @person.person_languages.each do |pl| %>
-									<%= pl.language_id %>
+									<table class="table">
+										<tbody>
+											<tr>
+												<td>
+													<strong>Language:</strong> <%= pl.language_id %><br/>
+													<strong>Reading Proficiency:</strong> <%= pl.reading_proficiency %><br/>
+													<strong>Writing Proficiency:</strong> <%= pl.writing_proficiency %><br/>
+													<strong>Speaking Proficiency:</strong> <%= pl.speaking_proficiency %><br/>
+												</td>
+												<td class="text-right">
+													<%= link_to person_language_path(pl.id), :class => "btn btn-success btn-xs" do %>
+														<i class="fa fa-pencil fa-fw"></i>
+													<% end %>
+													<%= link_to person_language_path(pl.id), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-xs" do %>
+														<i class="fa fa-trash-o fa-fw"></i>
+													<% end %>	
+												</td>
+											</tr>
+										</tbody>
+									</table>
 								<% end %>
 							</div>
 						</div>

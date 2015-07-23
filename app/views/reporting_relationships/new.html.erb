@@ -1,18 +1,25 @@
-<%= form_for @reporting_relationship, :html => { :class => 'form-horizontal'} do |f| %>
-	<%= f.hidden_field :person_id, :value => params[:person_id] %>
-	<div class="form-group">
-		<%= f.label "Manager", :class => 'col-lg-2 control-label' %>
-		<div class="col-lg-3">
-			<%= f.collection_select :manager_id, Person.all, :id, :full_name, { :include_blank => "Select Manager" }, { :class => 'form-control' } %>
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Reporting Relationship</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+
+<div class="row">
+    <div class="col-lg-12">
+		<%= render 'reporting_relationship_errors' %>
+	</div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<i class="fa fa-plus fa-fw"></i> Add Reporting Relationship
+			</div>
+			<div class="panel-body">	
+				<%= render 'new_form' %>
+			</div>
 		</div>
 	</div>
-
-	<div class="form-group">
-		<%= f.label "Reporting Type", :class => 'col-lg-2 control-label' %>
-		<div class="col-lg-3">
-			<%= f.select :reporting_type, options_for_select(["Direct", "Indirect", "Temporary"], :selected => f.object.reporting_type ), {:prompt => 'Select'}, { :class => 'form-control'} %>
-		</div>
-	</div>
-
-	<%= f.submit "create", :class => 'btn btn-primary' %>
-<% end %>
+</div>

@@ -15,7 +15,10 @@ class EmergencyContactsController < ApplicationController
 
 	def destroy
 		@emergency_contact = EmergencyContact.find(params[:id])
-		@emergency_contact.destroy
+		if @emergency_contact.destroy
+			flash[:success] = "Emergency Contact has been deleted"
+			redirect_to emergency_contact_details_path(@emergency_contact.person_id)
+		end
 	end
 
 	private

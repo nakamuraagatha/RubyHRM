@@ -6,7 +6,7 @@ class PersonSkillsController < ApplicationController
 	def create
 		@person_skill = PersonSkill.new(person_skill_params)
 		if @person_skill.save
-			flash[:notice] = "Skill has been added"
+			flash[:success] = "Skill has been added"
 			redirect_to qualifications_path(@person_skill.person_id)
 		else
 			render 'new'
@@ -15,7 +15,10 @@ class PersonSkillsController < ApplicationController
 
 	def destroy
 		@person_skill = PersonSkill.find(params[:id])
-		@person_skill.destroy
+		if @person_skill.destroy
+			flash[:success] = "Skill has been deleted"
+			redirect_to qualifications_path(@person_skill.person_id)
+		end
 	end
 
 	private

@@ -1,0 +1,34 @@
+<%= form_for @person_certification, :html => { :class => 'form-horizontal'}  do |f| %>
+	<%= f.hidden_field :person_id, :value => params[:person_id] %>
+	<div class="form-group">
+		<%= f.label "Certification", :class => 'col-lg-2 control-label' %>
+		<div class="col-lg-3">
+			<%= f.text_field :certification_id, :class => 'form-control' %>
+		</div>
+	</div>
+	<div class="form-group">
+		<%= f.label "Institute", :class => 'col-lg-2 control-label' %>
+		<div class="col-lg-3">
+			<%= f.text_field :institute, :class => 'form-control' %>
+		</div>
+	</div>
+	<div class="form-group">
+		<%= f.label "Granted Date", :class => 'col-lg-2 control-label' %>
+		<div class="col-lg-3">
+			<%= f.date_field :grant_date, :class => 'form-control' %>
+		</div>
+	</div>
+	<div class="form-group">
+		<%= f.label "Valid Through", :class => 'col-lg-2 control-label' %>
+		<div class="col-lg-3">
+			<%= f.date_field :valid_thru_date, :class => 'form-control' %>
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="col-lg-offset-1 col-lg-2">
+			<%= button_tag(:class => 'btn btn-success') do %>
+				<span class="fa fa-save fa-fw"></span> Save
+			<% end %>
+		</div>
+	</div>
+<% end %>
