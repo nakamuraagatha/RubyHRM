@@ -29,7 +29,11 @@ class ApplicationController < ActionController::Base
   private
     def set_locale
       #Set locale based on the current users preferred language in the user profile
-      I18n.locale = current_user.locale
+      if current_user 
+        I18n.locale = current_user.locale
+      else 
+        I18n.locale = request.env["HTTP_ACCEPT_LANGUAGE"]
+      end
       
       #Set locale based on the current users browser language default
       #request.env["HTTP_ACCEPT_LANGUAGE"]
