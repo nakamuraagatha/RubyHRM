@@ -1,17 +1,6 @@
 <div class="navbar-default sidebar" role="navigation">
     <div class="sidebar-nav navbar-collapse">
         <ul class="nav" id="side-menu">
-            <li class="sidebar-search">
-                <div class="input-group custom-search-form">
-                    <input type="text" class="form-control" placeholder="Search...">
-                    <span class="input-group-btn">
-                    <button class="btn btn-default" type="button">
-                        <i class="fa fa-search"></i>
-                    </button>
-                </span>
-                </div>
-                <!-- /input-group -->
-            </li>
             <li>
                 <%= link_to root_path do %>
                     <i class="fa fa-dashboard fa-fw"></i> Dashboard
@@ -21,19 +10,25 @@
                 <a href="#"><i class="fa fa-cubes fa-fw"></i> Admin<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <%= link_to job_titles_path do %>
-                            <i class="fa fa-columns fa-fw"></i> Job Titles
-                        <% end %>
-                    </li>
-                    <li>
-                        <%= link_to departments_path do %>
-                            <i class="fa fa-building-o fa-fw"></i> Departments
-                        <% end %>
-                    </li>
-                    <li>
-                        <%= link_to locations_path do %>
-                            <i class="fa fa-building fa-fw"></i> Locations
-                        <% end %>
+                        <a href="#">Foundation Tables <span class="fa arrow"></span></a>
+                        <ul class="nav nav-third-level">
+                            <li>
+                                <%= link_to job_titles_path do %>
+                                    <i class="fa fa-columns fa-fw"></i> Job Titles
+                                <% end %>
+                            </li>
+                            <li>
+                                <%= link_to departments_path do %>
+                                    <i class="fa fa-building-o fa-fw"></i> Departments
+                                <% end %>
+                            </li> 
+                            <li>
+                                <%= link_to locations_path do %>
+                                    <i class="fa fa-building fa-fw"></i> Locations
+                                <% end %>
+                            </li>
+                        </ul>
+                        <!-- /.nav-third-level -->
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->
@@ -60,6 +55,11 @@
                     <li>
                         <%= link_to users_path do %>
                             <i class="fa fa-user fa-fw"></i> Users
+                        <% end %>
+                    </li>
+                    <li>
+                        <%= link_to translations_path do %>
+                            <i class="fa fa-language fa-fw"></i> Translations
                         <% end %>
                     </li>
                 </ul>

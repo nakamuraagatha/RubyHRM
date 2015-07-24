@@ -25,35 +25,39 @@
             <i class="fa fa-plus fa-fw"></i> Add User
         <% end %>
         <br/><br/>
-		<div class="table-responsive">
-			<table class="table table-striped table-bordered table-hover">
-				<thead>
-					<tr>
-						<th>Username</th>
-						<th>Role</th>
-						<th>Employee Name</th>
-						<th></th>
-					</tr>
-				</thead>
-				<tbody>
-					<% @users.each do |u| %>
-					<tr>
-						<td><%= u.username %></td>
-						<td><%= u.role %></td>
-						<td><%= u.person.full_name unless u.person_id.blank? %>
-						<td>
-							<%= link_to user_path(u.id), :class => "btn btn-success btn-xs" do %>
-								<i class="fa fa-search fa-fw"></i> View
-							<% end %>
-							<%= link_to user_path(u.id), method: :delete, data: { confirm: 'Are you sure you want to delete this user?' }, :class => "btn btn-danger btn-xs" do %>
-								<i class="fa fa-trash-o fa-fw"></i> Delete
-							<% end %>
-						</td>
-					</tr>
-					<% end %>
-				</tbody>
-			</table>
-		</div>
+		<% if @person.reporting_relationships.empty? %>
+			<p>There were no results found.</p>
+		<% else %>	
+			<div class="table-responsive">
+				<table class="table table-striped table-bordered table-hover">
+					<thead>
+						<tr>
+							<th>Username</th>
+							<th>Role</th>
+							<th>Employee Name</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						<% @users.each do |u| %>
+						<tr>
+							<td><%= u.username %></td>
+							<td><%= u.role %></td>
+							<td><%= u.person.full_name unless u.person_id.blank? %>
+							<td>
+								<%= link_to user_path(u.id), :class => "btn btn-success btn-xs" do %>
+									<i class="fa fa-search fa-fw"></i> View
+								<% end %>
+								<%= link_to user_path(u.id), method: :delete, data: { confirm: 'Are you sure you want to delete this user?' }, :class => "btn btn-danger btn-xs" do %>
+									<i class="fa fa-trash-o fa-fw"></i> Delete
+								<% end %>
+							</td>
+						</tr>
+						<% end %>
+					</tbody>
+				</table>
+			</div>
+		<% end %>
 	</div>
 </div>
 <br/>
