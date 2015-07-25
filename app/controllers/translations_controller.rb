@@ -3,7 +3,11 @@ class TranslationsController < ApplicationController
 	before_action :require_admin
 
 	def index
-		@translations = Translation.all
+		if params[:search1] or params[:search2]
+			@translations = Translation.search(params[:search1], params[:search2])
+		else
+			@translations = Translation.all
+		end
 	end
 
 	def edit

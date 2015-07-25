@@ -1,5 +1,6 @@
 class Person < ActiveRecord::Base
 	has_one :user
+	has_one :person_termination
 	belongs_to :job_title
 	belongs_to :department
 	belongs_to :location
@@ -26,7 +27,8 @@ class Person < ActiveRecord::Base
 		self.preferred_first.present? ? "#{preferred_first} #{last_name}" : "#{first_name} #{last_name}"
 	end
 
-	def self.search(query)
-		where("first_name ILIKE ? OR last_name ILIKE ? OR preferred_first ILIKE ?", "%#{query}%", "%#{query}%", "%#{query}%")
-	end
+	private
+		def self.search(query)
+			where("first_name ILIKE ? OR last_name ILIKE ? OR preferred_first ILIKE ?", "%#{query}%", "%#{query}%", "%#{query}%")
+		end
 end

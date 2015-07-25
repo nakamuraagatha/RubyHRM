@@ -21,17 +21,31 @@
 	</div>
 
 	<div class="form-group">
+		<% if PersonTermination.find_by_person_id(@person.id).nil? %>
+			<div class="col-lg-offset-2 col-lg-2">
+				<%= link_to new_person_termination_path(:person_id => @person.id), :class => "btn btn-danger" do %>
+					Terminate Employee
+				<% end %>
+			</div>
+		<% else %>
+			<div class="col-lg-offset-2 col-lg-2">
+				<%= link_to person_termination_path(PersonTermination.find_by_person_id(@person.id)), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" do %>
+					Activate Employee
+				<% end %>
+			</div>
+			<%= link_to person_termination_path(PersonTermination.find_by_person_id(@person.id)) do %>
+				Termination Date: <%= PersonTermination.find_by_person_id(@person.id).termination_date %>
+			<% end %>
+		<% end %>
+	</div>
+
+	<div class="form-group">
 		<hr>
 	</div>
 	<div class="form-group">
 		<div class="col-lg-offset-2 col-lg-2">
 			<%= button_tag(:class => 'btn btn-success') do %>
-				<span class="fa fa-save fa-fw"></span> Save Changes
-			<% end %>
-		</div>
-		<div class="col-lg-offset-6 col-lg-1">
-			<%= link_to person_path(@person), :class => 'btn btn-success'  do %>
-				<span class="fa fa-arrow-left fa-fw"></span> Cancel
+				<span class="fa fa-save fa-fw"></span> <%= t('button.save') %>
 			<% end %>
 		</div>
 	</div>

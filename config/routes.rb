@@ -38,6 +38,7 @@ Rails.application.routes.draw do
   resources :person_languages
   resources :person_certifications
   resources :translations
+  resources :person_terminations
 
   get 'dashboard/index'
   # The priority is based upon order of creation: first created -> highest priority.

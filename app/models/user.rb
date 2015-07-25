@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-
 	has_secure_password
 
 	belongs_to :person
@@ -23,11 +22,6 @@ class User < ActiveRecord::Base
 		UserMailer.password_reset(self).deliver
 	end
 
-
-	def self.search(query)
-		where("username ILIKE ? OR role ILIKE ?", "%#{query}%", "%#{query}%")
-	end
-
 	def employee?
 		self.role == 'employee'
 	end
@@ -39,4 +33,9 @@ class User < ActiveRecord::Base
 	def admin?
 		self.role == 'admin'
 	end
+
+	private
+		def self.search(query)
+			where("username ILIKE ? OR role ILIKE ?", "%#{query}%", "%#{query}%")
+		end
 end
