@@ -3,6 +3,7 @@ class PeopleController < ApplicationController
 	before_action :set_person, only: [:show, :show_contact_details, :show_job_details, :show_pay_details, :show_reports_to_details, :show_emergency_contact_details, :show_dependent_details, :show_qualifications, :edit, :update, :edit_contact_details, :update_contact_details, :edit_job_details, :update_job_details]
 	before_action :require_admin, only: [:index, :show, :new, :create, :edit, :update]
 
+
 	def index
 		if params[:search]
 			@people = Person.search(params[:search]).order("employee_id ASC")
@@ -18,6 +19,7 @@ class PeopleController < ApplicationController
 	end
 
 	def show_job_details
+		@job_detail_histories = JobDetailHistory.all
 	end
 
 	def show_pay_details
@@ -85,7 +87,7 @@ class PeopleController < ApplicationController
 	end
 
 	def update_job_details
-		if @person.update_attributes(person_params)
+		if @person.update_attributes(person_params)		
 			flash[:notice] = "Person was successfully updated!"
 			redirect_to job_details_path(@person)
 		else
@@ -104,6 +106,10 @@ class PeopleController < ApplicationController
 	private
 		def set_person
 			@person = Person.find(params[:id])
+		end
+
+		def insert_job_history
+			JobDetailHistory.create(person_id: @person.id, change_date: Date.today, job_title_id: @person.job_title_id_was, department_id: @person.department_id_was, location_id: @person.location_id_was)
 		end
 
 		def person_params

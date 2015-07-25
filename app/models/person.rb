@@ -1,4 +1,8 @@
 class Person < ActiveRecord::Base
+	include ActiveModel::Dirty
+
+	before_update :insert_job_history
+
 	has_one :user
 	has_one :person_termination
 	belongs_to :job_title
@@ -15,6 +19,7 @@ class Person < ActiveRecord::Base
 	has_many :person_certifications
 	has_many :person_educations
 	has_many :person_languages
+	has_many :job_detail_histories
 
 	validates :first_name, presence: true
 	validates :last_name, presence: true
@@ -30,5 +35,11 @@ class Person < ActiveRecord::Base
 	private
 		def self.search(query)
 			where("first_name ILIKE ? OR last_name ILIKE ? OR preferred_first ILIKE ?", "%#{query}%", "%#{query}%", "%#{query}%")
+		end
+
+		def insert_job_history
+			if self.job_title_id_changed? || self.department_id_changed? || self.location_id_changed?
+				JobDetailHistory.create(person_id: self.id, change_date: Date.today, job_title_id: self.job_title_id_was, department_id: self.department_id_was, location_id: self.location_id_was)
+			end
 		end
 end
