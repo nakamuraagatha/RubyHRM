@@ -19,6 +19,9 @@ class PeopleController < ApplicationController
 	end
 
 	def show_job_details
+		unless @person.job_detail.present?
+			@person.build_job_detail
+		end
 		@job_detail_histories = JobDetailHistory.all
 	end
 
@@ -51,7 +54,6 @@ class PeopleController < ApplicationController
 	def create
 		@person = Person.new(person_params)
 		if @person.save
-
 			flash[:success] = "Person was successfully created!"
 			redirect_to edit_person_path(@person)
 		else
@@ -76,7 +78,7 @@ class PeopleController < ApplicationController
 
 	def update_contact_details
 		if @person.update_attributes(person_params)
-			flash[:notice] = "Person was successfully updated!"
+			flash[:success] = "Person was successfully updated"
 			redirect_to contact_details_path(@person)
 		else
 			render "edit_contact_details"
@@ -84,11 +86,14 @@ class PeopleController < ApplicationController
 	end
 
 	def edit_job_details
+		unless @person.job_detail.present?
+			@person.build_job_detail
+		end
 	end
 
 	def update_job_details
 		if @person.update_attributes(person_params)		
-			flash[:notice] = "Person was successfully updated!"
+			flash[:success] = "Job detail was successfully updated"
 			redirect_to job_details_path(@person)
 		else
 			render "edit_job_details"
@@ -97,7 +102,7 @@ class PeopleController < ApplicationController
 
 	def destroy
 		if @person.destroy
-			flash[:notice] = "Person was successfully deleted!"
+			flash[:success] = "Person was successfully deleted!"
 			redirect_to people_path
 		end
 
@@ -108,11 +113,7 @@ class PeopleController < ApplicationController
 			@person = Person.find(params[:id])
 		end
 
-		def insert_job_history
-			JobDetailHistory.create(person_id: @person.id, change_date: Date.today, job_title_id: @person.job_title_id_was, department_id: @person.department_id_was, location_id: @person.location_id_was)
-		end
-
 		def person_params
-			params.require(:person).permit(:employee_id, :first_name, :middle_name, :last_name, :preferred_first, :name_suffix, :national_id, :gender, :date_of_birth, :nationality, :marital_status, :military_status, :ethnicity, :smoker, :disabled, :address_line1, :address_line2, :city, :province, :postal, :country, :home_phone, :mobile_phone, :business_phone, :home_email, :business_email, :job_title_id, :start_date, :department_id, :location_id, user_attributes: [:username, :password, :password_confirmation, :role])
+			params.require(:person).permit(:employee_id, :first_name, :middle_name, :last_name, :preferred_first, :name_suffix, :national_id, :gender, :date_of_birth, :nationality, :marital_status, :military_status, :ethnicity, :smoker, :disabled, :address_line1, :address_line2, :city, :province, :postal, :country, :home_phone, :mobile_phone, :business_phone, :home_email, :business_email, user_attributes: [:username, :password, :password_confirmation, :role], job_detail_attributes: [:id, :person_id, :start_date, :job_title_id, :department_id, :location_id])
 		end
 end

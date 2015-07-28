@@ -1,52 +1,35 @@
 <%= form_for @person, :html => { :class => 'form-horizontal'} do |f| %>
-	<div class="form-group">
-		<%= f.label "Job Title", :class => 'col-lg-2 control-label' %>
-		<div class="col-lg-3">
-			<%= f.collection_select :job_title_id, JobTitle.all, :id, :job_title, { :include_blank => "Select Job Title" }, { :class => 'form-control' } %>
+	<%= f.fields_for :job_detail do |fjd| %>
+		<div class="form-group">
+			<%= fjd.label "Job Title", :class => 'col-lg-2 control-label' %>
+			<div class="col-lg-3">
+				<%= fjd.collection_select :job_title_id, JobTitle.all, :id, :job_title, { :include_blank => "Select Job Title" }, { :class => 'form-control' } %>
+			</div>
+			<%= fjd.label "Start Date", :class => 'col-lg-3 control-label' %>
+			<div class="col-lg-3">
+				<%= fjd.date_field :start_date, :class => 'form-control' %>
+			</div>
 		</div>
-		<%= f.label "Start Date", :class => 'col-lg-3 control-label' %>
-		<div class="col-lg-3">
-			<%= f.date_field :start_date, :class => 'form-control' %>
+		<div class="form-group">
+			<%= fjd.label "Department", :class => 'col-lg-2 control-label' %>
+			<div class="col-lg-3">
+				<%= fjd.collection_select :department_id, Department.all, :id, :name, { :include_blank => "Select Department" }, { :class => 'form-control' } %>
+			</div>
+			<%= fjd.label "Location", :class => 'col-lg-3 control-label' %>
+			<div class="col-lg-3">
+				<%= fjd.collection_select :location_id, Location.all, :id, :name, { :include_blank => "Select Location" }, { :class => 'form-control' } %>
+			</div>
 		</div>
-	</div>
-	<div class="form-group">
-		<%= f.label "Department", :class => 'col-lg-2 control-label' %>
-		<div class="col-lg-3">
-			<%= f.collection_select :department_id, Department.all, :id, :name, { :include_blank => "Select Department" }, { :class => 'form-control' } %>
-		</div>
-		<%= f.label "Location", :class => 'col-lg-3 control-label' %>
-		<div class="col-lg-3">
-			<%= f.collection_select :location_id, Location.all, :id, :name, { :include_blank => "Select Location" }, { :class => 'form-control' } %>
-		</div>
-	</div>
 
-	<div class="form-group">
-		<% if PersonTermination.find_by_person_id(@person.id).nil? %>
+		<div class="form-group">
+			<hr>
+		</div>
+		<div class="form-group">
 			<div class="col-lg-offset-2 col-lg-2">
-				<%= link_to new_person_termination_path(:person_id => @person.id), :class => "btn btn-danger" do %>
-					Terminate Employee
+				<%= f.submit :class => 'btn btn-success' do %>
+					<span class="fa fa-save fa-fw"></span> <%= t('button.save') %>
 				<% end %>
 			</div>
-		<% else %>
-			<div class="col-lg-offset-2 col-lg-2">
-				<%= link_to person_termination_path(PersonTermination.find_by_person_id(@person.id)), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" do %>
-					Activate Employee
-				<% end %>
-			</div>
-			<%= link_to person_termination_path(PersonTermination.find_by_person_id(@person.id)) do %>
-				Termination Date: <%= PersonTermination.find_by_person_id(@person.id).termination_date %>
-			<% end %>
-		<% end %>
-	</div>
-
-	<div class="form-group">
-		<hr>
-	</div>
-	<div class="form-group">
-		<div class="col-lg-offset-2 col-lg-2">
-			<%= button_tag(:class => 'btn btn-success') do %>
-				<span class="fa fa-save fa-fw"></span> <%= t('button.save') %>
-			<% end %>
 		</div>
-	</div>
+	<% end %>
 <% end %>

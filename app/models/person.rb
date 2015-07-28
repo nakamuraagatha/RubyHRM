@@ -1,13 +1,8 @@
 class Person < ActiveRecord::Base
-	include ActiveModel::Dirty
-
-	before_update :insert_job_history
 
 	has_one :user
+	has_one :job_detail
 	has_one :person_termination
-	belongs_to :job_title
-	belongs_to :department
-	belongs_to :location
 	has_many :phone_numbers
 	has_many :email_addresses
 	has_many :pay_details
@@ -27,6 +22,7 @@ class Person < ActiveRecord::Base
 	validates :date_of_birth, presence: true, :on => :edit
 
 	accepts_nested_attributes_for :user, :reject_if => :all_blank
+	accepts_nested_attributes_for :job_detail, :reject_if => :all_blank
 
 	def full_name
 		self.preferred_first.present? ? "#{preferred_first} #{last_name}" : "#{first_name} #{last_name}"
@@ -35,11 +31,5 @@ class Person < ActiveRecord::Base
 	private
 		def self.search(query)
 			where("first_name ILIKE ? OR last_name ILIKE ? OR preferred_first ILIKE ?", "%#{query}%", "%#{query}%", "%#{query}%")
-		end
-
-		def insert_job_history
-			if self.job_title_id_changed? || self.department_id_changed? || self.location_id_changed?
-				JobDetailHistory.create(person_id: self.id, change_date: Date.today, job_title_id: self.job_title_id_was, department_id: self.department_id_was, location_id: self.location_id_was)
-			end
 		end
 end

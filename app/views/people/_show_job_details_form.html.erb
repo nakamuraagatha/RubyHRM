@@ -1,32 +1,35 @@
 <%= form_for @person, :html => { :class => 'form-horizontal'} do |f| %>
-	<div class="form-group">
-		<%= f.label "Job Title", :class => 'col-lg-2 control-label' %>
-		<div class="col-lg-3">
-			<%= f.collection_select :job_title_id, JobTitle.all, :id, :job_title, { :include_blank => "Select Job Title" }, { :class => 'form-control', :disabled => true } %>
+	<%= f.fields_for :job_detail do |fjd| %>
+		<div class="form-group">
+			<%= fjd.label "Job Title", :class => 'col-lg-2 control-label' %>
+			<div class="col-lg-3">
+				<%= fjd.collection_select :job_title_id, JobTitle.all, :id, :job_title, { :include_blank => "Select Job Title" }, { :class => 'form-control', :disabled => true } %>
+			</div>
+			<%= fjd.label "Start Date", :class => 'col-lg-3 control-label' %>
+			<div class="col-lg-3">
+				<%= fjd.date_field :start_date, :class => 'form-control', :disabled => true %>
+			</div>
 		</div>
-		<%= f.label "Start Date", :class => 'col-lg-3 control-label' %>
-		<div class="col-lg-3">
-			<%= f.date_field :start_date, :class => 'form-control', :disabled => true %>
+		<div class="form-group">
+			<%= fjd.label "Department", :class => 'col-lg-2 control-label' %>
+			<div class="col-lg-3">
+				<%= fjd.collection_select :department_id, Department.all, :id, :name, { :include_blank => "Select Department" }, { :class => 'form-control', :disabled => true } %>
+			</div>
+			<%= fjd.label "Location", :class => 'col-lg-3 control-label' %>
+			<div class="col-lg-3">
+				<%= fjd.collection_select :location_id, Location.all, :id, :name, { :include_blank => "Select Location" }, { :class => 'form-control', :disabled => true } %>
+			</div>
 		</div>
-	</div>
-	<div class="form-group">
-		<%= f.label "Department", :class => 'col-lg-2 control-label' %>
-		<div class="col-lg-3">
-			<%= f.collection_select :department_id, Department.all, :id, :name, { :include_blank => "Select Department" }, { :class => 'form-control', :disabled => true } %>
+
+		<div class="form-group">
+			<hr>
 		</div>
-		<%= f.label "Location", :class => 'col-lg-3 control-label' %>
-		<div class="col-lg-3">
-			<%= f.collection_select :location_id, Location.all, :id, :name, { :include_blank => "Select Location" }, { :class => 'form-control', :disabled => true } %>
+		<div class="form-group">
+			<div class="col-lg-offset-2 col-lg-1">
+				<%= link_to edit_job_details_path(@person), :class => 'btn btn-success'  do %>
+					<span class="fa fa-pencil"></span> Edit Job Details
+				<% end %>
+			</div>
 		</div>
-	</div>
-	<div class="form-group">
-		<hr>
-	</div>
-	<div class="form-group">
-		<div class="col-lg-offset-2 col-lg-1">
-			<%= link_to edit_job_details_path(@person), :class => 'btn btn-success'  do %>
-				<span class="fa fa-pencil"></span> Edit Job Details
-			<% end %>
-		</div>
-	</div>
+	<% end %>
 <% end %>

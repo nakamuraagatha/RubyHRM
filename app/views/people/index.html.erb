@@ -45,8 +45,13 @@
 							<td><%= p.employee_id %></td>
 							<td><%= p.first_name %></td>
 							<td><%= p.last_name %></td>
-							<td><%= p.job_title.job_title unless p.job_title_id.blank? %></td>
-							<td><%= p.department.name unless p.department_id.blank? %></td>
+							<% if p.job_detail.present? %>
+							<td><%= p.job_detail.job_title.job_title unless p.job_detail.job_title_id.blank? %></td>
+							<td><%= p.job_detail.department.name unless p.job_detail.department_id.blank? %></td>
+							<% else %>
+							<td></td>
+							<td></td>
+							<% end %>
 							<td>
 								<%= p.reporting_relationships.map { |rr| rr.manager.full_name}.join(", ") %>
 							</td>
