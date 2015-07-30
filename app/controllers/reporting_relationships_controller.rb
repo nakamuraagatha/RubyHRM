@@ -3,6 +3,10 @@ class ReportingRelationshipsController < ApplicationController
 		@reporting_relationship = ReportingRelationship.new
 	end
 
+	def show
+		@reporting_relationship = ReportingRelationship.find(params[:id])
+	end
+
 	def create
 		@reporting_relationship = ReportingRelationship.new(reporting_relationship_params)
 		if @reporting_relationship.save

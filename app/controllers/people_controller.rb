@@ -8,7 +8,7 @@ class PeopleController < ApplicationController
 		if params[:search]
 			@people = Person.search(params[:search]).order("employee_id ASC")
 		else
-			@people = Person.all.order("employee_id ASC")
+			@people = Person.includes(:job_detail).all.order("employee_id ASC")
 		end
 	end
 
@@ -114,6 +114,44 @@ class PeopleController < ApplicationController
 		end
 
 		def person_params
-			params.require(:person).permit(:employee_id, :first_name, :middle_name, :last_name, :preferred_first, :name_suffix, :national_id, :gender, :date_of_birth, :nationality, :marital_status, :military_status, :ethnicity, :smoker, :disabled, :address_line1, :address_line2, :city, :province, :postal, :country, :home_phone, :mobile_phone, :business_phone, :home_email, :business_email, user_attributes: [:username, :password, :password_confirmation, :role], job_detail_attributes: [:id, :person_id, :start_date, :job_title_id, :department_id, :location_id])
+			params.require(:person).permit(:employee_id, 
+										   :first_name, 
+										   :middle_name, 
+										   :last_name, 
+										   :preferred_first, 
+										   :name_suffix, 
+										   :national_id, 
+										   :gender, 
+										   :date_of_birth, 
+										   :nationality, 
+										   :marital_status, 
+										   :military_status, 
+										   :ethnicity, 
+										   :smoker, 
+										   :disabled, 
+										   :address_line1, 
+										   :address_line2, 
+										   :city, 
+										   :province, 
+										   :postal, 
+										   :country, 
+										   :home_phone, 
+										   :mobile_phone, 
+										   :business_phone, 
+										   :home_email, 
+										   :business_email, 
+										   user_attributes: [:username, 
+										   					 :password, 
+										   					 :password_confirmation, 
+										   					 :role
+										   					], 
+										   job_detail_attributes: [:id, 
+										   						   :person_id, 
+										   						   :start_date, 
+										   						   :job_title_id, 
+										   						   :department_id, 
+										   						   :location_id
+										   						  ]
+										  )
 		end
 end

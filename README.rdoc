@@ -4,15 +4,18 @@ This project is my attempt at creating an open source human resource management 
 
 This project was developed on...
 
-* Rails versio 4.2.1
+* Rails version 4.2.1
 * Ruby version 2.2.2
+* Using Ubuntu 14.04 LTS (via VirtualBox)
 
 * This project uses Postgresql via the "pg" gem
 
 * This project also uses Bootstrap (not via gem)
 
-	http://http://getbootstrap.com/
+	http://getbootstrap.com/
 
-SB Admin 2 Dashboard template
+* Responsive template SB Admin 2 Dashboard template was used as a base
 
 	http://startbootstrap.com/template-overviews/sb-admin-2/
+
+See the Issues Section for the number of TODOs that I am working on for this project.

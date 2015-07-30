@@ -1,4 +1,5 @@
 class Person < ActiveRecord::Base
+	before_create :add_job_detail
 
 	has_one :user
 	has_one :job_detail
@@ -26,6 +27,10 @@ class Person < ActiveRecord::Base
 
 	def full_name
 		self.preferred_first.present? ? "#{preferred_first} #{last_name}" : "#{first_name} #{last_name}"
+	end
+
+	def add_job_detail
+		self.job_detail = JobDetail.create(person_id: self.id)
 	end
 
 	private
