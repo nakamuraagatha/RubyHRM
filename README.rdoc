@@ -19,3 +19,8 @@ This project was developed on...
 	http://startbootstrap.com/template-overviews/sb-admin-2/
 
 See the Issues Section for the number of TODOs that I am working on for this project.
+
+
+If you would like to test out a demo for this application as it stands today, see the link below. Please note that this project is in its early stages and is still in development. Features will change.
+
+	https://protected-harbor-6312.herokuapp.com/
