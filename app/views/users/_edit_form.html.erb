@@ -8,13 +8,13 @@
 	<div class="form-group">
 		<%= f.label "Language Preference", :class => 'col-lg-2 control-label' %>
 		<div class="col-lg-2">
-			<%= f.text_field :locale, :class => 'form-control' %>
+			<%= f.collection_select :locale, SystemLanguage.all, :language_code, :language_description, { :include_blank => "Select Language" }, { :class => 'form-control' } %>
 		</div>
 	</div>
 	<div class="form-group">
 		<%= f.label "Role", :class => 'col-lg-2 control-label' %>
 		<div class="col-lg-2">
-			<%= f.select :role, options_for_select([["Manager","manager"],["Employee","employee"],["Administrator","admin"]]), {:prompt => 'Select'}, { :class => 'form-control'} %>
+			<%= f.select :role, options_for_select([["Manager","manager"],["Employee","employee"],["Administrator","admin"]], :selected => f.object.role ), {:prompt => 'Select'}, { :class => 'form-control'} %>
 		</div>
 	</div>
 	<div class="form-group">

@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
 	has_secure_password
 
 	belongs_to :person
+	belongs_to :system_language
 
 	validates :username, presence: true
 	validates_uniqueness_of :username
