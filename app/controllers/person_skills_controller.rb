@@ -1,4 +1,6 @@
 class PersonSkillsController < ApplicationController
+	before_action :require_user
+	
 	def new
 		@person_skill = PersonSkill.new
 	end

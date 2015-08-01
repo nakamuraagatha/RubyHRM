@@ -1,4 +1,6 @@
 class DependentsController < ApplicationController
+	before_action :require_user
+
 	def show 
 		@dependent = Dependent.find(params[:id])
 	end

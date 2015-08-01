@@ -1,6 +1,7 @@
 class JobTitlesController < ApplicationController
 	before_action :set_job_title, only: [:show, :edit, :update, :destroy]
-
+	before_action :require_user
+	
 	def index
 		@job_titles = JobTitle.all
 	end

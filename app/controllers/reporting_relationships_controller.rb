@@ -1,4 +1,6 @@
 class ReportingRelationshipsController < ApplicationController
+	before_action :require_user
+
 	def new
 		@reporting_relationship = ReportingRelationship.new
 	end

@@ -1,5 +1,6 @@
 class PayDetailsController < ApplicationController
-
+	before_action :require_user
+	
 	def show
 		@pay_detail = PayDetail.find(params[:id])
 	end

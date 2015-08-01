@@ -1,7 +1,7 @@
 class PeopleController < ApplicationController
 
 	before_action :set_person, only: [:show, :show_contact_details, :show_job_details, :show_pay_details, :show_reports_to_details, :show_emergency_contact_details, :show_dependent_details, :show_qualifications, :edit, :update, :edit_contact_details, :update_contact_details, :edit_job_details, :update_job_details]
-	before_action :require_admin, only: [:index, :show, :new, :create, :edit, :update]
+	before_action :require_admin
 
 
 	def index

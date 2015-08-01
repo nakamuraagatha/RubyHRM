@@ -1,4 +1,6 @@
 class JobDetailHistoriesController < ApplicationController
+	before_action :require_user
+	
 	def destroy
 		@job_detail_history = JobDetailHistory.find(params[:id])
 		if @job_detail_history.destroy

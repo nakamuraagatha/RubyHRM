@@ -34,8 +34,5 @@ class ApplicationController < ActionController::Base
       else 
         I18n.locale = request.env["HTTP_ACCEPT_LANGUAGE"]
       end
-      
-      #Set locale based on the current users browser language default
-      #request.env["HTTP_ACCEPT_LANGUAGE"]
     end
 end

@@ -1,5 +1,6 @@
 class PersonTerminationsController < ApplicationController
-
+	before_action :require_user
+	
 	def show
 		@person_termination = PersonTermination.find(params[:id])
 	end

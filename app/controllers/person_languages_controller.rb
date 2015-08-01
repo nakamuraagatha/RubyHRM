@@ -1,4 +1,6 @@
 class PersonLanguagesController < ApplicationController
+	before_action :require_user
+	
 	def new
 		@person_language = PersonLanguage.new
 	end

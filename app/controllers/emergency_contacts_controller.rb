@@ -1,4 +1,6 @@
 class EmergencyContactsController < ApplicationController
+	before_action :require_user
+	
 	def new
 		@emergency_contact = EmergencyContact.new
 	end

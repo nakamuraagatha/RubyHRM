@@ -1,4 +1,6 @@
 class PersonCertificationsController < ApplicationController
+	before_action :require_user
+
 	def new
 		@person_certification = PersonCertification.new
 	end
