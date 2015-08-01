@@ -3,7 +3,7 @@
 	<div class="form-group">
 		<%= f.label "Education Level", :class => 'col-lg-2 control-label' %>
 		<div class="col-lg-3">
-			<%= f.text_field :education_level_id, :class => 'form-control' %>
+			<%= f.collection_select :education_level_id, EducationLevel.all, :id, :education_level_description, { :include_blank => "Select Education Level" }, { :class => 'form-control' } %>
 		</div>
 	</div>
 	<div class="form-group">

@@ -11,10 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150801005844) do
+ActiveRecord::Schema.define(version: 20150801132708) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "certifications", force: :cascade do |t|
+    t.string   "certification_description"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
 
   create_table "departments", force: :cascade do |t|
     t.string   "department_number"
@@ -31,6 +37,12 @@ ActiveRecord::Schema.define(version: 20150801005844) do
     t.date     "date_of_birth"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+  end
+
+  create_table "education_levels", force: :cascade do |t|
+    t.string   "education_level_description"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   create_table "emergency_contacts", force: :cascade do |t|
@@ -69,6 +81,12 @@ ActiveRecord::Schema.define(version: 20150801005844) do
     t.text     "job_description"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+  end
+
+  create_table "languages", force: :cascade do |t|
+    t.string   "language_description"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
   create_table "locations", force: :cascade do |t|
@@ -182,6 +200,12 @@ ActiveRecord::Schema.define(version: 20150801005844) do
     t.string   "reporting_type"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+  end
+
+  create_table "skills", force: :cascade do |t|
+    t.string   "skill_description"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
   create_table "system_languages", force: :cascade do |t|

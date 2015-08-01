@@ -1,0 +1,15 @@
+<%= form_for @education_level, :html => { :class => 'form-horizontal'}  do |f| %>
+	<div class="form-group">
+		<%= f.label "Education Level Description", :class => 'col-lg-2 control-label' %>
+		<div class="col-lg-3">
+			<%= f.text_field :education_level_description, :class => 'form-control' %>
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="col-lg-offset-1 col-lg-2">
+			<%= button_tag(:class => 'btn btn-success') do %>
+				<span class="fa fa-save fa-fw"></span> <%= t('button.save') %>
+			<% end %>
+		</div>
+	</div>
+<% end %>
