@@ -94,7 +94,7 @@ class PeopleController < ApplicationController
 	def update_job_details
 		if @person.update_attributes(person_params)		
 			flash[:success] = "Job detail was successfully updated"
-			redirect_to job_details_path(@person)
+			redirect_to job_detail_path(@person)
 		else
 			render "edit_job_details"
 		end

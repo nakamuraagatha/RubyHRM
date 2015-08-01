@@ -29,6 +29,9 @@
 								<td><%= sl.language_code %></td>
 								<td><%= sl.language_description %></td>
 								<td>
+									<%= link_to edit_system_language_path(sl.id), :class => "btn btn-warning btn-xs" do %>
+										<i class="fa fa-pencil fa-fw"></i> <%= t('button.edit') %>
+									<% end %>	
 									<%= link_to system_language_path(sl.id), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-xs" do %>
 										<i class="fa fa-trash-o fa-fw"></i> <%= t('button.delete') %>
 									<% end %>	
