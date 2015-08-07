@@ -26,7 +26,7 @@
 		</div>
 		<%= f.label "Country", :class => 'col-lg-3 control-label' %>
 		<div class="col-lg-3">
-			<%= f.text_field :country, :class => 'form-control', :disabled => true %>
+			<%= f.collection_select :country, Country.all, :country_code, :description, {:include_blank => 'Select Country'}, { :class => 'form-control', :disabled => true } %>
 		</div>
 	</div>
 

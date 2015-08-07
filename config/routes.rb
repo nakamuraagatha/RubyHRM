@@ -45,6 +45,7 @@ Rails.application.routes.draw do
   resources :skills
   resources :certifications
   resources :education_levels
+  resources :countries
 
   get 'dashboard/index'
   # The priority is based upon order of creation: first created -> highest priority.

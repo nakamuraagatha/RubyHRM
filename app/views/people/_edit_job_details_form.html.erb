@@ -1,4 +1,4 @@
-<%= form_for @person, :html => { :class => 'form-horizontal'} do |f| %>
+<%= form_for @person, :url => { :action => 'update_job_details'}, :html => { :class => 'form-horizontal'} do |f| %>
 	<%= f.fields_for :job_detail do |fjd| %>
 		<div class="form-group">
 			<%= fjd.label "Job Title", :class => 'col-lg-2 control-label' %>

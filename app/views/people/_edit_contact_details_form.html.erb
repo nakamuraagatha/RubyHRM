@@ -26,7 +26,7 @@
 		</div>
 		<%= f.label "Country", :class => 'col-lg-3 control-label' %>
 		<div class="col-lg-3">
-			<%= f.text_field :country, :class => 'form-control'%>
+			<%= f.collection_select :country, Country.all, :country_code, :description, {:include_blank => 'Select Country'}, { :class => 'form-control'} %>
 		</div>
 	</div>
 	<div class="form-group">
@@ -75,13 +75,8 @@
 	</div>
 	<div class="form-group">
 		<div class="col-lg-offset-2 col-lg-2">
-			<%= button_tag(:class => 'btn btn-success') do %>
+			<%= f.submit :class => 'btn btn-success' do %>
 				<span class="fa fa-save fa-fw"></span> Save Changes
-			<% end %>
-		</div>
-		<div class="col-lg-offset-6 col-lg-1">
-			<%= link_to contact_details_path(@person), :class => 'btn btn-success'  do %>
-				<span class="fa fa-arrow-left fa-fw"></span> Cancel
 			<% end %>
 		</div>
 	</div>
