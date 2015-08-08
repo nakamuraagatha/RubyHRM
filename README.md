@@ -1,6 +1,6 @@
 == Ruby HRM
 
-This project is my attempt at creating an open source human resource management system powered by Ruby on Rails. This project is an exercise in demonstrating my understanding of Ruby on Rails via a large-ish project encompasing many  HCM Modules.
+This project is my attempt at creating an open source human resource management system powered by Ruby on Rails. This project is an exercise in demonstrating my understanding of Ruby on Rails via a large-ish project encompasing many HCM Modules.
 
 This project was developed on...
 
@@ -12,15 +12,18 @@ This project was developed on...
 
 * This project also uses Bootstrap (not via gem)
 
-	http://getbootstrap.com/
+  http://getbootstrap.com/
 
 * Responsive template SB Admin 2 Dashboard template was used as a base
 
-	http://startbootstrap.com/template-overviews/sb-admin-2/
+  http://startbootstrap.com/template-overviews/sb-admin-2/
+
+
 
 See the Issues Section for the number of TODOs that I am working on for this project.
 
 
+
 If you would like to test out a demo for this application as it stands today, see the link below. Please note that this project is in its early stages and is still in development. Features will change.
 
-	https://protected-harbor-6312.herokuapp.com/login
+  https://protected-harbor-6312.herokuapp.com/login

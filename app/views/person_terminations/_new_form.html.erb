@@ -3,7 +3,7 @@
 	<div class="form-group">
 		<%= f.label "Termination Reason", :class => 'col-lg-2 control-label' %>
 		<div class="col-lg-3">
-			<%= f.text_field :termination_reason_id, :class => 'form-control' %>
+			<%= f.collection_select :termination_reason_id, TerminationReason.all, :id, :description, { :include_blank => "Select Termination Reason" }, { :class => 'form-control' } %>
 		</div>
 	</div>
 	<div class="form-group">

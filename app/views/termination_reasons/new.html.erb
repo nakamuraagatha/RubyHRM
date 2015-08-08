@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header">Termination Details</h1>
+        <h1 class="page-header">Termination Reasons</h1>
     </div>
     <!-- /.col-lg-12 -->
 </div>
@@ -8,12 +8,17 @@
 
 <div class="row">
     <div class="col-lg-12">
+		<%= render 'termination_reason_errors' %>
+	</div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				<i class="fa fa-eye fa-fw"></i> View Termination Details
+				<i class="fa fa-plus fa-fw"></i> Add Termination Reason
 			</div>
 			<div class="panel-body">	
-				<%= render 'show_form' %>
+				<%= render 'new_form' %>
 			</div>
 		</div>
 	</div>

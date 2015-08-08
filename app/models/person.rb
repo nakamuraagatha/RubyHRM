@@ -33,6 +33,10 @@ class Person < ActiveRecord::Base
 		self.job_detail = JobDetail.create(person_id: self.id)
 	end
 
+	def active?
+		PersonTermination.find_by_person_id(self.id).nil?
+	end
+
 	private
 		def self.search(query)
 			where("first_name ILIKE ? OR last_name ILIKE ? OR preferred_first ILIKE ?", "%#{query}%", "%#{query}%", "%#{query}%")

@@ -8,6 +8,9 @@ SystemLanguage.create(language_code: 'fr', language_description: 'French')
 
 Country.create(country_code: 'US', description: 'United States of America')
 
+State.create(country_id: '1', state_code: 'MA', description: 'Massachusetts')
+State.create(country_id: '1', state_code: 'RI', description: 'Rhode Island')
+
 User.create(username: 'Administrator', password: 'password', password_confirmation: 'password', role: 'admin', locale: 'en')
 
 Translation.create(locale: 'en', key: 'login.username', value: 'Username')

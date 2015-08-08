@@ -42,7 +42,13 @@
 					<tbody>
 						<% @people.each do |p| %>
 						<tr>
-							<td><%= p.employee_id %></td>
+							<td>
+								<% if p.active? %>
+									<%= p.employee_id %>
+								<% else %>
+									<%= p.employee_id %> (Inactive)
+								<% end %>
+							</td>
 							<td><%= p.first_name %></td>
 							<td><%= p.last_name %></td>
 							<td><%= p.job_detail.job_title.job_title unless p.job_detail.job_title_id.nil? %></td>

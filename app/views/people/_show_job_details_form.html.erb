@@ -24,10 +24,25 @@
 		<div class="form-group">
 			<hr>
 		</div>
+
 		<div class="form-group">
 			<div class="col-lg-offset-2 col-lg-1">
 				<%= link_to edit_job_details_path(@person), :class => 'btn btn-success'  do %>
-					<span class="fa fa-pencil"></span> Edit Job Details
+					<i class="fa fa-pencil"></i> <%= t('button.edit') %>
+				<% end %>
+			</div>
+			<div class="col-lg-4">
+				<% if @person.active? %>
+					<%= link_to new_person_termination_path(:person_id => @person.id), :class => 'btn btn-danger disabled' do %>
+						<i class="fa fa-times-circle"></i> Terminate Employee
+					<% end %>
+				<% else %>
+					<%= link_to person_termination_path(PersonTermination.find_by_person_id(@person.id)), method: :delete, data: { confirm: "Are you sure?" }, :class => 'btn btn-danger disabled' do %>
+						<i class="fa fa-refresh"></i> Re-activate Employee
+					<% end %>
+					<%= link_to person_termination_path(PersonTermination.find_by_person_id(@person.id)) do %>
+						Termination Date: <%= PersonTermination.find_by_person_id(@person.id).termination_date %>
+					<% end %>
 				<% end %>
 			</div>
 		</div>
