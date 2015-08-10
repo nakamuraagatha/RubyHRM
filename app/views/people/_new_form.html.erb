@@ -1,20 +1,28 @@
 <%= form_for @person, :html => { :class => 'form-horizontal'}  do |f| %>
-	<div class="row">
-		<p class="col-lg-2 text-muted small hidden-sm hidden-xs"> </p>
-		<p class="col-lg-2 text-muted small hidden-sm hidden-xs"><strong>First Name<span class="text-danger">*</span></strong></p>
-		<p class="col-lg-2 text-muted small hidden-sm hidden-xs"><strong>Middle Name</strong></p>
-		<p class="col-lg-2 text-muted small hidden-sm hidden-xs"><strong>Last Name<span class="text-danger">*</span></strong></p>
-	</div>
 	<div class="form-group">
-		<%= f.label "Full Name", :class => 'col-lg-2 control-label' %>
-		<div class="col-lg-2">
-			<%= f.text_field :first_name, :class => 'form-control'%>
+		<%= f.label "First Name", :class => 'col-lg-2 control-label' %>
+		<div class="col-lg-3">
+			<%= f.text_field :first_name, :class => 'form-control' %>
 		</div>
-		<div class="col-lg-2">
+		<%= f.label "Middle Name", :class => 'col-lg-3 control-label' %>
+		<div class="col-lg-3">
 			<%= f.text_field :middle_name, :class => 'form-control' %>
 		</div>
-		<div class="col-lg-2">
+	</div>
+	<div class="form-group">
+		<%= f.label "Last Name", :class => 'col-lg-2 control-label' %>
+		<div class="col-lg-3">
 			<%= f.text_field :last_name, :class => 'form-control' %>
+		</div>
+		<%= f.label "Suffix", :class => 'col-lg-3 control-label' %>
+		<div class="col-lg-3">
+			<%= f.select :name_suffix, options_for_select(["Jr.", "Sr.", "III", "IV"], :selected => f.object.name_suffix ), {:prompt => 'Select'}, { :class => 'form-control'} %>
+		</div>
+	</div>
+	<div class="form-group">
+		<%= f.label "Preferred Name", :class => 'col-lg-2 control-label' %>
+		<div class="col-lg-3">
+			<%= f.text_field :preferred_first, :class => 'form-control' %>
 		</div>
 	</div>
 	<div class="form-group">
@@ -75,6 +83,10 @@
 			</div>
 		</span>
 	<% end %>
+
+	<div class="form-group">
+		<hr>
+	</div>
 
 	<div class="form-group">
 		<div class="col-lg-offset-2 col-lg-1">

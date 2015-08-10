@@ -29,6 +29,6 @@ class PayDetailsController < ApplicationController
 
 	private
 		def pay_detail_params
-			params.require(:pay_detail).permit(:person_id, :component_name, :pay_rate, :pay_frequency, :currency_code, :note)
+			params.require(:pay_detail).permit(:person_id, :pay_grade_id, :component_name, :pay_rate, :pay_frequency, :currency_code, :note)
 		end
 end

@@ -1,10 +1,14 @@
 <% if @user.errors.any? %>
-	<div id="error_explanation">
-		<h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
-		<ul>
-			<% @user.errors.full_messages.each do |message| %>
-				<li><%= message %></li>
-			<% end %>
-		</ul>
+	<div class="panel panel-danger">
+		<div class="panel-heading">
+			<i class="fa fa-exclamation-triangle fa-fw"></i> <%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:
+		</div>
+		<div class="panel-body">	
+			<ul>
+				<% @user.errors.full_messages.each do |message| %>
+					<li><%= message %></li>
+				<% end %>
+			</ul>
+		</div>
 	</div>
 <% end %>

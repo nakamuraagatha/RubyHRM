@@ -48,6 +48,7 @@ Rails.application.routes.draw do
   resources :countries
   resources :states
   resources :termination_reasons
+  resources :pay_grades
 
   get 'dashboard/index'
   # The priority is based upon order of creation: first created -> highest priority.

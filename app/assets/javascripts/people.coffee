@@ -14,3 +14,12 @@ jQuery ->
 		$(this).before($(this).data('fields').replace(regexp, time))
 		event.preventDefault()
 
+	states = $('province').html
+	$('country').change ->
+		country = $('country' :selected).text()
+		options = $('states').filter("optgroup[label='#{country}']").html()
+		if(options)
+			$('province').html(options)
+		else
+			$('province').empty()
+			$('province').parent.hide()

@@ -1,6 +1,12 @@
 <%= form_for @pay_detail, :html => { :class => 'form-horizontal'}  do |f| %>
 	<%= f.hidden_field :person_id, :value => params[:person_id] %>
 	<div class="form-group">
+		<%= f.label "Pay Grade", :class => 'col-lg-2 control-label' %>
+		<div class="col-lg-3">
+			<%= f.collection_select :pay_grade_id, PayGrade.all, :id, :description,  {:include_blank => 'Select Pay Grade'}, { :class => 'form-control'} %>
+		</div>
+	</div>
+	<div class="form-group">
 		<%= f.label "component Name", :class => 'col-lg-2 control-label' %>
 		<div class="col-lg-3">
 			<%= f.text_field :component_name, :class => 'form-control' %>
@@ -32,8 +38,8 @@
 	</div>
 	<div class="form-group">
 		<div class="col-lg-offset-1 col-lg-2">
-			<%= button_tag(:class => 'btn btn-success') do %>
-				<span class="fa fa-save fa-fw"></span> Save Pay Component
+			<%= f.submit :class => 'btn btn-success' do %>
+				<span class="fa fa-save fa-fw"></span> <%= t('button.save') %>
 			<% end %>
 		</div>
 	</div>

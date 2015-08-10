@@ -1,4 +1,7 @@
 class Translation < ActiveRecord::Base
+	validates :locale, presence: true
+	validates :key, presence: true
+	validates :value, presence: true
 
 	private
 		def self.search(query1, query2)

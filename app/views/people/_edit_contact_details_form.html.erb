@@ -16,7 +16,7 @@
 		</div>
 		<%= f.label "State/Province", :class => 'col-lg-3 control-label' %>
 		<div class="col-lg-3">
-			<%= f.collection_select :province, State.all, :state_code, :description, {:include_blank => 'Select State'}, { :class => 'form-control'} %>
+			<%= f.grouped_collection_select :province, Country.all, :states, :description, :state_code, :description, {:include_blank => 'Select State'}, { :class => 'form-control'} %>
 		</div>
 	</div>
 	<div class="form-group">

@@ -1,0 +1,14 @@
+<% if @department.errors.any? %>
+	<div class="panel panel-danger">
+		<div class="panel-heading">
+			<i class="fa fa-exclamation-triangle fa-fw"></i> <%= pluralize(@department.errors.count, "error") %> prohibited this user from being saved:
+		</div>
+		<div class="panel-body">	
+			<ul>
+				<% @department.errors.full_messages.each do |message| %>
+					<li><%= message %></li>
+				<% end %>
+			</ul>
+		</div>
+	</div>
+<% end %>

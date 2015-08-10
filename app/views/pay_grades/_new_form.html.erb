@@ -1,0 +1,33 @@
+<%= form_for @pay_grade, :html => { :class => 'form-horizontal'}  do |f| %>
+	<div class="form-group">
+		<%= f.label "Pay Grade", :class => 'col-lg-2 control-label' %>
+		<div class="col-lg-3">
+			<%= f.text_field :description, :class => 'form-control' %>
+		</div>
+	</div>
+	<div class="form-group">
+		<%= f.label "Minimum", :class => 'col-lg-2 control-label' %>
+		<div class="col-lg-3">
+			<%= f.text_field :minimum, :class => 'form-control' %>
+		</div>
+	</div>
+	<div class="form-group">
+		<%= f.label "Maximum", :class => 'col-lg-2 control-label' %>
+		<div class="col-lg-3">
+			<%= f.text_field :maximum, :class => 'form-control' %>
+		</div>
+	</div>
+	<div class="form-group">
+		<%= f.label "Currency", :class => 'col-lg-2 control-label' %>
+		<div class="col-lg-3">
+			<%= f.text_field :currency_code, :class => 'form-control' %>
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="col-lg-offset-1 col-lg-2">
+			<%= f.submit :class => 'btn btn-success' do %>
+				<span class="fa fa-save fa-fw"></span> <%= t('button.save') %>
+			<% end %>
+		</div>
+	</div>
+<% end %>
