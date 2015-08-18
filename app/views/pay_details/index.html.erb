@@ -2,24 +2,22 @@
     <div class="col-lg-12">
         <h1 class="page-header">Pay Details</h1>
     </div>
-    <!-- /.col-lg-12 -->
 </div>
-<!-- /.row -->
 
-<%= render 'person_details_nav' %>
+<%= render 'layouts/person_details' %>
 
 <div class="row">
 	<div class="col-lg-12">	
 		<div class="panel with-nav-tabs panel-default">
 			<div class="panel-heading">
-				<%= render 'person_tab_navigation' %>
+				<%= render 'layouts/person_tab_navigation' %>
 			</div>	
 			<div class="panel-body">
-				<%= link_to new_pay_detail_path(:person_id => @person.id), :class => 'btn btn-success' do %>
-					<i class="fa fa-plus fa-fw"></i>  Add Pay Component
+				<%= link_to new_person_pay_detail_path(@person), :class => 'btn btn-success' do %>
+					<i class="fa fa-plus fa-fw"></i>  <%= t('button.add_pay_component') %>
 				<% end %>
 				<br/><br/>
-				<% if @person.pay_details.empty? %>
+				<% if @pay_details.empty? %>
 					<p>There were no results found.</p>
 				<% else %>	
 					<div class="table-responsive">
@@ -34,18 +32,18 @@
 								</tr>
 							</thead>
 							<tbody>
-								<% @person.pay_details.each do |pd| %>
+								<% @pay_details.each do |pd| %>
 								<tr>
 									<td><%= pd.component_name %></td>
 									<td><%= pd.pay_rate %></td>
 									<td><%= pd.pay_frequency %></td>
 									<td><%= pd.currency_code %></td>
 									<td>
-										<%= link_to pay_detail_path(pd.id), :class => "btn btn-success btn-xs" do %>
-											<i class="fa fa-search fa-fw"></i> View
+										<%= link_to person_pay_detail_path(@person, pd.id), :class => "btn btn-success btn-xs" do %>
+											<i class="fa fa-search fa-fw"></i> <%= t('button.view') %>
 										<% end %>
-										<%= link_to pay_detail_path(pd.id), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-xs" do %>
-											<i class="fa fa-trash-o fa-fw"></i> Delete
+										<%= link_to person_pay_detail_path(@person, pd.id), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-xs" do %>
+											<i class="fa fa-trash-o fa-fw"></i> <%= t('button.delete') %>
 										<% end %>
 									</td>
 								</tr>

@@ -1,4 +1,4 @@
-<%= form_for @pay_detail, :html => { :class => 'form-horizontal'}  do |f| %>
+<%= form_for [@person, @pay_detail], :html => { :class => 'form-horizontal'}  do |f| %>
 	<%= f.hidden_field :person_id, :value => params[:person_id] %>
 	<div class="form-group">
 		<%= f.label "Pay Grade", :class => 'col-lg-2 control-label' %>

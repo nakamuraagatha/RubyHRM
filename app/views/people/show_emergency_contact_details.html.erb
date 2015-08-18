@@ -6,14 +6,13 @@
 </div>
 <!-- /.row -->
 
-<%= render 'person_details_nav' %>
-
+<%= render 'layouts/person_details' %>
 
 <div class="row">
 	<div class="col-lg-12">	
 		<div class="panel with-nav-tabs panel-default">
 			<div class="panel-heading">
-				<%= render 'person_tab_navigation' %>
+				<%= render 'layouts/person_tab_navigation' %>
 			</div>	
 			<div class="panel-body">
 				<%= link_to new_emergency_contact_path(:person_id => @person.id), :class => 'btn btn-success' do %>

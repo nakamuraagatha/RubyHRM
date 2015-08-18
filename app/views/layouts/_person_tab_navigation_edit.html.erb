@@ -2,13 +2,13 @@
 	<li class="dropdown <%= controller.class == PeopleController and controller.action_name != 'show_qualifications' ? 'active' : '' %>">
 		<a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-th-list fa-fw"></i> Person Details <span class="caret"></span></a>
 		<ul class="dropdown-menu">
-			<li class="<%= controller.class == PeopleController and controller.action_name == 'show' ? 'active' : '' %>">
-				<%= link_to person_path(@person) do %>
+			<li class="<%= controller.class == PeopleController and controller.action_name == 'edit' ? 'active' : '' %>">
+				<%= link_to edit_person_path(@person) do %>
 					<i class="fa fa-th-list fa-fw"></i> Personal Details
 				<% end %>
 			</li>
-			<li class="<%= controller.class == PeopleController and controller.action_name == 'show_contact_details' ? 'active' : '' %>">
-				<%= link_to contact_details_path(@person) do %>
+			<li class="<%= controller.class == PeopleController and controller.action_name == 'edit_contact_details' ? 'active' : '' %>">
+				<%= link_to edit_contact_details_path(@person) do %>
 					<i class="fa fa-phone fa-fw"></i> Contact Details
 				<% end %>
 			</li>
@@ -17,13 +17,13 @@
 					<i class="fa fa-warning fa-fw"></i> Emergency Contacts
 				<% end %>
 			</li>
-			<li class="<%= controller.class == PeopleController and controller.action_name == 'show_job_details' ? 'active' : '' %>">
-				<%= link_to job_details_path(@person) do %>
+			<li class="<%= controller.class == PeopleController and controller.action_name == 'edit_job_details' ? 'active' : '' %>">
+				<%= link_to edit_job_details_path(@person) do %>
 					<i class="fa fa-th-list fa-fw"></i> Job Details
 				<% end %>
 			</li>
 			<li class="<%= controller.class == PeopleController and controller.action_name == 'show_pay_details' ? 'active' : '' %>">
-				<%= link_to show_pay_details_path(@person) do %>
+				<%= link_to person_pay_details_path(@person) do %>
 					<i class="fa fa-money fa-fw"></i> Pay Details
 				<% end %>
 			</li>
@@ -37,11 +37,11 @@
 					<i class="fa fa-child fa-fw"></i> Dependents
 				<% end %>
 			</li>
-		</ul>
-	</li>
+			</ul>
+	</li>	
 	<li class="<%= controller.class == PeopleController and controller.action_name == 'show_qualifications' ? 'active' : '' %>">
 		<%= link_to qualifications_path(@person) do %>
 			<i class="fa fa-certificate fa-fw"></i> Qualifications
 		<% end %>
-	</li>			
+	</li>	
 </ul>

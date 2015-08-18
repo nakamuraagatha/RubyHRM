@@ -7,15 +7,17 @@ class DependentsController < ApplicationController
 
 	def new
 		@dependent = Dependent.new
+		@person_id = params[:person_id]
 	end
 
 	def create
 		@dependent = Dependent.new(dependent_params)
+		@person_id = @dependent.person_id
 		if @dependent.save
 			flash[:success] = "Dependent has been added"
 			redirect_to dependent_details_path(@dependent.person_id)
-		else
-			render 'new'
+		else	
+			render 'new', :person_id => @person_id
 		end
 	end
 
