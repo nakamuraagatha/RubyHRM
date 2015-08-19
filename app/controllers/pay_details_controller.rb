@@ -1,5 +1,5 @@
 class PayDetailsController < ApplicationController
-	before_filter :get_person_id
+	before_action :get_person_id
 	before_action :require_user
 	
 	def index
