@@ -9,6 +9,9 @@ Rails.application.routes.draw do
 
   resources :people do
     resources :pay_details
+    resources :dependents
+    resources :emergency_contacts
+    resources :reporting_relationships
   end
 
   get 'person/contact_details/:id' => 'people#show_contact_details', as: 'contact_details'
@@ -22,9 +25,6 @@ Rails.application.routes.draw do
   put 'person/job_details/:id' => 'people#update_job_details'
 
   get 'person/reports_to_details/:id' => 'people#show_reports_to_details', as: 'reports_to_details'
-  get 'person/emergency_contact_details/:id' => 'people#show_emergency_contact_details', as: 'emergency_contact_details'
-  get 'person/dependent_details/:id' => 'people#show_dependent_details', as: 'dependent_details'
-
   get 'person/qualifications/:id' => 'people#show_qualifications', as: 'qualifications'
 
   resources :phone_numbers
@@ -32,9 +32,6 @@ Rails.application.routes.draw do
   resources :job_titles
   resources :departments
   resources :locations
-  resources :reporting_relationships
-  resources :emergency_contacts
-  resources :dependents
   resources :person_skills
   resources :person_educations
   resources :person_languages

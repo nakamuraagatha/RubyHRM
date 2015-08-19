@@ -13,7 +13,7 @@
 				<% end %>
 			</li>
 			<li class="<%= controller.class == PeopleController and controller.action_name == 'show_emergency_contact_details' ? 'active' : '' %>">
-				<%= link_to emergency_contact_details_path(@person) do %>
+				<%= link_to person_emergency_contacts_path(@person) do %>
 					<i class="fa fa-warning fa-fw"></i> Emergency Contacts
 				<% end %>
 			</li>
@@ -28,12 +28,12 @@
 				<% end %>
 			</li>
 			<li class="<%= controller.class == PeopleController and controller.action_name == 'show_reports_to_details' ? 'active' : '' %>">
-				<%= link_to reports_to_details_path(@person) do %>
+				<%= link_to person_reporting_relationships_path(@person) do %>
 					<i class="fa fa-sitemap fa-fw"></i> Supervisor Details
 				<% end %>
 			</li>
 			<li class="<%= controller.class == PeopleController and controller.action_name == 'show_dependent_details' ? 'active' : '' %>">
-				<%= link_to dependent_details_path(@person) do %>
+				<%= link_to person_dependents_path(@person) do %>
 					<i class="fa fa-child fa-fw"></i> Dependents
 				<% end %>
 			</li>

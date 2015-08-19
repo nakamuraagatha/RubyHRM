@@ -1,10 +1,8 @@
 <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header">Emergency Contacts</h1>
+        <h1 class="page-header">Dependents</h1>
     </div>
-    <!-- /.col-lg-12 -->
 </div>
-<!-- /.row -->
 
 <%= render 'layouts/person_details' %>
 
@@ -15,11 +13,11 @@
 				<%= render 'layouts/person_tab_navigation' %>
 			</div>	
 			<div class="panel-body">
-				<%= link_to new_emergency_contact_path(:person_id => @person.id), :class => 'btn btn-success' do %>
-					<i class="fa fa-plus fa-fw"></i> Add Emergency Contact
+				<%= link_to new_person_dependent_path(@person), :class => 'btn btn-success' do %>
+					<i class="fa fa-plus fa-fw"></i> Add Dependent
 				<% end %>
 				<br/><br/>
-				<% if @person.emergency_contacts.empty? %>
+				<% if @dependents.empty? %>
 					<p>There were no results found.</p>
 				<% else %>	
 					<div class="table-responsive">
@@ -27,19 +25,21 @@
 							<thead>
 								<tr>
 									<th>Name</th>
+									<th>Relationship</th>
 									<th></th>
 								</tr>
 							</thead>
 							<tbody>
-								<% @person.emergency_contacts.each do |ec| %>
+								<% @dependents.each do |d| %>
 								<tr>
-									<td><%= ec.name %></td>
+									<td><%= d.name %></td>
+									<td><%= d.relationship %></td>
 									<td>
-										<%= link_to emergency_contact_path(ec.id), :class => "btn btn-success btn-xs" do %>
-											<i class="fa fa-search fa-fw"></i> View
+										<%= link_to person_dependent_path(@person, d.id), :class => "btn btn-success btn-xs" do %>
+											<i class="fa fa-search fa-fw"></i> <%= t('button.view') %>
 										<% end %>
-										<%= link_to emergency_contact_path(ec.id), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-xs" do %>
-											<i class="fa fa-trash-o fa-fw"></i> Delete
+										<%= link_to person_dependent_path(@person, d.id), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-xs" do %>
+											<i class="fa fa-trash-o fa-fw"></i> <%= t('button.delete') %>
 										<% end %>
 									</td>
 								</tr>
