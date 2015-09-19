@@ -1,10 +1,13 @@
 class Person < ActiveRecord::Base
-	before_create :add_job_detail
+	after_create :add_job_detail
+	after_create :add_contact_detail
 
 	has_one :user
 	has_one :job_detail
 	has_one :job_title, :through => :job_detail
 	has_one :department, :through => :job_detail
+	has_one :location, :through => :job_detail
+	has_one :contact_detail
 	has_one :termination
 	has_many :phone_numbers
 	has_many :email_addresses
@@ -30,8 +33,14 @@ class Person < ActiveRecord::Base
 		self.preferred_first.present? ? "#{preferred_first} #{last_name}" : "#{first_name} #{last_name}"
 	end
 
+	#after the person is saved, create a job detail record with the person ID.
 	def add_job_detail
 		JobDetail.create(person_id: self.id, start_date: DateTime.now.to_date)
+	end
+	
+	#after the person is saved, create a contact detail record with the person ID.
+	def add_contact_detail
+		ContactDetail.create(person_id: self.id)
 	end
 
 	def active?
@@ -39,7 +48,7 @@ class Person < ActiveRecord::Base
 	end
 
 	private
-		def self.search(query)
-			where("first_name ILIKE ? OR last_name ILIKE ? OR preferred_first ILIKE ?", "%#{query}%", "%#{query}%", "%#{query}%")
-		end
+	def self.search(query)
+		where("first_name ILIKE ? OR last_name ILIKE ? OR preferred_first ILIKE ?", "%#{query}%", "%#{query}%", "%#{query}%")
+	end
 end

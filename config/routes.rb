@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :password_resets
 
   resources :people do
+    resources :contact_details
     resources :job_details
     resources :pay_details
     resources :dependents
@@ -16,12 +17,6 @@ Rails.application.routes.draw do
     resources :terminations
   end
 
-  get 'person/contact_details/:id' => 'people#show_contact_details', as: 'contact_details'
-  get 'person/contact_details/:id/edit' => 'people#edit_contact_details', as: 'edit_contact_details'
-  patch 'person/contact_details/:id' => 'people#update_contact_details'
-  put 'person/contact_details/:id' => 'people#update_contact_details'
-
-  get 'person/reports_to_details/:id' => 'people#show_reports_to_details', as: 'reports_to_details'
   get 'person/qualifications/:id' => 'people#show_qualifications', as: 'qualifications'
 
   resources :phone_numbers

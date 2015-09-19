@@ -1,0 +1,14 @@
+<% if @job_detail.errors.any? %>
+	<div class="panel panel-danger">
+		<div class="panel-heading">
+			<i class="fa fa-exclamation-triangle fa-fw"></i> <%= pluralize(@job_detail.errors.count, "error") %> prohibited this record from being saved:
+		</div>
+		<div class="panel-body">	
+			<ul>
+				<% @job_detail.errors.full_messages.each do |message| %>
+					<li><%= message %></li>
+				<% end %>
+			</ul>
+		</div>
+	</div>
+<% end %>

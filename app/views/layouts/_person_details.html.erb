@@ -10,7 +10,7 @@
 					</div>
 					<div class="col-lg-10">
 						<h2><%= @person.full_name %></h2>
-						<p><i class="fa fa-phone fa-fw"></i> <%= @person.business_phone %>  <i class="fa fa-envelope fa-fw"></i> <%= @person.business_email %></p>
+						<p><i class="fa fa-phone fa-fw"></i> <%= @person.contact_detail.business_phone %>  <i class="fa fa-envelope fa-fw"></i> <%= @person.contact_detail.business_email %></p>
 						<p><strong>Employee ID:</strong> <%= @person.employee_id %></p>
 					</div>
 				</div>

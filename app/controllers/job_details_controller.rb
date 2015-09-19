@@ -34,7 +34,7 @@ class JobDetailsController < ApplicationController
 
 	private
 	def set_job_detail
-		@job_detail = JobDetail.find(params[:id])
+		@job_detail = JobDetail.find_by_person_id(@person.id)
 	end
 
 	def get_person_id

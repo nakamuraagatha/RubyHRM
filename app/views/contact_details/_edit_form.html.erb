@@ -1,35 +1,35 @@
-<%= form_for @person, :html => { :class => 'form-horizontal'} do |f| %>
+<%= form_for [@person, @contact_detail], :html => { :class => 'form-horizontal'} do |f| %>
+	<%= f.hidden_field :person_id, :value => params[:person_id] %>
 	<div class="form-group">
 		<%= f.label "Address Line 1", :class => 'col-lg-2 control-label' %>
 		<div class="col-lg-3">
-			<%= f.text_field :address_line1, :class => 'form-control', :disabled => true %>
+			<%= f.text_field :address_line1, :class => 'form-control' %>
 		</div>
 		<%= f.label "Address Line 2", :class => 'col-lg-3 control-label' %>
 		<div class="col-lg-3">
-			<%= f.text_field :address_line2, :class => 'form-control', :disabled => true %>
+			<%= f.text_field :address_line2, :class => 'form-control' %>
 		</div>
 	</div>
 	<div class="form-group">
 		<%= f.label "City", :class => 'col-lg-2 control-label' %>
 		<div class="col-lg-3">
-			<%= f.text_field :city, :class => 'form-control', :disabled => true %>
+			<%= f.text_field :city, :class => 'form-control' %>
 		</div>
 		<%= f.label "State/Province", :class => 'col-lg-3 control-label' %>
 		<div class="col-lg-3">
-			<%= f.collection_select :province, State.all, :state_code, :description, {:include_blank => 'Select State'}, { :class => 'form-control', :disabled => true} %>
+			<%= f.grouped_collection_select :state, Country.all, :states, :description, :state_code, :description, {:include_blank => 'Select State'}, { :class => 'form-control'} %>
 		</div>
 	</div>
 	<div class="form-group">
 		<%= f.label "Postal Code", :class => 'col-lg-2 control-label' %>
 		<div class="col-lg-3">
-			<%= f.text_field :postal, :class => 'form-control', :disabled => true %>
+			<%= f.text_field :postal, :class => 'form-control' %>
 		</div>
 		<%= f.label "Country", :class => 'col-lg-3 control-label' %>
 		<div class="col-lg-3">
-			<%= f.collection_select :country, Country.all, :country_code, :description, {:include_blank => 'Select Country'}, { :class => 'form-control', :disabled => true } %>
+			<%= f.collection_select :country, Country.all, :country_code, :description, {:include_blank => 'Select Country'}, { :class => 'form-control'} %>
 		</div>
 	</div>
-
 	<div class="form-group">
 		<hr>
 	</div>
@@ -37,19 +37,19 @@
 	<div class="form-group">
 		<%= f.label "Home Phone", :class => 'col-lg-2 control-label' %>
 		<div class="col-lg-3">
-			<%= f.text_field :home_phone, :class => 'form-control', :disabled => true %>
+			<%= f.text_field :home_phone, :class => 'form-control' %>
 		</div>
 	</div>
 	<div class="form-group">
 		<%= f.label "Mobile Phone", :class => 'col-lg-2 control-label' %>
 		<div class="col-lg-3">
-			<%= f.text_field :mobile_phone, :class => 'form-control', :disabled => true %>
+			<%= f.text_field :mobile_phone, :class => 'form-control' %>
 		</div>
 	</div>
 	<div class="form-group">
 		<%= f.label "Business Phone", :class => 'col-lg-2 control-label' %>
 		<div class="col-lg-3">
-			<%= f.text_field :business_phone, :class => 'form-control', :disabled => true %>
+			<%= f.text_field :business_phone, :class => 'form-control' %>
 		</div>
 	</div>
 
@@ -61,24 +61,23 @@
 	<div class="form-group">
 		<%= f.label "Home Email", :class => 'col-lg-2 control-label' %>
 		<div class="col-lg-3">
-			<%= f.email_field :home_email, :class => 'form-control', :disabled => true %>
+			<%= f.email_field :home_email, :class => 'form-control' %>
 		</div>
 	</div>
 	<div class="form-group">
 		<%= f.label "Business Email", :class => 'col-lg-2 control-label' %>
 		<div class="col-lg-3">
-			<%= f.email_field :business_email, :class => 'form-control', :disabled => true %>
+			<%= f.email_field :business_email, :class => 'form-control' %>
 		</div>
 	</div>
-
 
 	<div class="form-group">
 		<hr>
 	</div>
 	<div class="form-group">
-		<div class="col-lg-offset-2 col-lg-1">
-			<%= link_to edit_contact_details_path(@person), :class => 'btn btn-success'  do %>
-				<i class="fa fa-pencil"></i> <%= t('button.edit') %>
+		<div class="col-lg-offset-2 col-lg-2">
+			<%= f.submit :class => 'btn btn-success' do %>
+				<i class="fa fa-save fa-fw"></i> <%= t('button.save') %>
 			<% end %>
 		</div>
 	</div>

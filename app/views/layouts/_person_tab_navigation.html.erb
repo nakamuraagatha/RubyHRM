@@ -8,7 +8,7 @@
 				<% end %>
 			</li>
 			<li class="<%= controller.class == PeopleController and controller.action_name == 'show_contact_details' ? 'active' : '' %>">
-				<%= link_to contact_details_path(@person) do %>
+				<%= link_to person_contact_detail_path(@person, @person.id) do %>
 					<i class="fa fa-phone fa-fw"></i> Contact Details
 				<% end %>
 			</li>
