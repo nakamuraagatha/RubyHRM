@@ -8,7 +8,7 @@ class JobDetail < ActiveRecord::Base
 	belongs_to :location
 	belongs_to :department
 
-	validates :job_title_id, presence: true
+	validates :job_title_id, presence: true, :on => :edit
 
 	private
 		def insert_job_history

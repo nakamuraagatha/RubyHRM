@@ -1,0 +1,49 @@
+<%= form_for [@person, @job_detail], :html => { :class => 'form-horizontal'} do |f| %>
+	<%= f.hidden_field :person_id, :value => params[:person_id] %>
+	<div class="form-group">
+		<%= f.label "Job Title", :class => 'col-lg-2 control-label' %>
+		<div class="col-lg-3">
+			<%= f.collection_select :job_title_id, JobTitle.all, :id, :job_title, { :include_blank => "Select Job Title" }, { :class => 'form-control' } %>
+		</div>
+		<%= f.label "Start Date", :class => 'col-lg-3 control-label' %>
+		<div class="col-lg-3">
+			<%= f.date_field :start_date, :class => 'form-control' %>
+		</div>
+	</div>
+	<div class="form-group">
+		<%= f.label "Department", :class => 'col-lg-2 control-label' %>
+		<div class="col-lg-3">
+			<%= f.collection_select :department_id, Department.all, :id, :name, { :include_blank => "Select Department" }, { :class => 'form-control' } %>
+		</div>
+		<%= f.label "Location", :class => 'col-lg-3 control-label' %>
+		<div class="col-lg-3">
+			<%= f.collection_select :location_id, Location.all, :id, :name, { :include_blank => "Select Location" }, { :class => 'form-control' } %>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<hr>
+	</div>
+
+	<div class="form-group">
+		<div class="col-lg-offset-2 col-lg-1">
+			<%= f.submit :class => 'btn btn-success' do %>
+				<span class="fa fa-save fa-fw"></span> <%= t('button.save') %>
+			<% end %>
+		</div>
+		<div class="col-lg-4">
+			<% if @person.active? %>
+				<%= link_to new_person_termination_path(@person), :class => 'btn btn-danger' do %>
+					<i class="fa fa-times-circle"></i> Terminate Employee
+				<% end %>
+			<% else %>
+				<%= link_to person_termination_path(@person, @person.id), method: :delete, data: { confirm: "Are you sure?" }, :class => 'btn btn-danger' do %>
+					<i class="fa fa-refresh"></i> Re-activate Employee
+				<% end %>
+				<%= link_to person_termination_path(@person, @person.id) do %>
+					Termination Date: <%= Termination.find_by_person_id(@person.id).termination_date %>
+				<% end %>
+			<% end %>
+		</div>
+	</div>
+<% end %>

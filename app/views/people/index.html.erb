@@ -51,8 +51,8 @@
 							</td>
 							<td><%= p.first_name %></td>
 							<td><%= p.last_name %></td>
-							<td><%= p.job_detail.job_title.job_title unless p.job_detail.job_title_id.nil? %></td>
-							<td><%= p.job_detail.department.name unless p.job_detail.department_id.nil? %></td>
+							<td><%= p.job_title.job_title unless p.job_title.nil? %></td>
+							<td><%= p.department.name unless p.department.nil? %></td>
 							<td>
 								<%= p.reporting_relationships.map { |rr| rr.manager.full_name}.join(", ") %>
 							</td>

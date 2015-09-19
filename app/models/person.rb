@@ -3,7 +3,9 @@ class Person < ActiveRecord::Base
 
 	has_one :user
 	has_one :job_detail
-	has_one :person_termination
+	has_one :job_title, :through => :job_detail
+	has_one :department, :through => :job_detail
+	has_one :termination
 	has_many :phone_numbers
 	has_many :email_addresses
 	has_many :pay_details
@@ -23,18 +25,17 @@ class Person < ActiveRecord::Base
 	validates :date_of_birth, presence: true, :on => :edit
 
 	accepts_nested_attributes_for :user, :reject_if => :all_blank
-	accepts_nested_attributes_for :job_detail, :reject_if => :all_blank
 
 	def full_name
 		self.preferred_first.present? ? "#{preferred_first} #{last_name}" : "#{first_name} #{last_name}"
 	end
 
 	def add_job_detail
-		self.job_detail = JobDetail.create(person_id: self.id)
+		JobDetail.create(person_id: self.id, start_date: DateTime.now.to_date)
 	end
 
 	def active?
-		PersonTermination.find_by_person_id(self.id).nil?
+		Termination.find_by_person_id(self.id).nil?
 	end
 
 	private

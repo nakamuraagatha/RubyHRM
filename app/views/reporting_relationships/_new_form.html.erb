@@ -14,7 +14,11 @@
 		</div>
 	</div>
 
-	<%= button_tag(:class => 'btn btn-success') do %>
-				<span class="fa fa-save fa-fw"></span> Save
-	<% end %>
+	<div class="form-group">
+		<div class="col-lg-offset-1 col-lg-2">
+			<%= button_tag(:class => 'btn btn-success') do %>
+				<span class="fa fa-save fa-fw"></span> <%= t('button.save') %>
+			<% end %>
+		</div>
+	</div>
 <% end %>

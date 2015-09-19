@@ -18,7 +18,7 @@
 				<% end %>
 			</li>
 			<li class="<%= controller.class == PeopleController and controller.action_name == 'show_job_details' ? 'active' : '' %>">
-				<%= link_to job_details_path(@person) do %>
+				<%= link_to person_job_detail_path(@person, @person.id) do %>
 					<i class="fa fa-th-list fa-fw"></i> Job Details
 				<% end %>
 			</li>

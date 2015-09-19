@@ -17,13 +17,6 @@ class PeopleController < ApplicationController
 	def show_contact_details
 	end
 
-	def show_job_details
-		unless @person.job_detail.present?
-			@person.build_job_detail
-		end
-		@job_detail_histories = JobDetailHistory.all
-	end
-
 	def show_qualifications
 	end
 
@@ -69,21 +62,6 @@ class PeopleController < ApplicationController
 			redirect_to contact_details_path(@person)
 		else
 			render "edit_contact_details"
-		end
-	end
-
-	def edit_job_details
-		unless @person.job_detail.present?
-			@person.build_job_detail
-		end
-	end
-
-	def update_job_details
-		if @person.update_attributes(person_params)		
-			flash[:success] = "Job detail was successfully updated"
-			redirect_to job_details_path(@person)
-		else
-			render "edit_job_details"
 		end
 	end
 

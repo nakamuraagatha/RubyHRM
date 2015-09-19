@@ -1,4 +1,4 @@
-class PersonTermination < ActiveRecord::Base
+class Termination < ActiveRecord::Base
 	belongs_to :person
 	belongs_to :terminatoion_reason
 

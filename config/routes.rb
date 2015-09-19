@@ -8,21 +8,18 @@ Rails.application.routes.draw do
   resources :password_resets
 
   resources :people do
+    resources :job_details
     resources :pay_details
     resources :dependents
     resources :emergency_contacts
     resources :reporting_relationships
+    resources :terminations
   end
 
   get 'person/contact_details/:id' => 'people#show_contact_details', as: 'contact_details'
   get 'person/contact_details/:id/edit' => 'people#edit_contact_details', as: 'edit_contact_details'
   patch 'person/contact_details/:id' => 'people#update_contact_details'
   put 'person/contact_details/:id' => 'people#update_contact_details'
-
-  get 'person/job_details/:id' => 'people#show_job_details', as: 'job_details'
-  get 'person/job_details/:id/edit' => 'people#edit_job_details', as: 'edit_job_details'
-  patch 'person/job_details/:id' => 'people#update_job_details'
-  put 'person/job_details/:id' => 'people#update_job_details'
 
   get 'person/reports_to_details/:id' => 'people#show_reports_to_details', as: 'reports_to_details'
   get 'person/qualifications/:id' => 'people#show_qualifications', as: 'qualifications'
@@ -37,7 +34,6 @@ Rails.application.routes.draw do
   resources :person_languages
   resources :person_certifications
   resources :translations
-  resources :person_terminations
   resources :job_detail_histories
   resources :system_languages
   resources :languages

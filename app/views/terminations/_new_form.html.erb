@@ -1,4 +1,4 @@
-<%= form_for @person_termination, :html => { :class => 'form-horizontal'}  do |f| %>
+<%= form_for [@person, @termination], :html => { :class => 'form-horizontal'}  do |f| %>
 	<%= f.hidden_field :person_id, :value => params[:person_id] %>
 	<div class="form-group">
 		<%= f.label "Termination Reason", :class => 'col-lg-2 control-label' %>
