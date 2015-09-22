@@ -3,7 +3,11 @@ class JobTitlesController < ApplicationController
 	before_action :require_user
 	
 	def index
-		@job_titles = JobTitle.all
+		if params[:search]
+			@job_titles = JobTitle.search(params[:search])
+		else
+			@job_titles = JobTitle.all
+		end
 	end
 
 	def show

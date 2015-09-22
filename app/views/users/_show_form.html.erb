@@ -29,5 +29,16 @@
 			<%= f.text_field :email, :class => 'form-control', :disabled => true %>
 		</div>
 	</div>
-	<%= link_to "Edit", edit_user_path(@user), :class => "btn btn-success" %>
+	<div class="form-group">
+		<div class="col-lg-offset-2 col-lg-1">
+			<%= link_to edit_user_path(@user), :class => 'btn btn-warning'  do %>
+				<i class="fa fa-pencil fa-fw"></i> <%= t('button.edit') %>
+			<% end %>
+		</div>
+		<div class="col-lg-offset-2 col-lg-1">
+			<%= link_to users_path, :class => 'btn btn-success'  do %>
+				<i class="fa fa-arrow-left"></i> <%= t('button.return_to_search') %>
+			<% end %>
+		</div>
+	</div>
 <% end %>

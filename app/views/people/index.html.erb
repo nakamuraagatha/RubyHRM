@@ -7,10 +7,17 @@
 <div class="panel panel-default">
 	<div class="panel-heading"><i class="fa fa-search fa-fw"></i> Search Employees</div>
 	<div class="panel-body">
-		<%= form_tag(people_path, :method => "get", id: "search-form", :class => "form-inline") do %>
-			<div class="form-group col-lg-3">
-				<%= text_field_tag :search, params[:search], :placeholder => "Search Name", :class => "form-control" %>
-				<%= submit_tag "Search", :name => nil, :class =>  "btn btn-default" %>
+		<%= form_tag(people_path, :method => "get", id: "search-form", :class => "form-horizontal") do %>
+			<div class="form-group">
+				<%= label_tag :search, "Name", :class => "col-lg-1 control-label" %>
+				<div class="col-lg-2">
+					<%= text_field_tag :search, params[:search], :placeholder => "Search Name", :class => "form-control" %>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-lg-offset-1 col-lg-2">
+					<%= submit_tag "Search", :name => nil, :class =>  "btn btn-default" %>
+				</div>
 			</div>
 		<% end %>
 	</div>

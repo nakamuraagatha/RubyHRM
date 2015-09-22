@@ -4,7 +4,11 @@ class DepartmentsController < ApplicationController
   before_action :require_user
 
   def index
-    @departments = Department.all
+    if params[:search]
+      @departments = Department.search(params[:search])
+    else
+      @departments = Department.all
+    end
   end
 
   def new

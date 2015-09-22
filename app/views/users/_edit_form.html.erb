@@ -59,5 +59,11 @@
 			</div>
 		</div>
 	</span>
-	<%= f.submit "Update User", :class => 'btn btn-success' %>
+	<div class="form-group">
+		<div class="col-lg-offset-2 col-lg-2">
+			<%= button_tag(:type => "submit", :class => "btn btn-success") do %>
+				<span class="fa fa-save fa-fw"></span> <%= t('button.save') %>
+			<% end %>
+		</div>
+	</div>
 <% end %>
