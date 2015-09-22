@@ -19,8 +19,6 @@ Rails.application.routes.draw do
 
   get 'person/qualifications/:id' => 'people#show_qualifications', as: 'qualifications'
 
-  resources :phone_numbers
-  resources :email_addresses
   resources :job_titles
   resources :departments
   resources :locations

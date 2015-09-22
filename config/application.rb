@@ -27,6 +27,7 @@ module RubyHRM
     config.active_record.raise_in_transactional_callbacks = true
 
     config.assets.paths << "#{Rails}/app/assets/fonts"
+    config.assets.paths << "#{Rails}/app/assets/images"
   end
 end
 
