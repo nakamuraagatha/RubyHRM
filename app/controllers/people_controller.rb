@@ -14,9 +14,6 @@ class PeopleController < ApplicationController
 	def show
 	end
 
-	def show_contact_details
-	end
-
 	def show_qualifications
 	end
 
@@ -50,18 +47,6 @@ class PeopleController < ApplicationController
 			redirect_to @person
 		else
 			render "edit"
-		end
-	end
-
-	def edit_contact_details
-	end
-
-	def update_contact_details
-		if @person.update_attributes(person_params)
-			flash[:success] = "Person was successfully updated"
-			redirect_to contact_details_path(@person)
-		else
-			render "edit_contact_details"
 		end
 	end
 
@@ -110,13 +95,6 @@ class PeopleController < ApplicationController
 										   					 	:password_confirmation, 
 										   					 	:role
 										   						], 
-										   	job_detail_attributes: [:id, 
-										   						   	:person_id, 
-										   						   	:start_date, 
-										   						   	:job_title_id, 
-										   						   	:department_id, 
-										   						   	:location_id
-										   						  	]
 										  	)
 		end
 end

@@ -20,7 +20,6 @@ class Person < ActiveRecord::Base
 	has_many :person_certifications
 	has_many :person_educations
 	has_many :person_languages
-	has_many :job_detail_histories
 
 	validates :first_name, presence: true
 	validates :last_name, presence: true

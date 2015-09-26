@@ -1,6 +1,12 @@
 <%= form_for [@person, @contact_detail], :html => { :class => 'form-horizontal'} do |f| %>
 	<%= f.hidden_field :person_id, :value => params[:person_id] %>
 	<div class="form-group">
+		<%= f.label "Country", :class => 'col-lg-2 control-label' %>
+		<div class="col-lg-3">
+			<%= f.collection_select :country, Country.all, :country_code, :description, {:include_blank => 'Select Country'}, { :class => 'form-control', :disabled => true } %>
+		</div>
+	</div>
+	<div class="form-group">
 		<%= f.label "Address Line 1", :class => 'col-lg-2 control-label' %>
 		<div class="col-lg-3">
 			<%= f.text_field :address_line1, :class => 'form-control', :disabled => true  %>
@@ -17,17 +23,13 @@
 		</div>
 		<%= f.label "State/Province", :class => 'col-lg-3 control-label' %>
 		<div class="col-lg-3">
-			<%= f.grouped_collection_select :state, Country.all, :states, :description, :state_code, :description, {:include_blank => 'Select State'}, { :class => 'form-control', :disabled => true } %>
+			<%= f.grouped_collection_select :state, Country.all, :states, :description, :state_code, :description, {:include_blank => 'Select State'}, { :class => 'form-control', :disabled => true} %>
 		</div>
 	</div>
 	<div class="form-group">
 		<%= f.label "Postal Code", :class => 'col-lg-2 control-label' %>
 		<div class="col-lg-3">
 			<%= f.text_field :postal, :class => 'form-control', :disabled => true  %>
-		</div>
-		<%= f.label "Country", :class => 'col-lg-3 control-label' %>
-		<div class="col-lg-3">
-			<%= f.collection_select :country, Country.all, :country_code, :description, {:include_blank => 'Select Country'}, { :class => 'form-control', :disabled => true } %>
 		</div>
 	</div>
 	<div class="form-group">

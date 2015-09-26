@@ -35,6 +35,7 @@ class JobDetailsController < ApplicationController
 	private
 	def set_job_detail
 		@job_detail = JobDetail.find_by_person_id(@person.id)
+		@job_detail_histories = JobDetailHistory.where(:job_detail_id => @job_detail.id)
 	end
 
 	def get_person_id
