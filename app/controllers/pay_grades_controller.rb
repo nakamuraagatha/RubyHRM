@@ -3,7 +3,11 @@ class PayGradesController < ApplicationController
 	before_action :require_admin
 
 	def index
-		@pay_grades = PayGrade.all
+		if params[:search]
+			@pay_grades = PayGrade.search(params[:search])
+		else
+			@pay_grades = PayGrade.all
+		end
 	end
 
 	def new

@@ -3,7 +3,11 @@ class CountriesController < ApplicationController
 	before_action :require_admin
 
 	def index
-		@countries = Country.all
+		if params[:search]
+			@countries = Country.search(params[:search])
+		else
+			@countries = Country.all
+		end
 	end
 
 	def new

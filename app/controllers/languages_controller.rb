@@ -3,7 +3,11 @@ class LanguagesController < ApplicationController
 	before_action :require_admin
 
 	def index
-		@languages = Language.all
+		if params[:search]
+			@languages = Language.search(params[:search])
+		else
+			@languages = Language.all
+		end
 	end
 
 	def new

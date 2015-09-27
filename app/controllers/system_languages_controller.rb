@@ -3,7 +3,11 @@ class SystemLanguagesController < ApplicationController
 	before_action :set_system_language, only: [:edit, :update, :destroy]
 
 	def index
-		@system_languages = SystemLanguage.all
+		if params[:search]
+			@system_languages = SystemLanguage.search(params[:search])
+		else
+			@system_languages = SystemLanguage.all
+		end
 	end
 
 	def new

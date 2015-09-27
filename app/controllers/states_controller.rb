@@ -3,7 +3,11 @@ class StatesController < ApplicationController
 	before_action :require_admin
 
 	def index
-		@states = State.all
+		if params[:search]
+			@states = State.search(params[:search])
+		else
+			@states = State.all
+		end
 	end
 
 	def new

@@ -3,7 +3,11 @@ class EducationLevelsController < ApplicationController
 	before_action :require_admin
 
 	def index
-		@education_levels = EducationLevel.all
+		if params[:search]
+			@education_levels = EducationLevel.search(params[:search])
+		else
+			@education_levels = EducationLevel.all
+		end
 	end
 
 	def new

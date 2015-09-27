@@ -3,7 +3,11 @@ class TerminationReasonsController < ApplicationController
 	before_action :require_admin
 
 	def index
-		@termination_reasons = TerminationReason.all
+		if params[:search]
+			@termination_reasons = TerminationReason.search(params[:search])
+		else
+			@termination_reasons = TerminationReason.all
+		end
 	end
 
 	def new

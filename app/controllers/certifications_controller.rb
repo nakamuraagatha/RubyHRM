@@ -3,7 +3,11 @@ class CertificationsController < ApplicationController
 	before_action :require_admin
 
 	def index
-		@certifications = Certification.all
+		if params[:search]
+			@certifications = Certification.search(params[:search])
+		else
+			@certifications = Certification.all
+		end
 	end
 
 	def new

@@ -5,6 +5,27 @@
 </div>
 
 <div class="panel panel-default">
+	<div class="panel-heading"><i class="fa fa-search fa-fw"></i> Search System Languages</div>
+	<div class="panel-body">
+		<%= form_tag(system_languages_path, :method => "get", id: "search-form", :class => "form-horizontal") do %>
+			<div class="form-group">
+				<%= label_tag :search, "Language Code or Name", :class => "col-lg-1 control-label" %>
+				<div class="col-lg-2">
+					<%= text_field_tag :search, params[:search], :placeholder => "Search Language Code or Name", :class => "form-control" %>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-lg-offset-1 col-lg-2">
+					<%= button_tag(:type => "submit", :name => nil, :class => "btn btn-default") do %>
+						<span class="fa fa-search fa-fw"></span> <%= t('button.search') %>
+					<% end %>
+				</div>
+			</div>
+		<% end %>
+	</div>
+</div>
+
+<div class="panel panel-default">
 	<div class="panel-heading"><i class="fa fa-language fa-fw"></i> System Languages</div>
 	<div class="panel-body">
 		<%= link_to new_system_language_path, :class => "btn btn-success" do %>
