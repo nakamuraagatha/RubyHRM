@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
 
+  get 'searches/index'
+
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'  
   
   resources :users
-  resources :password_resets
+  resources :searches
 
   resources :people do
     resources :contact_details
@@ -37,6 +39,7 @@ Rails.application.routes.draw do
   resources :states
   resources :termination_reasons
   resources :pay_grades
+  resources :password_resets
 
   get 'dashboard/index'
   # The priority is based upon order of creation: first created -> highest priority.

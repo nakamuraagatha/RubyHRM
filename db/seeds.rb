@@ -7,6 +7,7 @@ SystemLanguage.create(language_code: 'sv', language_description: 'Swedish')
 SystemLanguage.create(language_code: 'fr', language_description: 'French')
 
 Country.create(country_code: 'US', description: 'United States of America')
+Country.create(country_code: 'CA', description: 'Canada')
 
 State.create(country_id: '1', state_code: 'MA', description: 'Massachusetts')
 State.create(country_id: '1', state_code: 'RI', description: 'Rhode Island')
@@ -27,3 +28,4 @@ Translation.create(locale: 'en', key: 'button.return_to_search', value: 'Return 
 Translation.create(locale: 'en', key: 'button.add_pay_component', value: 'Add Pay Component')
 Translation.create(locale: 'en', key: 'page_header.departments', value: 'Departments')
 Translation.create(locale: 'en', key: 'page_header.locations', value: 'Locations')
+Translation.create(locale: 'en', key: 'page_header.search_results', value: 'Search Results')
