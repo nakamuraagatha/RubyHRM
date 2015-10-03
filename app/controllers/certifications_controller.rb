@@ -40,7 +40,7 @@ class CertificationsController < ApplicationController
 
 	def destroy
 		if @certification.destroy
-			flash[:success] = "Certification Level has been successfully deleted"
+			flash[:success] = "Certification has been successfully deleted"
 			redirect_to certifications_path
 		end
 	end

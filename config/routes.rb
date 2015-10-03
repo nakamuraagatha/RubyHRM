@@ -39,6 +39,7 @@ Rails.application.routes.draw do
   resources :states
   resources :termination_reasons
   resources :pay_grades
+  resources :currencies
   resources :password_resets
 
   get 'dashboard/index'
