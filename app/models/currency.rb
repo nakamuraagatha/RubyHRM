@@ -1,6 +1,6 @@
 class Currency < ActiveRecord::Base
 
-	validates :currency_code, presence: true
+	validates :currency_code, presence: true, length: {is: 3}
 	validates :description, presence: true
 
 	private
