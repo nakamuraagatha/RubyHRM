@@ -2,6 +2,9 @@ class EducationLevelsController < ApplicationController
 	before_action :set_education_level, only: [:edit, :update, :destroy]
 	before_action :require_admin
 
+	add_breadcrumb "Education Levels", :education_levels_path
+
+
 	def index
 		if params[:search]
 			@education_levels = EducationLevel.search(params[:search])
@@ -11,6 +14,8 @@ class EducationLevelsController < ApplicationController
 	end
 
 	def new
+		add_breadcrumb "New Education Level", :new_education_level_path
+
 		@education_level = EducationLevel.new
 	end
 
@@ -23,7 +28,7 @@ class EducationLevelsController < ApplicationController
 	end
 
 	def edit
-
+		add_breadcrumb "Edit Education Level", :edit_education_level_path
 	end
 
 	def update

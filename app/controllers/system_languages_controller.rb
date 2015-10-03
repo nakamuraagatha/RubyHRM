@@ -2,6 +2,9 @@ class SystemLanguagesController < ApplicationController
 	before_action :require_admin
 	before_action :set_system_language, only: [:edit, :update, :destroy]
 
+	add_breadcrumb "System Languages", :system_languages_path
+
+
 	def index
 		if params[:search]
 			@system_languages = SystemLanguage.search(params[:search])
@@ -11,6 +14,8 @@ class SystemLanguagesController < ApplicationController
 	end
 
 	def new
+		add_breadcrumb "New System Language", :new_system_language_path
+
 		@system_language = SystemLanguage.new
 	end
 
@@ -23,6 +28,7 @@ class SystemLanguagesController < ApplicationController
 	end
 
 	def edit
+		add_breadcrumb "Edit System Language", :edit_system_language_path
 
 	end
 

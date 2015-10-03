@@ -2,6 +2,8 @@ class TerminationReasonsController < ApplicationController
 	before_action :set_termination_reason, only: [:edit, :update, :destroy]
 	before_action :require_admin
 
+	add_breadcrumb "Termination Reasons", :termination_reasons_path
+
 	def index
 		if params[:search]
 			@termination_reasons = TerminationReason.search(params[:search])
@@ -11,6 +13,8 @@ class TerminationReasonsController < ApplicationController
 	end
 
 	def new
+		add_breadcrumb "New Termination Reason", :new_termination_reason_path
+
 		@termination_reason = TerminationReason.new
 	end
 
@@ -23,7 +27,7 @@ class TerminationReasonsController < ApplicationController
 	end
 
 	def edit
-
+		add_breadcrumb "Edit Termination Reason", :edit_termination_reason_path
 	end
 
 	def update

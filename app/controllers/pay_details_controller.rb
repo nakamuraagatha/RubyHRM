@@ -2,15 +2,22 @@ class PayDetailsController < ApplicationController
 	before_action :get_person_id
 	before_action :require_user
 	
+	add_breadcrumb "Employees", :people_path
+	add_breadcrumb "Pay Details", :person_pay_details_path
+
 	def index
 		@pay_details = @person.pay_details
 	end
 
 	def show
+		add_breadcrumb "View Pay Details", :person_pay_detail_path
+
 		@pay_detail = PayDetail.find(params[:id])
 	end
 
 	def new
+		add_breadcrumb "New Pay Details", :new_person_pay_detail_path
+
 		@pay_detail = PayDetail.new
 	end
 

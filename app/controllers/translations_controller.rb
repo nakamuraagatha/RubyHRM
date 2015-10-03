@@ -2,6 +2,9 @@ class TranslationsController < ApplicationController
 	before_action :set_translation, only: [:show, :edit, :update, :destroy]
 	before_action :require_admin
 
+	add_breadcrumb "Translations", :translations_path
+
+
 	def index
 		if params[:search1] or params[:search2]
 			@translations = Translation.search(params[:search1], params[:search2])
@@ -11,6 +14,7 @@ class TranslationsController < ApplicationController
 	end
 
 	def edit
+		add_breadcrumb "Edit Translation", :edit_translation_path
 	end
 
 	def update
@@ -23,6 +27,8 @@ class TranslationsController < ApplicationController
 	end
 
 	def new
+		add_breadcrumb "New Translation", :new_translations_path
+
 		@translation = Translation.new
 	end
 

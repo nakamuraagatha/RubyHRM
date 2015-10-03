@@ -2,6 +2,9 @@ class StatesController < ApplicationController
 	before_action :set_state, only: [:edit, :update, :destroy]
 	before_action :require_admin
 
+	add_breadcrumb "States", :states_path
+
+
 	def index
 		if params[:search]
 			@states = State.search(params[:search])
@@ -11,6 +14,8 @@ class StatesController < ApplicationController
 	end
 
 	def new
+		add_breadcrumb "New State", :new_state_path
+
 		@state = State.new
 	end
 
@@ -23,7 +28,7 @@ class StatesController < ApplicationController
 	end
 
 	def edit
-
+		add_breadcrumb "Edit State", :edit_state_path
 	end
 
 	def update

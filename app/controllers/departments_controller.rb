@@ -3,6 +3,9 @@ class DepartmentsController < ApplicationController
   before_action :set_department, only: [:show, :edit, :update, :destroy]
   before_action :require_user
 
+  add_breadcrumb "Departments", :departments_path
+
+
   def index
     if params[:search]
       @departments = Department.search(params[:search])
@@ -12,6 +15,8 @@ class DepartmentsController < ApplicationController
   end
 
   def new
+    add_breadcrumb "New Department", :new_department_path
+
     @department = Department.new
   end
 
@@ -26,9 +31,11 @@ class DepartmentsController < ApplicationController
   end
 
   def show
+    add_breadcrumb "View Department", :department_path
   end
 
   def edit
+    add_breadcrumb "Edit Department", :edit_department_path
   end
 
   def update

@@ -2,15 +2,22 @@ class ReportingRelationshipsController < ApplicationController
 	before_action :get_person_id
 	before_action :require_user
 
+	add_breadcrumb "Supervisor Details", :person_reporting_relationships_path
+
+
 	def index
 		@reporting_relationships = @person.reporting_relationships
 	end
 
 	def show
+		add_breadcrumb "View Supervisor Details", :person_reporting_relationship_path
+
 		@reporting_relationship = ReportingRelationship.find(params[:id])
 	end
 
 	def new
+		add_breadcrumb "Add Supervisor", :new_person_reporting_relationship_path
+
 		@reporting_relationship = ReportingRelationship.new
 	end	
 

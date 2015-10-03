@@ -1,4 +1,7 @@
 class SearchesController < ApplicationController
+  add_breadcrumb "Search Results", :searches_path
+
+
   def index
   	if params[:search].present?
   		@people = Person.search(params[:search])
@@ -11,7 +14,5 @@ class SearchesController < ApplicationController
 	else
 		@search_results = Array.new
 	end
-
-  	
   end
 end

@@ -2,6 +2,9 @@ class CertificationsController < ApplicationController
 	before_action :set_certification, only: [:edit, :update, :destroy]
 	before_action :require_admin
 
+	  add_breadcrumb "Certifications", :certifications_path
+
+
 	def index
 		if params[:search]
 			@certifications = Certification.search(params[:search])
@@ -11,6 +14,8 @@ class CertificationsController < ApplicationController
 	end
 
 	def new
+	  	add_breadcrumb "New Certification", :new_certification_path
+
 		@certification = Certification.new
 	end
 
@@ -23,7 +28,7 @@ class CertificationsController < ApplicationController
 	end
 
 	def edit
-
+	  	add_breadcrumb "Edit Certification", :edit_certification_path
 	end
 
 	def update

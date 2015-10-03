@@ -31,6 +31,8 @@ gem 'i18n-active_record',
 	:git => 'git://github.com/svenfuchs/i18n-active_record.git',
 	:require => 'i18n/active_record'
 
+gem 'breadcrumbs_on_rails'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

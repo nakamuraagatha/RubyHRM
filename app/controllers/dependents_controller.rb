@@ -2,15 +2,22 @@ class DependentsController < ApplicationController
 	before_action :get_person_id
 	before_action :require_user
 
+	add_breadcrumb "Employees", :people_path
+	add_breadcrumb "Dependents", :person_dependents_path
+
 	def index
 		@dependents = @person.dependents
 	end
 
-	def show 
+	def show
+		add_breadcrumb "View Dependent Details", :person_dependent_path
+
 		@dependent = Dependent.find(params[:id])
 	end
 
 	def new
+		add_breadcrumb "New Dependent", :new_person_dependent_path
+
 		@dependent = Dependent.new
 	end
 
@@ -25,6 +32,7 @@ class DependentsController < ApplicationController
 	end
 
 	def edit
+		add_breadcrumb "Edit Dependent Details", :edit_person_dependent_path
 	end
 
 	def update

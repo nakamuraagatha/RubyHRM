@@ -2,6 +2,9 @@ class JobTitlesController < ApplicationController
 	before_action :set_job_title, only: [:show, :edit, :update, :destroy]
 	before_action :require_user
 	
+  	add_breadcrumb "Job Titles", :job_titles_path
+
+
 	def index
 		if params[:search]
 			@job_titles = JobTitle.search(params[:search])
@@ -11,10 +14,12 @@ class JobTitlesController < ApplicationController
 	end
 
 	def show
-
+  		add_breadcrumb "View Job Title", :job_title_path
 	end
 
 	def new
+  		add_breadcrumb "New Job Title", :new_job_title_path
+
 		@job_title = JobTitle.new
 	end
 
@@ -30,6 +35,7 @@ class JobTitlesController < ApplicationController
 	end
 
 	def edit
+  		add_breadcrumb "Edit Job Title", :edit_job_title_path
 	end
 
 	def update

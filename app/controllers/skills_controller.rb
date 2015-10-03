@@ -2,6 +2,9 @@ class SkillsController < ApplicationController
 	before_action :set_skill, only: [:edit, :update, :destroy]
 	before_action :require_admin
 
+	add_breadcrumb "Skills", :skills_path
+
+
 	def index
 		if params[:search]
 			@skills = Skill.search(params[:search])
@@ -11,6 +14,8 @@ class SkillsController < ApplicationController
 	end
 
 	def new
+		add_breadcrumb "New Skill", :new_skill_path
+
 		@skill = Skill.new
 	end
 
@@ -23,7 +28,7 @@ class SkillsController < ApplicationController
 	end
 
 	def edit
-
+		add_breadcrumb "Edit Skill", :edit_skill_path
 	end
 
 	def update

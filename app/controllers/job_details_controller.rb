@@ -2,8 +2,11 @@ class JobDetailsController < ApplicationController
 	before_action :get_person_id
 	before_action :set_job_detail, only: [:show, :edit, :update]
 	before_action :require_admin
+	
+	add_breadcrumb "Employees", :people_path
 
 	def show
+  		add_breadcrumb "View Job Details", :person_job_detail_path
 	end
 
 	def new
@@ -21,6 +24,7 @@ class JobDetailsController < ApplicationController
 	end
 
 	def edit
+  		add_breadcrumb "Edit Job Details", :edit_person_job_detail_path
 	end
 
 	def update

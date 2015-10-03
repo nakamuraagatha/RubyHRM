@@ -2,11 +2,18 @@ class TerminationsController < ApplicationController
 	before_action :get_person_id
 	before_action :require_user
 
+	add_breadcrumb "Employees", :people_path
+
+
 	def show
+		add_breadcrumb "View Termination Details", :person_termination_path
+
 		@termination = Termination.find_by_person_id(@person.id)
 	end
 
 	def new
+		add_breadcrumb "Terminate Employee", :new_person_termination_path
+
 		@termination = Termination.new
 	end
 

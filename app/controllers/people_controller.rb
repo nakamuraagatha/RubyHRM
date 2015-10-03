@@ -2,6 +2,7 @@ class PeopleController < ApplicationController
 	before_action :set_person, only: [:show, :show_contact_details, :show_job_details, :show_qualifications, :edit, :update, :edit_contact_details, :update_contact_details, :edit_job_details, :update_job_details]
 	before_action :require_admin
 
+	add_breadcrumb "Employees", :people_path
 
 	def index
 		if params[:search]
@@ -12,12 +13,15 @@ class PeopleController < ApplicationController
 	end
 
 	def show
+		add_breadcrumb "View Personal Details", :person_path
 	end
 
 	def show_qualifications
 	end
 
 	def new
+		add_breadcrumb "New Employee", :new_person_path
+
 		if Person.where(:id == 1).present?
 			@id = 'EMP'.to_s + "#{sprintf '%04d', Person.maximum(:id).next}"
 		else
@@ -39,6 +43,7 @@ class PeopleController < ApplicationController
 	end
 
 	def edit
+		add_breadcrumb "Edit Personal Details", :edit_person_path
 	end
 
 	def update

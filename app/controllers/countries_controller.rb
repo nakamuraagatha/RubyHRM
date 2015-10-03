@@ -2,6 +2,9 @@ class CountriesController < ApplicationController
 	before_action :set_country, only: [:edit, :update, :destroy]
 	before_action :require_admin
 
+    add_breadcrumb "Countries", :countries_path
+
+
 	def index
 		if params[:search]
 			@countries = Country.search(params[:search])
@@ -11,6 +14,8 @@ class CountriesController < ApplicationController
 	end
 
 	def new
+		add_breadcrumb "New Country", :new_country_path
+
 		@country = Country.new
 	end
 
@@ -23,7 +28,7 @@ class CountriesController < ApplicationController
 	end
 
 	def edit
-
+		add_breadcrumb "Edit Country", :edit_country_path
 	end
 
 	def update

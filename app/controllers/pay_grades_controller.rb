@@ -2,6 +2,9 @@ class PayGradesController < ApplicationController
 	before_action :set_pay_grade, only: [:edit, :update, :destroy]
 	before_action :require_admin
 
+
+  	add_breadcrumb "Pay Grades", :pay_grades_path
+
 	def index
 		if params[:search]
 			@pay_grades = PayGrade.search(params[:search])
@@ -11,6 +14,8 @@ class PayGradesController < ApplicationController
 	end
 
 	def new
+  		add_breadcrumb "New Pay Grade", :new_pay_grade_path
+
 		@pay_grade = PayGrade.new
 	end
 
@@ -23,7 +28,7 @@ class PayGradesController < ApplicationController
 	end
 
 	def edit
-
+  		add_breadcrumb "Edit Pay Grade", :edit_pay_grade_path
 	end
 
 	def update

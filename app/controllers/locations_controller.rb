@@ -2,6 +2,9 @@ class LocationsController < ApplicationController
     before_action :set_location, only: [:show, :edit, :update, :destroy]
     before_action :require_user
     
+    add_breadcrumb "Locations", :locations_path
+
+
     def index
         if params[:search]
             @locations = Location.search(params[:search])
@@ -11,6 +14,8 @@ class LocationsController < ApplicationController
     end
 
     def new
+        add_breadcrumb "New Location", :new_location_path
+
         @location = Location.new
     end
 
@@ -25,9 +30,11 @@ class LocationsController < ApplicationController
     end
 
     def show
+        add_breadcrumb "View Location", :location_path
     end
 
     def edit
+        add_breadcrumb "Edit Locations", :edit_location_path
     end
 
     def update

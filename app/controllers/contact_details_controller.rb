@@ -3,7 +3,11 @@ class ContactDetailsController < ApplicationController
 	before_action :set_contact_detail, only: [:show, :edit, :update]
 	before_action :require_admin
 
+	add_breadcrumb "Employees", :person_path
+
 	def show
+		add_breadcrumb "View Contact Details", :person_contact_detail_path
+
 	end
 
 	def new
@@ -21,6 +25,7 @@ class ContactDetailsController < ApplicationController
 	end
 
 	def edit
+		add_breadcrumb "Edit Contact Details", :edit_person_contact_detail_path
 	end
 
 	def update

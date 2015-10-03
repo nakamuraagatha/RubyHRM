@@ -2,15 +2,22 @@ class EmergencyContactsController < ApplicationController
 	before_action :get_person_id
 	before_action :require_user
 	
+	add_breadcrumb "Employees", :people_path
+	add_breadcrumb "Emergency Contacts", :person_emergency_contacts_path
+
 	def index
 		@emergency_contacts = @person.emergency_contacts
 	end
 
 	def show
+		add_breadcrumb "View Emergency Contact", :person_emergency_contact_path
+
 		@emergency_contact = EmergencyContact.find(params[:id])
 	end
 
 	def new
+		add_breadcrumb "New Emergency Contact", :new_person_emergency_contact_path
+
 		@emergency_contact = EmergencyContact.new
 	end
 
@@ -21,6 +28,19 @@ class EmergencyContactsController < ApplicationController
 			redirect_to person_emergency_contacts_path(@person)
 		else
 			render 'new'
+		end
+	end
+
+	def edit
+		add_breadcrumb "Edit Emergency Contact", :edit_person_emergency_contact_path
+	end
+
+	def update
+		if @emergency_contact.update_attributes(emergency_contact_params)
+			flash[:success] = "Emergency Contact was successfully updated"
+			redirect_to person_emergency_contacts_path(@person)
+		else
+			render 'edit'
 		end
 	end
 

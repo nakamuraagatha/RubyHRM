@@ -2,6 +2,9 @@ class UsersController < ApplicationController
 	before_action :set_user, only: [:show, :edit, :update]
 	before_action :require_user
 
+	add_breadcrumb "Users", :users_path
+
+
 	def index
 		if params[:search]
 			@users = User.search(params[:search]).order("person_id ASC")
@@ -11,9 +14,12 @@ class UsersController < ApplicationController
 	end
 
 	def show
+		add_breadcrumb "View User Details", :user_path
 	end
 	
 	def new
+		add_breadcrumb "New User", :new_user_path
+
 		@user = User.new
 	end
 
@@ -30,6 +36,7 @@ class UsersController < ApplicationController
 	end
 
 	def edit
+		add_breadcrumb "Edit User Details", :edit_user_path
 	end
 
 	def update
