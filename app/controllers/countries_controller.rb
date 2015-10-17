@@ -7,10 +7,12 @@ class CountriesController < ApplicationController
 
 	def index
 		if params[:search]
-			@countries = Country.search(params[:search])
+			@countries = Country.search(params[:search]).limit(30)
 		else
-			@countries = Country.all
+			@countries = Country.limit(30)
 		end
+		@count = @countries.count
+		@total_count = Country.count
 	end
 
 	def new

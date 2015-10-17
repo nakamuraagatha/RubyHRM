@@ -32,15 +32,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">RubyHRM</a>
-                <%= form_tag(searches_path, :method => "get", id: "search-form", :class => "navbar-form navbar-left") do %>
-                    <div class="form-group">
-                       <%= text_field_tag :search, params[:search], :placeholder => "Search", :class => "form-control" %>
-                    </div>
-                    <%= button_tag(:type => "submit", :name => nil, :class => "btn btn-default") do %>
-                        <span class="fa fa-search fa-fw"></span> <%= t('button.search') %>
-                    <% end %>
-                <% end %>
+                <%= link_to "RubyHRM", root_path, :class => "navbar-brand" %>
             </div>
             <%= render "layouts/navbar_top" %>
 

@@ -34,7 +34,8 @@
 		<br/><br/>
 		<% if @countries.empty? %>
 			<p>There were no results found.</p>
-		<% else %>	
+		<% else %>
+			<p><%= @count.to_i %> results found out of <%= @total_count.to_i %></p>
 			<div class="table-responsive">
 				<table class="table table-striped table-bordered table-hover">
 					<thead>

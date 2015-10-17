@@ -7,10 +7,12 @@ class TranslationsController < ApplicationController
 
 	def index
 		if params[:search1] or params[:search2]
-			@translations = Translation.search(params[:search1], params[:search2])
+			@translations = Translation.search(params[:search1], params[:search2]).limit(30)
 		else
-			@translations = Translation.all
+			@translations = Translation.limit(30)
 		end
+		@count = @translations.count
+		@total_count = Translation.count
 	end
 
 	def edit

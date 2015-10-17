@@ -6,10 +6,12 @@ class LanguagesController < ApplicationController
 
 	def index
 		if params[:search]
-			@languages = Language.search(params[:search])
+			@languages = Language.search(params[:search]).limit(30)
 		else
-			@languages = Language.all
+			@languages = Language.limit(30)
 		end
+		@count = @languages.count
+		@total_count = Language.count
 	end
 
 	def new

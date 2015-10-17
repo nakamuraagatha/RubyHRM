@@ -7,10 +7,12 @@ class StatesController < ApplicationController
 
 	def index
 		if params[:search]
-			@states = State.search(params[:search])
+			@states = State.search(params[:search]).limit(30)
 		else
-			@states = State.all
+			@states = State.limit(30)
 		end
+		@count = @states.count
+		@total_count = State.count
 	end
 
 	def new

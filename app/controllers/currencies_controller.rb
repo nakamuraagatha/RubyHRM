@@ -7,12 +7,12 @@ class CurrenciesController < ApplicationController
 
 	def index
 		if params[:search]
-			@currencies = Currency.search(params[:search])
-			@currencies_count = @currencies.count
+			@currencies = Currency.search(params[:search]).limit(30)
 		else
-			@currencies = Currency.all
-			@currencies_count = @currencies.count
+			@currencies = Currency.limit(30)
 		end
+		@count = @currencies.count
+		@total_count = Currency.count
 	end
 
 	def new

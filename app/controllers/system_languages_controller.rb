@@ -7,10 +7,12 @@ class SystemLanguagesController < ApplicationController
 
 	def index
 		if params[:search]
-			@system_languages = SystemLanguage.search(params[:search])
+			@system_languages = SystemLanguage.search(params[:search]).limit(30)
 		else
-			@system_languages = SystemLanguage.all
+			@system_languages = SystemLanguage.limit(30)
 		end
+		@count = @system_languages.count
+		@total_count = SystemLanguage.count
 	end
 
 	def new
