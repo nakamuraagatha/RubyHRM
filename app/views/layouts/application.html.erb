@@ -89,6 +89,14 @@
     </div>
 
     <%= javascript_include_tag "application" %>
+    <script>
+        $(function () {
+            $('[data-toggle="popover"]').popover( { html : true })
+            .click(function(e) {
+                e.preventDefault();
+            });
+        })
+    </script>
 </body>
 
 </html>
