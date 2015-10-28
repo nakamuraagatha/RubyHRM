@@ -24,6 +24,8 @@ class PayGradesController < ApplicationController
 		if @pay_grade.save
 			flash[:success] = "Pay Grade has been successfully created"
 			redirect_to pay_grades_path
+		else
+			render "new"
 		end
 	end
 

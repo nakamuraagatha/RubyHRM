@@ -26,6 +26,8 @@ class StatesController < ApplicationController
 		if @state.save
 			flash[:success] = "State has been successfully created"
 			redirect_to states_path
+		else
+			render "new"
 		end
 	end
 

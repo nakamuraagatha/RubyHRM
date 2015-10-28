@@ -24,6 +24,8 @@ class CertificationsController < ApplicationController
 		if @certification.save
 			flash[:success] = "Certification Level has been successfully created"
 			redirect_to certifications_path
+		else
+			render "new"
 		end
 	end
 

@@ -26,6 +26,8 @@ class SystemLanguagesController < ApplicationController
 		if @system_language.save
 			flash[:success] = "System Language has been successfully added"
 			redirect_to system_languages_path
+		else
+			render "new"
 		end
 	end
 

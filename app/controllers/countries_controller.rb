@@ -26,6 +26,8 @@ class CountriesController < ApplicationController
 		if @country.save
 			flash[:success] = "Country has been successfully created"
 			redirect_to countries_path
+		else 
+			render "new"
 		end
 	end
 

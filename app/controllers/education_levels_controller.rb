@@ -24,6 +24,8 @@ class EducationLevelsController < ApplicationController
 		if @education_level.save
 			flash[:success] = "Education Level has been successfully created"
 			redirect_to education_levels_path
+		else
+			render "new"
 		end
 	end
 

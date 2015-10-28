@@ -15,5 +15,10 @@
 //= require turbolinks
 //= require_tree .
 //= require bootstrap
-//= require metisMenu
-//= require sb-admin-2
+
+$(function () {
+    $('[data-toggle="popover"]').popover( { html : true })
+    .click(function(e) {
+        e.preventDefault();
+    });
+})

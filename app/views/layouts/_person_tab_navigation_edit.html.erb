@@ -1,47 +1,46 @@
-<ul class="nav nav-tabs">
-	<li class="dropdown <%= controller.class == PeopleController and controller.action_name != 'show_qualifications' ? 'active' : '' %>">
-		<a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-th-list fa-fw"></i> Person Details <span class="caret"></span></a>
-		<ul class="dropdown-menu">
+<div class="row">
+	<div class="col-lg-12">
+		<ul class="nav nav-tabs">
 			<li class="<%= controller.class == PeopleController and controller.action_name == 'edit' ? 'active' : '' %>">
 				<%= link_to edit_person_path(@person) do %>
 					<i class="fa fa-th-list fa-fw"></i> Personal Details
 				<% end %>
 			</li>
-			<li class="<%= controller.class == PeopleController and controller.action_name == 'edit_contact_details' ? 'active' : '' %>">
+			<li class="<%= controller.class == ContactDetailsController and controller.action_name == 'edit' ? 'active' : '' %>">
 				<%= link_to edit_person_contact_detail_path(@person, @person.id) do %>
 					<i class="fa fa-phone fa-fw"></i> Contact Details
 				<% end %>
 			</li>
-			<li class="<%= controller.class == PeopleController and controller.action_name == 'show_emergency_contact_details' ? 'active' : '' %>">
+			<li class="<%= controller.class == EmergencyContactsController and controller.action_name == 'index' ? 'active' : '' %>">
 				<%= link_to person_emergency_contacts_path(@person) do %>
 					<i class="fa fa-warning fa-fw"></i> Emergency Contacts
 				<% end %>
 			</li>
-			<li class="<%= controller.class == PeopleController and controller.action_name == 'edit_job_details' ? 'active' : '' %>">
+			<li class="<%= controller.class == JobDetailsController and controller.action_name == 'edit' ? 'active' : '' %>">
 				<%= link_to edit_person_job_detail_path(@person, @person.id) do %>
 					<i class="fa fa-th-list fa-fw"></i> Job Details
 				<% end %>
 			</li>
-			<li class="<%= controller.class == PeopleController and controller.action_name == 'show_pay_details' ? 'active' : '' %>">
+			<li class="<%= controller.class == PayDetailsController and controller.action_name == 'index' ? 'active' : '' %>">
 				<%= link_to person_pay_details_path(@person) do %>
 					<i class="fa fa-money fa-fw"></i> Pay Details
 				<% end %>
 			</li>
-			<li class="<%= controller.class == PeopleController and controller.action_name == 'show_reports_to_details' ? 'active' : '' %>">
+			<li class="<%= controller.class == ReportingRelationshipsController and controller.action_name == 'index' ? 'active' : '' %>">
 				<%= link_to person_reporting_relationships_path(@person) do %>
 					<i class="fa fa-sitemap fa-fw"></i> Supervisor Details
 				<% end %>
 			</li>
-			<li class="<%= controller.class == PeopleController and controller.action_name == 'show_dependent_details' ? 'active' : '' %>">
+			<li class="<%= controller.class == DependentsController and controller.action_name == 'index' ? 'active' : '' %>">
 				<%= link_to person_dependents_path(@person) do %>
 					<i class="fa fa-child fa-fw"></i> Dependents
 				<% end %>
 			</li>
-			</ul>
-	</li>	
-	<li class="<%= controller.class == PeopleController and controller.action_name == 'show_qualifications' ? 'active' : '' %>">
-		<%= link_to qualifications_path(@person) do %>
-			<i class="fa fa-certificate fa-fw"></i> Qualifications
-		<% end %>
-	</li>	
-</ul>
+			<li class="<%= controller.class == PeopleController and controller.action_name == 'show_qualifications' ? 'active' : '' %>">
+				<%= link_to qualifications_path(@person) do %>
+					<i class="fa fa-certificate fa-fw"></i> Qualifications
+				<% end %>
+			</li>	
+		</ul>
+	</div>
+</div>

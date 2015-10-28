@@ -8,7 +8,6 @@
 		<div class="col-lg-3">
 			<%= f.text_field :middle_name, :class => 'form-control', :disabled => true %>
 		</div>
-
 	</div>
 	<div class="form-group">
 		<%= f.label "Last Name", :class => 'col-lg-2 control-label' %>
@@ -26,9 +25,10 @@
 			<%= f.text_field :preferred_first, :class => 'form-control', :disabled => true %>
 		</div>
 	</div>
-	<div class="form-group">
-		<hr>
-	</div>
+	
+	<div class="form-group"></div>
+	<div class="form-group"></div>
+
 	<div class="form-group">
 		<%= f.label "National ID (SSN)", :class => 'col-lg-2 control-label' %>
 		<div class="col-lg-3">
@@ -55,9 +55,10 @@
 			<%= f.text_field :nationality, :class => 'form-control', :disabled => true %>
 		</div>
 	</div>
-	<div class="form-group">
-		<hr>
-	</div>
+
+	<div class="form-group"></div>
+	<div class="form-group"></div>
+
 	<div class="form-group">
 		<%= f.label "Military Status", :class => 'col-lg-2 control-label' %>
 		<div class="col-lg-3">
@@ -86,11 +87,9 @@
 			</div>
 		</div>
 	</div>
+
 	<div class="form-group">
-		<hr>
-	</div>
-	<div class="form-group">
-		<div class="col-lg-offset-2 col-lg-1">
+		<div class="col-lg-10 col-lg-offset-2">
 			<%= link_to edit_person_path(@person), :class => 'btn btn-warning'  do %>
 				<i class="fa fa-pencil"></i> <%= t('button.edit') %>
 			<% end %>

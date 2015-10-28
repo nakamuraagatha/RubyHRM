@@ -8,159 +8,154 @@
 
 <%= render 'layouts/person_details' %>
 
+<%= render 'layouts/person_tab_navigation' %>
+
 <div class="row">
 	<div class="col-lg-12">	
-		<div class="panel with-nav-tabs panel-default">
-			<div class="panel-heading">
-				<%= render 'layouts/person_tab_navigation' %>
-			</div>	
-			<div class="panel-body">
-				<div class="row">
-					<div class="col-lg-3">
-						<div class="panel panel-default">
-							<div class="panel-heading" style="padding:10px 15px;">
-								<span class="panel-title">Skills</span>
-								<span class="pull-right">
-									<%= link_to new_person_skill_path(:person_id => @person.id), :class => 'btn btn-success btn-sm' do %>
-										<i class="fa fa-plus fa-fw"></i>
-									<% end %>
-								</span>
-								<div class="clearfix"></div>
-							</div>
-							<div class="panel-body">
-								<% @person.person_skills.each do |ps| %>
-									<table class="table">
-										<tbody>
-											<tr>
-												<td>
-													<strong>Skill:</strong> <%= ps.skill.skill_description %><br/>
-													<strong>Years Experience:</strong> <%= ps.years_experience %>
-												</td>
-												<td class="text-right">
-													<%= link_to person_skill_path(ps.id), :class => "btn btn-success btn-xs" do %>
-														<i class="fa fa-pencil fa-fw"></i>
-													<% end %>
-													<%= link_to person_skill_path(ps.id), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-xs" do %>
-														<i class="fa fa-trash-o fa-fw"></i>
-													<% end %>	
-												</td>
-											</tr>
-										</tbody>
-									</table>
-								<% end %>
-							</div>
-						</div>
+		<div class="row top15">
+			<div class="col-lg-3">
+				<div class="panel panel-default">
+					<div class="panel-heading" style="padding:10px 15px;">
+						<span class="panel-title">Skills</span>
+						<span class="pull-right">
+							<%= link_to new_person_skill_path(:person_id => @person.id), :class => 'btn btn-success btn-sm' do %>
+								<i class="fa fa-plus fa-fw"></i>
+							<% end %>
+						</span>
+						<div class="clearfix"></div>
 					</div>
-					<div class="col-lg-3">
-						<div class="panel panel-default">
-							<div class="panel-heading" style="padding:10px 15px;">
-								<span class="panel-title">Certifications</span>
-								<span class="pull-right">
-									<%= link_to new_person_certification_path(:person_id => @person.id), :class => 'btn btn-success btn-sm' do %>
-										<i class="fa fa-plus fa-fw"></i>
-									<% end %>
-								</span>
-								<div class="clearfix"></div>
-							</div>
-							<div class="panel-body">
-								<% @person.person_certifications.each do |pc| %>
-									<table class="table">
-										<tbody>
-											<tr>
-												<td>
-													<strong>Certification:</strong> <%= pc.certification.certification_description %><br/>
-													<strong>Institute:</strong> <%= pc.institute %><br/>
-													<strong>Granted Date:</strong> <%= pc.grant_date %><br/>
-													<strong>Valid Through:</strong> <%= pc.valid_thru_date %><br/>
-												</td>
-												<td class="text-right">
-													<%= link_to person_certification_path(pc.id), :class => "btn btn-success btn-xs" do %>
-														<i class="fa fa-pencil fa-fw"></i>
-													<% end %>
-													<%= link_to person_certification_path(pc.id), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-xs" do %>
-														<i class="fa fa-trash-o fa-fw"></i>
-													<% end %>	
-												</td>
-											</tr>
-										</tbody>
-									</table>
-								<% end %>
-							</div>
-						</div>
+					<div class="panel-body">
+						<% @person.person_skills.each do |ps| %>
+							<table class="table">
+								<tbody>
+									<tr>
+										<td>
+											<strong>Skill:</strong> <%= ps.skill.skill_description %><br/>
+											<strong>Years Experience:</strong> <%= ps.years_experience %>
+										</td>
+										<td class="text-right">
+											<%= link_to person_skill_path(ps.id), :class => "btn btn-success btn-xs" do %>
+												<i class="fa fa-pencil fa-fw"></i>
+											<% end %>
+											<%= link_to person_skill_path(ps.id), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-xs" do %>
+												<i class="fa fa-trash-o fa-fw"></i>
+											<% end %>	
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						<% end %>
 					</div>
-					<div class="col-lg-3">
-						<div class="panel panel-default">
-							<div class="panel-heading" style="padding:10px 15px;">
-								<span class="panel-title">Education</span>
-								<span class="pull-right">
-									<%= link_to new_person_education_path(:person_id => @person.id), :class => 'btn btn-success btn-sm' do %>
-										<i class="fa fa-plus fa-fw"></i>
-									<% end %>
-								</span>
-								<div class="clearfix"></div>
-							</div>
-							<div class="panel-body">
-								<% @person.person_educations.each do |pe| %>
-									<table class="table">
-										<tbody>
-											<tr>
-												<td>
-													<strong>Education Level:</strong> <%= pe.education_level.education_level_description %><br/>
-													<strong>Institute:</strong> <%= pe.institute %><br/>
-													<strong>Start Date:</strong> <%= pe.start_date %><br/>
-													<strong>Completed Date:</strong> <%= pe.completed_date %><br/>
-												</td>
-												<td class="text-right">
-													<%= link_to person_education_path(pe.id), :class => "btn btn-success btn-xs" do %>
-														<i class="fa fa-pencil fa-fw"></i>
-													<% end %>
-													<%= link_to person_education_path(pe.id), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-xs" do %>
-														<i class="fa fa-trash-o fa-fw"></i>
-													<% end %>	
-												</td>
-											</tr>
-										</tbody>
-									</table>
-								<% end %>
-							</div>
-						</div>
+				</div>
+			</div>
+			<div class="col-lg-3">
+				<div class="panel panel-default">
+					<div class="panel-heading" style="padding:10px 15px;">
+						<span class="panel-title">Certifications</span>
+						<span class="pull-right">
+							<%= link_to new_person_certification_path(:person_id => @person.id), :class => 'btn btn-success btn-sm' do %>
+								<i class="fa fa-plus fa-fw"></i>
+							<% end %>
+						</span>
+						<div class="clearfix"></div>
 					</div>
-					<div class="col-lg-3">
-						<div class="panel panel-default">
-							<div class="panel-heading" style="padding:10px 15px;">
-								<span class="panel-title">Languages</span>
-								<span class="pull-right">
-									<%= link_to new_person_language_path(:person_id => @person.id), :class => 'btn btn-success btn-sm' do %>
-										<i class="fa fa-plus fa-fw"></i>
-									<% end %>
-								</span>
-								<div class="clearfix"></div>
-							</div>
-							<div class="panel-body">
-								<% @person.person_languages.each do |pl| %>
-									<table class="table">
-										<tbody>
-											<tr>
-												<td>
-													<strong>Language:</strong> <%= pl.language.language_description %><br/>
-													<strong>Reading Proficiency:</strong> <%= pl.reading_proficiency %><br/>
-													<strong>Writing Proficiency:</strong> <%= pl.writing_proficiency %><br/>
-													<strong>Speaking Proficiency:</strong> <%= pl.speaking_proficiency %><br/>
-												</td>
-												<td class="text-right">
-													<%= link_to person_language_path(pl.id), :class => "btn btn-success btn-xs" do %>
-														<i class="fa fa-pencil fa-fw"></i>
-													<% end %>
-													<%= link_to person_language_path(pl.id), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-xs" do %>
-														<i class="fa fa-trash-o fa-fw"></i>
-													<% end %>	
-												</td>
-											</tr>
-										</tbody>
-									</table>
-								<% end %>
-							</div>
-						</div>
+					<div class="panel-body">
+						<% @person.person_certifications.each do |pc| %>
+							<table class="table">
+								<tbody>
+									<tr>
+										<td>
+											<strong>Certification:</strong> <%= pc.certification.certification_description %><br/>
+											<strong>Institute:</strong> <%= pc.institute %><br/>
+											<strong>Granted Date:</strong> <%= pc.grant_date %><br/>
+											<strong>Valid Through:</strong> <%= pc.valid_thru_date %><br/>
+										</td>
+										<td class="text-right">
+											<%= link_to person_certification_path(pc.id), :class => "btn btn-success btn-xs" do %>
+												<i class="fa fa-pencil fa-fw"></i>
+											<% end %>
+											<%= link_to person_certification_path(pc.id), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-xs" do %>
+												<i class="fa fa-trash-o fa-fw"></i>
+											<% end %>	
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						<% end %>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-3">
+				<div class="panel panel-default">
+					<div class="panel-heading" style="padding:10px 15px;">
+						<span class="panel-title">Education</span>
+						<span class="pull-right">
+							<%= link_to new_person_education_path(:person_id => @person.id), :class => 'btn btn-success btn-sm' do %>
+								<i class="fa fa-plus fa-fw"></i>
+							<% end %>
+						</span>
+						<div class="clearfix"></div>
+					</div>
+					<div class="panel-body">
+						<% @person.person_educations.each do |pe| %>
+							<table class="table">
+								<tbody>
+									<tr>
+										<td>
+											<strong>Education Level:</strong> <%= pe.education_level.education_level_description %><br/>
+											<strong>Institute:</strong> <%= pe.institute %><br/>
+											<strong>Start Date:</strong> <%= pe.start_date %><br/>
+											<strong>Completed Date:</strong> <%= pe.completed_date %><br/>
+										</td>
+										<td class="text-right">
+											<%= link_to person_education_path(pe.id), :class => "btn btn-success btn-xs" do %>
+												<i class="fa fa-pencil fa-fw"></i>
+											<% end %>
+											<%= link_to person_education_path(pe.id), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-xs" do %>
+												<i class="fa fa-trash-o fa-fw"></i>
+											<% end %>	
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						<% end %>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-3">
+				<div class="panel panel-default">
+					<div class="panel-heading" style="padding:10px 15px;">
+						<span class="panel-title">Languages</span>
+						<span class="pull-right">
+							<%= link_to new_person_language_path(:person_id => @person.id), :class => 'btn btn-success btn-sm' do %>
+								<i class="fa fa-plus fa-fw"></i>
+							<% end %>
+						</span>
+						<div class="clearfix"></div>
+					</div>
+					<div class="panel-body">
+						<% @person.person_languages.each do |pl| %>
+							<table class="table">
+								<tbody>
+									<tr>
+										<td>
+											<strong>Language:</strong> <%= pl.language.language_description %><br/>
+											<strong>Reading Proficiency:</strong> <%= pl.reading_proficiency %><br/>
+											<strong>Writing Proficiency:</strong> <%= pl.writing_proficiency %><br/>
+											<strong>Speaking Proficiency:</strong> <%= pl.speaking_proficiency %><br/>
+										</td>
+										<td class="text-right">
+											<%= link_to person_language_path(pl.id), :class => "btn btn-success btn-xs" do %>
+												<i class="fa fa-pencil fa-fw"></i>
+											<% end %>
+											<%= link_to person_language_path(pl.id), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-xs" do %>
+												<i class="fa fa-trash-o fa-fw"></i>
+											<% end %>	
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						<% end %>
 					</div>
 				</div>
 			</div>

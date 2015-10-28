@@ -24,7 +24,7 @@ class PersonSkillsController < ApplicationController
 	end
 
 	private
-		def person_skill_params
-			params.require(:person_skill).permit(:person_id, :skill_id, :years_experience, :note)
-		end
+	def person_skill_params
+		params.require(:person_skill).permit(:person_id, :skill_id, :years_experience, :note)
+	end
 end

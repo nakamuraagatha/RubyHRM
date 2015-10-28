@@ -23,6 +23,8 @@ class TerminationReasonsController < ApplicationController
 		if @termination_reason.save
 			flash[:success] = "Termination Reason has been successfully created"
 			redirect_to termination_reasons_path
+		else
+			render "new"
 		end
 	end
 

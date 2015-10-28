@@ -24,6 +24,8 @@ class SkillsController < ApplicationController
 		if @skill.save
 			flash[:success] = "Skill has been successfully created"
 			redirect_to skills_path
+		else
+			render "new"
 		end
 	end
 

@@ -1,0 +1,112 @@
+<ul class="nav nav-pills nav-stacked">
+	 <li>
+        <%= link_to root_path do %>
+            <i class="fa fa-dashboard fa-fw"></i> Dashboard
+        <% end %>
+    </li>
+    <li class="dropdown">
+        <a href="#" data-toggle="collapse" data-target="#drilldown1"><i class="fa fa-users fa-fw"></i> People <span class="fa fa-caret-down fa-fw pull-right"></span></a>
+		<ul id="drilldown1" class="nav nav-pills nav-stacked collapse small" style="padding-left:20px;">
+            <li>
+                <%= link_to new_person_path do %>
+                    <i class="fa fa-plus-square fa-fw"></i> Add New Employee
+                <% end %>
+            </li>
+            <li>
+                <%= link_to people_path do %>
+                    <i class="fa fa-users fa-fw"></i> Employee List
+                <% end %>
+            </li>
+        </ul>
+    </li>
+    <li>
+    	<a href="#" data-toggle="collapse" data-target="#drilldown2"><i class="fa fa-cubes fa-fw"></i> Administration <span class="fa fa-caret-down fa-fw pull-right"></span></a>
+	    <ul id="drilldown2" class="nav nav-pills nav-stacked collapse small" style="padding-left:20px;">
+	        <li>
+                <%= link_to users_path do %>
+                    <i class="fa fa-user fa-fw"></i> Users
+                <% end %>
+            </li>
+	        <li>
+	            <%= link_to job_titles_path do %>
+	                <i class="fa fa-briefcase fa-fw"></i> Job Titles
+	            <% end %>
+	        </li>
+	        <li>
+	            <%= link_to pay_grades_path do %>
+	                <i class="fa fa-money fa-fw"></i> Pay Grades
+	            <% end %>
+	        </li>
+	        <li>
+	            <%= link_to departments_path do %>
+	                <i class="fa fa-building-o fa-fw"></i> Departments
+	            <% end %>
+	        </li> 
+	        <li>
+	            <%= link_to locations_path do %>
+	                <i class="fa fa-building fa-fw"></i> Locations
+	            <% end %>
+	        </li>
+	        <li>
+	            <%= link_to languages_path do %>
+	                <i class="fa fa-language fa-fw"></i> Languages
+	            <% end %>
+	        </li>
+	        <li>
+	            <%= link_to skills_path do %>
+	                <i class="fa fa-certificate fa-fw"></i> Skills
+	            <% end %>
+	        </li>
+	        <li>
+	            <%= link_to certifications_path do %>
+	                <i class="fa fa-certificate fa-fw"></i> Certifications
+	            <% end %>
+	        </li>
+	        <li>
+	            <%= link_to education_levels_path do %>
+	                <i class="fa fa-certificate fa-fw"></i> Education Levels
+	            <% end %>
+	        </li>
+	    </ul>
+    </li>
+    <li>
+        <a href="#" data-toggle="collapse" data-target="#drilldown3"><i class="fa fa-cogs fa-fw"></i> Configuration<span class="fa fa-caret-down fa-fw pull-right"></span></a>
+        <ul id="drilldown3" class="nav nav-pills nav-stacked collapse small" style="padding-left:20px;">
+            <li>
+                <%= link_to translations_path do %>
+                    <i class="fa fa-language fa-fw"></i> Translations
+                <% end %>
+            </li>
+            <li>
+                <%= link_to system_languages_path do %>
+                    <i class="fa fa-language fa-fw"></i> System Languages
+                <% end %>
+            </li>
+            <li>
+                <%= link_to countries_path do %>
+                    <i class="fa fa-globe fa-fw"></i> Countries
+                <% end %>
+            </li>
+            <li>
+                <%= link_to states_path do %>
+                    <i class="fa fa-globe fa-fw"></i> States
+                <% end %>
+            </li>
+            <li>
+                <%= link_to currencies_path do %>
+                    <i class="fa fa-dollar fa-fw"></i> Currencies
+                <% end %>
+            </li>
+            <li>
+                <%= link_to termination_reasons_path do %>
+                    <i class="fa fa-times-circle fa-fw"></i> Termination Reasons
+                <% end %>
+            </li>
+            <li>
+                <%= link_to relationships_path do %>
+                    <i class="fa fa-users fa-fw"></i> Relationships
+                <% end %>
+            </li>
+        </ul>
+    </li>
+</ul>

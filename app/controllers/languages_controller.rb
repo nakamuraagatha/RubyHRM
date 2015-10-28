@@ -25,6 +25,8 @@ class LanguagesController < ApplicationController
 		if @language.save
 			flash[:success] = "Language has been successfully created"
 			redirect_to languages_path
+		else
+			render "new"
 		end
 	end
 

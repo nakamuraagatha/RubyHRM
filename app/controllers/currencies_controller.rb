@@ -26,6 +26,8 @@ class CurrenciesController < ApplicationController
 		if @currency.save
 			flash[:success] = "Currency Level has been successfully created"
 			redirect_to currencies_path
+		else
+			render "new"
 		end
 	end
 

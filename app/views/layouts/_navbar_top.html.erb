@@ -1,22 +1,21 @@
-<ul class="nav navbar-top-links navbar-right">
+<ul class="nav navbar-nav navbar-right collapse navbar-collapse" id="links">
     <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-            <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
-        </a>
-        <ul class="dropdown-menu dropdown-user">
-            <!--<li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
-            </li>
-            <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-            </li>
-            <li class="divider"></li> -->
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"><span class="hidden-xs">Username</span>&nbsp;&nbsp;&nbsp;<%= image_tag "photo.jpg", :class => "img-circle"%> <span class="visible-xs-inline">Profile</span></a>
+        <ul class="dropdown-menu">
+            <li><a href="#"><span class="fa fa-user fa-fw"> </span> My Profile</a></li>
             <li>
                 <%= link_to logout_path, method: "delete" do %>
-                    <i class="fa fa-sign-out fa-fw"></i> Logout
+                    <span class="fa fa-power-off fa-fw"></span> Logout
                 <% end %>
             </li>
         </ul>
-        <!-- /.dropdown-user -->
     </li>
-    <!-- /.dropdown -->
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"><span class="fa fa-inbox fa-fw"></span>  <span class="visible-xs-inline">Inbox</span> <span class="badge">42</span></a>
+        <ul class="dropdown-menu">
+            <li><a href="#"><span class="label label-success">New!</span> Message</a></li>
+            <li><a href="#">Message</a></li>
+        </ul>
+    </li>
+    <li>&nbsp;&nbsp;&nbsp;</li>
 </ul>
-<!-- /.navbar-top-links -->
