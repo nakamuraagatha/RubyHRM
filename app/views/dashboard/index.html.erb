@@ -5,86 +5,101 @@
 </div>
 
 <div class="row">
-    <div class="col-lg-3 col-md-6">
-        <div class="panel panel-primary">
+    <div class="col-lg-offset-4 col-lg-1 text-center">
+        <div class="panel panel-danger">
             <div class="panel-heading">
-                <div class="row">
-                    <div class="col-xs-3">
-                        <i class="fa fa-users fa-5x"></i>
-                    </div>
-                    <div class="col-xs-9 text-right">
-                        <div class="huge">People</div>
-                    </div>
-                </div>
+                <i class="fa fa-star fa-5x"></i>
             </div>
-            <%= link_to "javascript:;", :data => { :html => true, :placement => "bottom", :content => "#{render 'layouts/dashboard_people_widget_menu'}", :container => "body", :title => "Manage People", :toggle => "popover", :trigger => "focus" } do %>
+            <%= link_to "javascript:;", :data => { :html => true, :placement => "bottom", :content => "#{render 'layouts/dashboard_favorites_widget_menu'}", :container => "body", :title => "My Favorites", :toggle => "popover" } do %>
                 <div class="panel-footer">
-                    <span class="pull-left">Manage People</span>
-                    <span class="pull-right"><i class="fa fa-arrow-circle-down"></i></span>
-                    <div class="clearfix"></div>
+                    <span>Favorites</span>
                 </div>
             <% end %>
         </div>
     </div>
-    <div class="col-lg-3 col-md-6">
+    <div class="col-lg-1 text-center">
+        <div class="panel panel-primary2">
+            <div class="panel-heading">
+                <i class="fa fa-user fa-5x"></i>
+            </div>
+            <%= link_to "javascript:;", :data => { :html => true, :placement => "bottom", :content => "#{render 'layouts/dashboard_personal_info_widget_menu'}", :container => "body", :title => "Personal Info", :toggle => "popover" } do %>
+                <div class="panel-footer">
+                    <span>Personal Info</span>
+                </div>
+            <% end %>
+        </div>
+    </div>
+    <div class="col-lg-1 text-center">
+        <div class="panel panel-primary3">
+            <div class="panel-heading">
+                <i class="fa fa-sitemap fa-5x"></i>
+            </div>
+            <%= link_to "javascript:;", :data => { :html => true, :placement => "bottom", :content => "#{render 'layouts/dashboard_my_team_widget_menu'}", :container => "body", :title => "My Team", :toggle => "popover" } do %>
+                <div class="panel-footer">
+                    <span>My Team</span>
+                </div>
+            <% end %>
+        </div>
+    </div>
+    <div class="col-lg-1 text-center">
+        <div class="panel panel-primary4">
+            <div class="panel-heading">
+                <i class="fa fa-file-text fa-5x"></i>
+            </div>
+            <%= link_to "javascript:;", :data => { :html => true, :placement => "bottom", :content => "#{render 'layouts/dashboard_reports_widget_menu'}", :container => "body", :title => "Reports", :toggle => "popover" } do %>
+                <div class="panel-footer">
+                    <span>Reports</span>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-offset-4 col-lg-1 text-center">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <i class="fa fa-users fa-5x"></i>
+            </div>
+            <%= link_to "javascript:;", :data => { :html => true, :placement => "bottom", :content => "#{render 'layouts/dashboard_people_widget_menu'}", :container => "body", :title => "Manage People", :toggle => "popover" } do %>
+                <div class="panel-footer">
+                    <span>People</span>
+                </div>
+            <% end %>
+        </div>
+    </div>
+    <div class="col-lg-1 text-center">
         <div class="panel panel-warning">
             <div class="panel-heading">
-                <div class="row">
-                    <div class="col-xs-3">
-                        <i class="fa fa-clock-o fa-5x"></i>
-                    </div>
-                    <div class="col-xs-9 text-right">
-                        <div class="huge">Time</div>
-                    </div>
-                </div>
+                <i class="fa fa-clock-o fa-5x"></i>
             </div>
             <a href="#" type="button" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Coming Soon" data-original-title="" title="Manage Time">
                 <div class="panel-footer">
-                    <span class="pull-left">Manage Time</span>
-                    <span class="pull-right"><i class="fa fa-arrow-circle-down"></i></span>
-                    <div class="clearfix"></div>
+                    <span>Time</span>
                 </div>
             </a>
         </div>
     </div>
-    <div class="col-lg-3 col-md-6">
+    <div class="col-lg-1 text-center">
         <div class="panel panel-info">
             <div class="panel-heading">
-                <div class="row">
-                    <div class="col-xs-3">
-                        <i class="fa fa-cubes fa-5x"></i>
-                    </div>
-                    <div class="col-xs-9 text-right">
-                        <div class="huge">Administration</div>
-                    </div>
-                </div>
+                <i class="fa fa-cubes fa-5x"></i>
             </div>
-            <%= link_to "javascript:;", :data => { :html => true, :placement => "bottom", :content => "#{render 'layouts/dashboard_admin_widget_menu'}", :container => "body", :title => "Manage Administration", :toggle => "popover", :trigger => "focus" } do %>
+            <%= link_to "javascript:;", :data => { :html => true, :placement => "bottom", :content => "#{render 'layouts/dashboard_admin_widget_menu'}", :container => "body", :title => "Manage Administration", :toggle => "popover" } do %>
                 <div class="panel-footer">
-                    <span class="pull-left">Manage Administration</span>
-                    <span class="pull-right"><i class="fa fa-arrow-circle-down"></i></span>
-                    <div class="clearfix"></div>
+                    <span>Administration</span>
                 </div>
             <% end %>
         </div>
     </div>
-    <div class="col-lg-3 col-md-6">
+    <div class="col-lg-1 text-center">
         <div class="panel panel-success">
             <div class="panel-heading">
-                <div class="row">
-                    <div class="col-xs-3">
-                        <i class="fa fa-gears fa-5x"></i>
-                    </div>
-                    <div class="col-xs-9 text-right">
-                        <div class="huge">Configuration</div>
-                    </div>
-                </div>
+                <i class="fa fa-gears fa-5x"></i>
             </div>
-            <%= link_to "javascript:;", :data => { :html => true, :placement => "bottom", :content => "#{render 'layouts/dashboard_config_widget_menu'}", :container => "body", :title => "Manage Configuration", :toggle => "popover", :trigger => "focus" } do %>
+            <%= link_to "javascript:;", :data => { :html => true, :placement => "bottom", :content => "#{render 'layouts/dashboard_config_widget_menu'}", :container => "body", :title => "Manage Configuration", :toggle => "popover" } do %>
                 <div class="panel-footer">
-                    <span class="pull-left">Manage Configuration</span>
-                    <span class="pull-right"><i class="fa fa-arrow-circle-down"></i></span>
-                    <div class="clearfix"></div>
+                    <span>Configuration</span>
                 </div>
             <% end %>
         </div>

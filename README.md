@@ -14,10 +14,6 @@ This project was developed on...
 
   http://getbootstrap.com/
 
-* Responsive template SB Admin 2 Dashboard template was used as a base
-
-  http://startbootstrap.com/template-overviews/sb-admin-2/
-
 
 
 See the Issues Section for the number of TODOs that I am working on for this project.

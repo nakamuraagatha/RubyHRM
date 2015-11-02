@@ -27,6 +27,10 @@
   background-color:#2780e3;
 }
 
+.login-text {
+  color: #ffffff;
+}
+
 .navbar-brand {
   position: absolute;
   width: 100%;
@@ -34,10 +38,6 @@
   top: 0;
   text-align: center;
   margin: auto;
-  padding: 19.5px 15px;
-  font-size: 19px;
-  line-height: 21px;
-  height: 60px;
 }
 
 @media (max-width:767px) {
@@ -49,4 +49,68 @@
     margin-top:0;
     margin-bottom:0;
   }
+}
+
+.popover {
+  max-width: 75%;
+  min-width: 300px;
+  width: auto;
+}
+
+.panel-primary2 {
+  border-color: #B2CC14;
+}
+.panel-primary2 > .panel-heading {
+  color: #ffffff;
+  background-color: #B2CC14;
+  border-color: #B2CC14;
+}
+.panel-primary2 > .panel-heading + .panel-collapse > .panel-body {
+  border-top-color: #B2CC14;
+}
+.panel-primary2 > .panel-heading .badge {
+  color: #B2CC14;
+  background-color: #ffffff;
+}
+.panel-primary2 > .panel-footer + .panel-collapse > .panel-body {
+  border-bottom-color: #B2CC14;
+}
+
+
+.panel-primary3 {
+  border-color: #FFD643;
+}
+.panel-primary3 > .panel-heading {
+  color: #ffffff;
+  background-color: #FFD643;
+  border-color: #FFD643;
+}
+.panel-primary3 > .panel-heading + .panel-collapse > .panel-body {
+  border-top-color: #FFD643;
+}
+.panel-primary3 > .panel-heading .badge {
+  color: #FFD643;
+  background-color: #ffffff;
+}
+.panel-primary3 > .panel-footer + .panel-collapse > .panel-body {
+  border-bottom-color: #FFD643;
+}
+
+.panel-primary4 {
+  border-color: #462CFF;
+}
+.panel-primary4 > .panel-heading {
+  color: #ffffff;
+  background-color: #462CFF;
+  border-color: #462CFF;
+}
+.panel-primary4 > .panel-heading + .panel-collapse > .panel-body {
+  border-top-color: #462CFF;
+}
+.panel-primary4 > .panel-heading .badge {
+  color: #462CFF;
+  background-color: #ffffff;
+}
+.panel-primary4 > .panel-footer + .panel-collapse > .panel-body {
+  border-bottom-color: #462CFF;
 }
