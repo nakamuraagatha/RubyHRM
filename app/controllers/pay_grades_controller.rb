@@ -1,5 +1,5 @@
 class PayGradesController < ApplicationController
-	before_action :set_pay_grade, only: [:edit, :update, :destroy]
+	before_action :set_pay_grade, only: [:show, :edit, :update, :destroy]
 	before_action :require_admin
 
 
@@ -28,6 +28,10 @@ class PayGradesController < ApplicationController
 			render "new"
 		end
 	end
+
+	def show
+        add_breadcrumb "View Pay Grade", :location_path
+    end
 
 	def edit
   		add_breadcrumb "Edit Pay Grade", :edit_pay_grade_path

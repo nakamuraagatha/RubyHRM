@@ -1,17 +1,24 @@
 <ul class="nav navbar-nav navbar-right collapse navbar-collapse" id="links">
     <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"><span class="hidden-xs">Username</span>&nbsp;&nbsp;&nbsp;<%= image_tag "photo.jpg", :class => "img-circle"%> <span class="visible-xs-inline">My Account</span></a>
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">
+            <span class="hidden-xs">
+                <% if current_user.person_id.blank? %>
+                  <%= current_user.username %>
+                <% else %>
+                  <%= current_user.person.full_name %>
+                <% end %>
+            </span><span class="visible-lg-inline">&nbsp;&nbsp;&nbsp;</span><%= image_tag "photo.png", :class => "img-circle"%> <span class="visible-xs-inline">My Account</span> <span class="fa fa-caret-down fa-fw"></span></a>
         <ul class="dropdown-menu">
-            <li><a href="#"><span class="fa fa-user fa-fw"> </span> My Profile</a></li>
+            <li><a href="#"><span class="fa fa-user fa-fw"> </span> <%= t('menu.my_profile') %></a></li>
             <li>
                 <%= link_to logout_path, method: "delete" do %>
-                    <span class="fa fa-power-off fa-fw"></span> Logout
+                    <span class="fa fa-power-off fa-fw"></span> <%= t('menu.logout') %>
                 <% end %>
             </li>
         </ul>
     </li>
     <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"><span class="fa fa-inbox fa-fw"></span>  <span class="visible-xs-inline">Inbox</span> <span class="badge">!</span></a>
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"><span class="fa fa-envelope fa-fw"></span>  <span class="visible-xs-inline">Inbox </span> <span class="fa fa-caret-down fa-fw"></span></a>
         <ul class="dropdown-menu">
             <li><a href="#"><span class="label label-success">New!</span> Message</a></li>
             <li><a href="#">Message</a></li>

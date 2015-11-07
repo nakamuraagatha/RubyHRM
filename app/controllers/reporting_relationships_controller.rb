@@ -1,7 +1,8 @@
 class ReportingRelationshipsController < ApplicationController
 	before_action :get_person_id
 	before_action :require_user
-
+	
+	add_breadcrumb "Employees", :people_path
 	add_breadcrumb "Supervisor Details", :person_reporting_relationships_path
 
 
@@ -28,6 +29,21 @@ class ReportingRelationshipsController < ApplicationController
 			redirect_to person_reporting_relationships_path(@person)
 		else
 			render 'new'
+		end
+	end
+
+	def edit
+		@reporting_relationship = ReportingRelationship.find(params[:id])
+		add_breadcrumb "Edit Supervisor Details", :edit_person_reporting_relationship_path
+	end
+
+	def update
+		@reporting_relationship = ReportingRelationship.find(params[:id])
+		if @reporting_relationship.update_attributes(reporting_relationship_params)
+			flash[:success] = "Reporting relationship was successfully updated"
+			redirect_to person_reporting_relationships_path(@person)
+		else
+			render 'edit'
 		end
 	end
 

@@ -1,11 +1,11 @@
 <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header">Dashboard</h1>
+        <h1 class="page-header"><%= t('menu.dashboard') %></h1>
     </div>
 </div>
 
 <div class="row">
-    <div class="col-lg-offset-4 col-lg-1 text-center">
+    <div class="col-lg-offset-2 col-lg-2 text-center">
         <div class="panel panel-danger">
             <div class="panel-heading">
                 <i class="fa fa-star fa-5x"></i>
@@ -17,7 +17,7 @@
             <% end %>
         </div>
     </div>
-    <div class="col-lg-1 text-center">
+    <div class="col-lg-2 text-center">
         <div class="panel panel-primary2">
             <div class="panel-heading">
                 <i class="fa fa-user fa-5x"></i>
@@ -29,7 +29,7 @@
             <% end %>
         </div>
     </div>
-    <div class="col-lg-1 text-center">
+    <div class="col-lg-2 text-center">
         <div class="panel panel-primary3">
             <div class="panel-heading">
                 <i class="fa fa-sitemap fa-5x"></i>
@@ -41,7 +41,7 @@
             <% end %>
         </div>
     </div>
-    <div class="col-lg-1 text-center">
+    <div class="col-lg-2 text-center">
         <div class="panel panel-primary4">
             <div class="panel-heading">
                 <i class="fa fa-file-text fa-5x"></i>
@@ -56,19 +56,19 @@
 </div>
 
 <div class="row">
-    <div class="col-lg-offset-4 col-lg-1 text-center">
+    <div class="col-lg-offset-2 col-lg-2 text-center">
         <div class="panel panel-primary">
             <div class="panel-heading">
                 <i class="fa fa-users fa-5x"></i>
             </div>
             <%= link_to "javascript:;", :data => { :html => true, :placement => "bottom", :content => "#{render 'layouts/dashboard_people_widget_menu'}", :container => "body", :title => "Manage People", :toggle => "popover" } do %>
                 <div class="panel-footer">
-                    <span>People</span>
+                    <span><%= t('menu.people') %></span>
                 </div>
             <% end %>
         </div>
     </div>
-    <div class="col-lg-1 text-center">
+    <div class="col-lg-2 text-center">
         <div class="panel panel-warning">
             <div class="panel-heading">
                 <i class="fa fa-clock-o fa-5x"></i>
@@ -80,26 +80,26 @@
             </a>
         </div>
     </div>
-    <div class="col-lg-1 text-center">
+    <div class="col-lg-2 text-center">
         <div class="panel panel-info">
             <div class="panel-heading">
                 <i class="fa fa-cubes fa-5x"></i>
             </div>
             <%= link_to "javascript:;", :data => { :html => true, :placement => "bottom", :content => "#{render 'layouts/dashboard_admin_widget_menu'}", :container => "body", :title => "Manage Administration", :toggle => "popover" } do %>
                 <div class="panel-footer">
-                    <span>Administration</span>
+                    <span><%= t('menu.administration') %></span>
                 </div>
             <% end %>
         </div>
     </div>
-    <div class="col-lg-1 text-center">
+    <div class="col-lg-2 text-center">
         <div class="panel panel-success">
             <div class="panel-heading">
                 <i class="fa fa-gears fa-5x"></i>
             </div>
             <%= link_to "javascript:;", :data => { :html => true, :placement => "bottom", :content => "#{render 'layouts/dashboard_config_widget_menu'}", :container => "body", :title => "Manage Configuration", :toggle => "popover" } do %>
                 <div class="panel-footer">
-                    <span>Configuration</span>
+                    <span><%= t('menu.configuration') %></span>
                 </div>
             <% end %>
         </div>

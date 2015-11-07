@@ -31,6 +31,21 @@ class PayDetailsController < ApplicationController
 		end
 	end
 
+	def edit
+		@pay_detail = PayDetail.find(params[:id])
+		add_breadcrumb "Edit Pay Details", :edit_person_pay_detail_path
+	end
+
+	def update
+		@pay_detail = PayDetail.find(params[:id])
+		if @pay_detail.update_attributes(pay_detail_params)
+			flash[:success] = "Pay detail was successfully updated"
+			redirect_to person_pay_details_path(@person)
+		else
+			render 'edit'
+		end
+	end
+
 	def destroy
 		@pay_detail = PayDetail.find(params[:id])
 		if @pay_detail.destroy

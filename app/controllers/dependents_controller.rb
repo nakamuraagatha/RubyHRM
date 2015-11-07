@@ -32,10 +32,12 @@ class DependentsController < ApplicationController
 	end
 
 	def edit
+		@dependent = Dependent.find(params[:id])
 		add_breadcrumb "Edit Dependent Details", :edit_person_dependent_path
 	end
 
 	def update
+		@dependent = Dependent.find(params[:id])
 		if @dependent.update_attributes(dependent_params)
 			flash[:success] = "Dependent was successfully updated"
 			redirect_to person_dependents_path(@person)

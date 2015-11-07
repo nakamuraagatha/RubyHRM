@@ -24,7 +24,11 @@
 .top30 { margin-top: 30px; }
 
 .login {
-  background-color:#2780e3;
+  background-color:#ffffff;
+}
+
+.login-inverse {
+  background-color: #d9230f;
 }
 
 .login-text {
@@ -58,42 +62,42 @@
 }
 
 .panel-primary2 {
-  border-color: #B2CC14;
+  border-color: #FF412C;
 }
 .panel-primary2 > .panel-heading {
   color: #ffffff;
-  background-color: #B2CC14;
-  border-color: #B2CC14;
+  background-color: #FF412C;
+  border-color: #FF412C;
 }
 .panel-primary2 > .panel-heading + .panel-collapse > .panel-body {
-  border-top-color: #B2CC14;
+  border-top-color: #FF412C;
 }
 .panel-primary2 > .panel-heading .badge {
-  color: #B2CC14;
+  color: #FF412C;
   background-color: #ffffff;
 }
 .panel-primary2 > .panel-footer + .panel-collapse > .panel-body {
-  border-bottom-color: #B2CC14;
+  border-bottom-color: #FF412C;
 }
 
 
 .panel-primary3 {
-  border-color: #FFD643;
+  border-color: #D54337;
 }
 .panel-primary3 > .panel-heading {
   color: #ffffff;
-  background-color: #FFD643;
-  border-color: #FFD643;
+  background-color: #D54337;
+  border-color: #D54337;
 }
 .panel-primary3 > .panel-heading + .panel-collapse > .panel-body {
-  border-top-color: #FFD643;
+  border-top-color: #D54337;
 }
 .panel-primary3 > .panel-heading .badge {
-  color: #FFD643;
+  color: #D54337;
   background-color: #ffffff;
 }
 .panel-primary3 > .panel-footer + .panel-collapse > .panel-body {
-  border-bottom-color: #FFD643;
+  border-bottom-color: #D54337;
 }
 
 .panel-primary4 {

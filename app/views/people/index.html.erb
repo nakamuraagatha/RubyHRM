@@ -15,64 +15,61 @@
 					<%= label_tag :search, "Name", :class => "control-label" %>
 					<%= text_field_tag :search, params[:search], :placeholder => "Search Name", :class => "form-control" %>
 				</div>
-				<%= submit_tag "Search", :name => nil, :class =>  "btn btn-default" %>
+				<%= button_tag(:type => "submit", :name => nil, :class => "btn btn-default") do %>
+						<span class="fa fa-search fa-fw"></span> <%= t('button.search') %>
+				<% end %>
 			<% end %>
 		</div>
 	</div>
 </div>
 
-<div class="panel panel-default">
-	<div class="panel-heading"><i class="fa fa-th-list fa-fw"></i> Employees</div>
-	<div class="panel-body">
-		<%= link_to new_person_path, :class => "btn btn-success" do %>
-			<i class="fa fa-plus fa-fw"></i> Add New Employee
-		<% end %>
-		<br/><br/>
-		<% if @people.empty? %>
-			<p>There were no results found.</p>
-		<% else %>	
-			<div class="table-responsive">
-				<table class="table table-striped table-hover">
-					<thead>
-						<tr>
-							<th>Employee ID</th>
-							<th>First Name</th>
-							<th>Last Name</th>
-							<th>Job Title</th>
-							<th>Department</th>
-							<th>Supervisor(s)</th>
-							<th></th>
-						</tr>
-					</thead>
-					<tbody>
-						<% @people.each do |p| %>
-						<tr>
-							<td>
-								<% if p.active? %>
-									<%= p.employee_id %>
-								<% else %>
-									<%= p.employee_id %> (Inactive)
-								<% end %>
-							</td>
-							<td><%= p.first_name %></td>
-							<td><%= p.last_name %></td>
-							<td><%= p.job_title.job_title unless p.job_title.nil? %></td>
-							<td><%= p.department.name unless p.department.nil? %></td>
-							<td>
-								<%= p.reporting_relationships.map { |rr| rr.manager.full_name}.join(", ") %>
-							</td>
-							<td>
-								<%= link_to person_path(p.id), :class => "btn btn-success btn-xs" do %>
-									<i class="fa fa-search fa-fw"></i> View
-								<% end %>
-							</td>
-						</tr>
-						<% end %>
-					</tbody>
-				</table>
-			</div>
-		<% end %>
+<%= link_to new_person_path, :class => "btn btn-success" do %>
+	<i class="fa fa-plus fa-fw"></i> Add New Employee
+<% end %>
+<div class="top15">
+	<% if @people.empty? %>
+		<p>There were no results found.</p>
+	<% else %>	
+		<div class="table-responsive">
+			<table class="table table-striped table-hover">
+				<thead>
+					<tr>
+						<th>Employee ID</th>
+						<th>First Name</th>
+						<th>Last Name</th>
+						<th>Job Title</th>
+						<th>Department</th>
+						<th>Supervisor(s)</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @people.each do |p| %>
+					<tr>
+						<td>
+							<% if p.active? %>
+								<%= p.employee_id %>
+							<% else %>
+								<%= p.employee_id %> (Inactive)
+							<% end %>
+						</td>
+						<td><%= p.first_name %></td>
+						<td><%= p.last_name %></td>
+						<td><%= p.job_title.job_title unless p.job_title.nil? %></td>
+						<td><%= p.department.name unless p.department.nil? %></td>
+						<td>
+							<%= p.reporting_relationships.map { |rr| rr.manager.full_name}.join(", ") %>
+						</td>
+						<td>
+							<%= link_to person_path(p.id), :class => "btn btn-success btn-xs" do %>
+								<i class="fa fa-search fa-fw"></i> View
+							<% end %>
+						</td>
+					</tr>
+					<% end %>
+				</tbody>
+			</table>
 		</div>
-	</div>
+	<% end %>
 </div>
 

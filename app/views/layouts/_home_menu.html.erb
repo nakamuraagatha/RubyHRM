@@ -1,11 +1,11 @@
 <ul class="nav nav-pills nav-stacked">
 	 <li>
         <%= link_to root_path do %>
-            <i class="fa fa-dashboard fa-fw"></i> Dashboard
+            <i class="fa fa-dashboard fa-fw"></i>  <%= t('menu.dashboard') %>
         <% end %>
     </li>
     <li class="dropdown">
-        <a href="#" data-toggle="collapse" data-target="#drilldown1"><i class="fa fa-users fa-fw"></i> People <span class="fa fa-caret-down fa-fw pull-right"></span></a>
+        <a href="#" data-toggle="collapse" data-target="#drilldown1"><i class="fa fa-users fa-fw"></i> <%= t('menu.people') %> <span class="fa fa-caret-down fa-fw pull-right"></span></a>
 		<ul id="drilldown1" class="nav nav-pills nav-stacked collapse small" style="padding-left:20px;">
             <li>
                 <%= link_to new_person_path do %>
@@ -20,7 +20,7 @@
         </ul>
     </li>
     <li>
-    	<a href="#" data-toggle="collapse" data-target="#drilldown2"><i class="fa fa-cubes fa-fw"></i> Administration <span class="fa fa-caret-down fa-fw pull-right"></span></a>
+    	<a href="#" data-toggle="collapse" data-target="#drilldown2"><i class="fa fa-cubes fa-fw"></i> <%= t('menu.administration') %> <span class="fa fa-caret-down fa-fw pull-right"></span></a>
 	    <ul id="drilldown2" class="nav nav-pills nav-stacked collapse small" style="padding-left:20px;">
 	        <li>
                 <%= link_to users_path do %>
@@ -70,7 +70,7 @@
 	    </ul>
     </li>
     <li>
-        <a href="#" data-toggle="collapse" data-target="#drilldown3"><i class="fa fa-cogs fa-fw"></i> Configuration<span class="fa fa-caret-down fa-fw pull-right"></span></a>
+        <a href="#" data-toggle="collapse" data-target="#drilldown3"><i class="fa fa-cogs fa-fw"></i> <%= t('menu.configuration') %><span class="fa fa-caret-down fa-fw pull-right"></span></a>
         <ul id="drilldown3" class="nav nav-pills nav-stacked collapse small" style="padding-left:20px;">
             <li>
                 <%= link_to translations_path do %>

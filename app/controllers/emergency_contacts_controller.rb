@@ -32,10 +32,12 @@ class EmergencyContactsController < ApplicationController
 	end
 
 	def edit
+		@emergency_contact = EmergencyContact.find(params[:id])
 		add_breadcrumb "Edit Emergency Contact", :edit_person_emergency_contact_path
 	end
 
 	def update
+		@emergency_contact = EmergencyContact.find(params[:id])
 		if @emergency_contact.update_attributes(emergency_contact_params)
 			flash[:success] = "Emergency Contact was successfully updated"
 			redirect_to person_emergency_contacts_path(@person)

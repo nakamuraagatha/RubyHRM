@@ -13,37 +13,41 @@
 		<%= link_to new_person_reporting_relationship_path(@person), :class => 'btn btn-success' do %>
 			<i class="fa fa-plus fa-fw"></i> Add Supervisor
 		<% end %>
-		<br/><br/>
-		<% if @reporting_relationships.empty? %>
-			<p>There were no results found.</p>
-		<% else %>	
-			<div class="table-responsive">
-				<table class="table table-striped table-bordered table-hover">
-					<thead>
-						<tr>
-							<th>Manager</th>
-							<th>Reporting Type</th>
-							<th></th>
-						</tr>
-					</thead>
-					<tbody>
-						<% @reporting_relationships.each do |rr| %>
-						<tr>
-							<td><%= rr.manager.full_name %></td>
-							<td><%= rr.reporting_type %></td>
-							<td>
-								<%= link_to person_reporting_relationship_path(@person, rr.id), :class => "btn btn-warning btn-xs" do %>
-									<i class="fa fa-search fa-fw"></i> <%= t('button.view') %>
-								<% end %>
-								<%= link_to person_reporting_relationship_path(@person, rr.id), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-xs" do %>
-									<i class="fa fa-trash-o fa-fw"></i> <%= t('button.delete') %>
-								<% end %>
-							</td>
-						</tr>
-						<% end %>
-					</tbody>
-				</table>
-			</div>
-		<% end %>
+		<div class="top15">
+			<% if @reporting_relationships.empty? %>
+				<p>There were no results found.</p>
+			<% else %>	
+				<div class="table-responsive">
+					<table class="table table-striped table-hover">
+						<thead>
+							<tr>
+								<th>Manager</th>
+								<th>Reporting Type</th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody>
+							<% @reporting_relationships.each do |rr| %>
+							<tr>
+								<td><%= rr.manager.full_name %></td>
+								<td><%= rr.reporting_type %></td>
+								<td>
+									<%= link_to person_reporting_relationship_path(@person, rr.id), :class => "btn btn-info btn-xs" do %>
+										<i class="fa fa-search fa-fw"></i> <%= t('button.view') %>
+									<% end %>
+									<%= link_to edit_person_reporting_relationship_path(@person, rr.id), :class => "btn btn-warning btn-xs" do %>
+										<i class="fa fa-pencil fa-fw"></i> <%= t('button.edit') %>
+									<% end %>
+									<%= link_to person_reporting_relationship_path(@person, rr.id), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-xs" do %>
+										<i class="fa fa-trash-o fa-fw"></i> <%= t('button.delete') %>
+									<% end %>
+								</td>
+							</tr>
+							<% end %>
+						</tbody>
+					</table>
+				</div>
+			<% end %>
+		</div>
 	</div>
 </div>

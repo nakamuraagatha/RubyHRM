@@ -9,7 +9,7 @@
 	<div class="form-group">
 		<%= f.label "Relationship", :class => 'col-lg-2 control-label' %>
 		<div class="col-lg-3">
-			<%= f.text_field :relationship, :class => 'form-control' %>
+			<%= f.collection_select :relationship, Relationship.all, :description, :description,  {:include_blank => 'Select Relationship'}, { :class => 'form-control'} %>
 		</div>
 	</div>
 	<div class="form-group">
