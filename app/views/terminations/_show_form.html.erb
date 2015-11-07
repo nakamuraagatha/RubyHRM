@@ -18,4 +18,11 @@
 			<%= f.text_area :note, :class => 'form-control', :disabled => true %>
 		</div>
 	</div>
+	<div class="form-group">
+		<div class="col-lg-10 col-lg-offset-2">
+			<%= link_to person_job_detail_path(@person, @person.id), :class => 'btn btn-default' do %>
+				<i class="fa fa-arrow-left fa-fw"></i> Return to Employee
+			<% end %>
+		</div>
+	</div>
 <% end %>

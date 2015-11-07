@@ -32,6 +32,7 @@ gem 'i18n-active_record',
 	:require => 'i18n/active_record'
 
 gem 'breadcrumbs_on_rails'
+gem 'paperclip'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

@@ -34,6 +34,7 @@
 			<table class="table table-striped table-hover">
 				<thead>
 					<tr>
+						<th></th>
 						<th>Employee ID</th>
 						<th>First Name</th>
 						<th>Last Name</th>
@@ -46,23 +47,24 @@
 				<tbody>
 					<% @people.each do |p| %>
 					<tr>
-						<td>
+						<td class="vert-align"><%= image_tag p.photo.url(:medium), :class => "img-circle" %></td>
+						<td class="vert-align">
 							<% if p.active? %>
 								<%= p.employee_id %>
 							<% else %>
 								<%= p.employee_id %> (Inactive)
 							<% end %>
 						</td>
-						<td><%= p.first_name %></td>
-						<td><%= p.last_name %></td>
-						<td><%= p.job_title.job_title unless p.job_title.nil? %></td>
-						<td><%= p.department.name unless p.department.nil? %></td>
-						<td>
+						<td class="vert-align"><%= p.first_name %></td>
+						<td class="vert-align"><%= p.last_name %></td>
+						<td class="vert-align"><%= p.job_title.job_title unless p.job_title.nil? %></td>
+						<td class="vert-align"><%= p.department.name unless p.department.nil? %></td>
+						<td class="vert-align">
 							<%= p.reporting_relationships.map { |rr| rr.manager.full_name}.join(", ") %>
 						</td>
-						<td>
-							<%= link_to person_path(p.id), :class => "btn btn-success btn-xs" do %>
-								<i class="fa fa-search fa-fw"></i> View
+						<td class="vert-align">
+							<%= link_to person_path(p.id), :class => "btn btn-info btn-xs" do %>
+								<i class="fa fa-search fa-fw"></i> <%= t('button.view') %>
 							<% end %>
 						</td>
 					</tr>
