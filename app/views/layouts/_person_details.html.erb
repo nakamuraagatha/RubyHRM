@@ -26,7 +26,7 @@
 		        </div>
 		        <div class="row">
 		        	<div class="col-lg-12">
-		        		<%= form_for @person, url: person_path, html: { :multipart => true, :class => 'form-inline' } do |f| %>
+		        		<%= form_for @person, html: { :multipart => true, :class => 'form-inline' } do |f| %>
 		        			<div class="form-group">
 								<%= f.file_field :photo, :class => 'form-control' %>	
 							</div>
