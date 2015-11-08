@@ -4,7 +4,6 @@ class TextInstructionsController < ApplicationController
 
 	add_breadcrumb "Instructions", :text_instructions_path
 
-
 	def index
 		if params[:search]
 			@text_instructions = TextInstruction.search(params[:search])
