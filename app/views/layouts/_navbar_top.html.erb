@@ -7,7 +7,17 @@
                 <% else %>
                   <%= current_user.person.full_name %>
                 <% end %>
-            </span><span class="visible-lg-inline">&nbsp;&nbsp;&nbsp;</span><%= image_tag "photo.png", :class => "img-circle"%> <span class="visible-xs-inline">My Account</span> <span class="fa fa-caret-down fa-fw"></span></a>
+            </span>
+
+            <span class="visible-lg-inline">&nbsp;&nbsp;&nbsp;</span>
+            
+            <% if current_user.person_id.blank? %>
+                <%= image_tag 'missing_small.png', :class => 'img-circle' %>
+            <% else %>
+                <%= image_tag current_user.person.photo.url(:small), :class => 'img-circle' %>
+            <% end %> 
+            
+            <span class="visible-xs-inline">My Account</span> <span class="fa fa-caret-down fa-fw"></span></a>
         <ul class="dropdown-menu">
             <li><a href="#"><span class="fa fa-user fa-fw"> </span> <%= t('menu.my_profile') %></a></li>
             <li>

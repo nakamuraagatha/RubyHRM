@@ -52,11 +52,11 @@ class TranslationsController < ApplicationController
 	end
 
 	private
-		def set_translation
-			@translation = Translation.find(params[:id])
-		end
+	def set_translation
+		@translation = Translation.find(params[:id])
+	end
 
-		def translation_params
-			params.require(:translation).permit(:locale, :key, :value, :interpolations, :is_proc)
-		end
+	def translation_params
+		params.require(:translation).permit(:locale, :key, :value, :interpolations, :is_proc)
+	end
 end

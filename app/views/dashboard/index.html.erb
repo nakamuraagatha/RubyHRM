@@ -1,6 +1,20 @@
 <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header"><%= t('menu.dashboard') %></h1>
+        <h1 class="page-header"><%= t('menu.dashboard') %> <small><a href="#" data-toggle="modal" data-target=".instructions-modal"><span class="fa fa-question-circle fa-fw pull-right"></span></a></h1>
+    </div>
+</div>
+
+<div class="modal fade instructions-modal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span class="fa fa-times-circle"></span></button>
+                <h4 class="modal-title">Dashboard</h4>
+            </div>
+            <div class="modal-body">
+                <%= @text_instruction.value.html_safe %>
+            </div>
+        </div>
     </div>
 </div>
 

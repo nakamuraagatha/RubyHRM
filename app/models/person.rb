@@ -2,7 +2,7 @@ class Person < ActiveRecord::Base
 	after_create :add_job_detail
 	after_create :add_contact_detail
 
-	has_attached_file :photo, styles: {small: "15x15#", medium: "40x40#", large: "150x150#"}, default_url: "/images/:style/missing.png"
+	has_attached_file :photo, styles: {small: "15x15#", medium: "40x40#", large: "150x150#"}, default_url: "/images/missing_:style.png"
 	validates_attachment_content_type :photo, :content_type => /\Aimage\/.*\Z/
 
 	has_one :user

@@ -41,6 +41,7 @@ Rails.application.routes.draw do
   resources :pay_grades
   resources :currencies
   resources :relationships
+  resources :text_instructions
   resources :password_resets
 
   get 'dashboard/index'

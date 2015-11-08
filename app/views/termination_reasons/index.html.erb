@@ -12,7 +12,6 @@
 		<div class="panel-body">
 			<%= form_tag(termination_reasons_path, :method => "get", id: "search-form", :class => "form-inline") do %>
 				<div class="form-group">
-					<%= label_tag :search, "Termination Reason:", :class => "control-label" %>
 					<%= text_field_tag :search, params[:search], :placeholder => "Search Termination Description", :class => "form-control" %>
 				</div>
 				<%= button_tag(:type => "submit", :name => nil, :class => "btn btn-default") do %>
