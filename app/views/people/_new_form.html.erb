@@ -45,15 +45,15 @@
 		<%= f.label "Provide User Details?", :class => 'col-lg-2 control-label' %>
 		<div class="col-lg-2">
 			<div class="checkbox">
-				<label>
+				<label data-toggle="collapse" data-target="#provide-user-details">
 					<%= check_box_tag "provide_user_details" %>
 				</label>
 			</div>
 		</div>
 	</div>
 
-	<%= f.fields_for :user do |fu| %>
-		<span id="user_fields" style="display:none;">
+	<div class="collapse" id="provide-user-details">
+		<%= f.fields_for :user do |fu| %>
 			<div class="form-group">
 				<%= fu.label "Username", :class => 'col-lg-2 control-label' %>
 				<div class="col-lg-2">
@@ -78,8 +78,8 @@
 					<%= fu.select :role, options_for_select([["Manager","manager"],["Employee","employee"],["Administrator","admin"]]), {:prompt => 'Select'}, { :class => 'form-control'} %>
 				</div>
 			</div>
-		</span>
-	<% end %>
+		<% end %>
+	</div>
 
 	<div class="form-group">
 		<div class="col-lg-10 col-lg-offset-2">

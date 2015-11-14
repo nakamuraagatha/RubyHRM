@@ -23,6 +23,13 @@ html {
 
 body {
   margin-bottom: 40px;
+  margin-top:60px;
+}
+
+@media (min-width: 768px) {
+  body {
+    margin-top:0px;
+  }
 }
 
 .table tbody>tr>td.vert-align {
@@ -34,7 +41,7 @@ body {
   bottom: 0;
   width: 100%;
   height: 40px;
-  background-color: #f2dede;
+  background-color: #dddddd;
 }
 
 .footer-container {
@@ -91,59 +98,97 @@ body {
 }
 
 .panel-primary2 {
-  border-color: #FF412C;
+  border-color: #008C43;
 }
 .panel-primary2 > .panel-heading {
   color: #ffffff;
-  background-color: #FF412C;
-  border-color: #FF412C;
+  background-color: #008C43;
+  border-color: #008C43;
 }
 .panel-primary2 > .panel-heading + .panel-collapse > .panel-body {
-  border-top-color: #FF412C;
+  border-top-color: #008C43;
 }
 .panel-primary2 > .panel-heading .badge {
-  color: #FF412C;
+  color: #008C43;
   background-color: #ffffff;
 }
 .panel-primary2 > .panel-footer + .panel-collapse > .panel-body {
-  border-bottom-color: #FF412C;
+  border-bottom-color: #008C43;
 }
 
 
 .panel-primary3 {
-  border-color: #D54337;
+  border-color: #FF402B;
 }
 .panel-primary3 > .panel-heading {
   color: #ffffff;
-  background-color: #D54337;
-  border-color: #D54337;
+  background-color: #FF402B;
+  border-color: #FF402B;
 }
 .panel-primary3 > .panel-heading + .panel-collapse > .panel-body {
-  border-top-color: #D54337;
+  border-top-color: #FF402B;
 }
 .panel-primary3 > .panel-heading .badge {
-  color: #D54337;
+  color: #FF402B;
   background-color: #ffffff;
 }
 .panel-primary3 > .panel-footer + .panel-collapse > .panel-body {
-  border-bottom-color: #D54337;
+  border-bottom-color: #FF402Bs;
 }
 
 .panel-primary4 {
-  border-color: #462CFF;
+  border-color: #2E5214;
 }
 .panel-primary4 > .panel-heading {
   color: #ffffff;
-  background-color: #462CFF;
-  border-color: #462CFF;
+  background-color: #2E5214;
+  border-color: #2E5214;
 }
 .panel-primary4 > .panel-heading + .panel-collapse > .panel-body {
-  border-top-color: #462CFF;
+  border-top-color: #2E5214;
 }
 .panel-primary4 > .panel-heading .badge {
-  color: #462CFF;
+  color: #2E5214;
   background-color: #ffffff;
 }
 .panel-primary4 > .panel-footer + .panel-collapse > .panel-body {
-  border-bottom-color: #462CFF;
+  border-bottom-color: #2E5214;
+}
+
+.panel-primary5 {
+  border-color: #501D52;
+}
+.panel-primary5 > .panel-heading {
+  color: #ffffff;
+  background-color: #501D52;
+  border-color: #501D52;
+}
+.panel-primary5 > .panel-heading + .panel-collapse > .panel-body {
+  border-top-color: #501D52;
+}
+.panel-primary5 > .panel-heading .badge {
+  color: #501D52;
+  background-color: #ffffff;
+}
+.panel-primary5 > .panel-footer + .panel-collapse > .panel-body {
+  border-bottom-color: #501D52;
+}
+
+.panel-primary6 {
+  border-color: #016182;
+}
+.panel-primary6 > .panel-heading {
+  color: #ffffff;
+  background-color: #016182;
+  border-color: #016182;
+}
+.panel-primary6 > .panel-heading + .panel-collapse > .panel-body {
+  border-top-color: #016182;
+}
+.panel-primary6 > .panel-heading .badge {
+  color: #016182;
+  background-color: #ffffff;
+}
+.panel-primary6 > .panel-footer + .panel-collapse > .panel-body {
+  border-bottom-color: #016182;
 }

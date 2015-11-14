@@ -1,41 +1,47 @@
-<div class="panel panel-default">
-	<div class="panel-heading">
-		<span class="fa fa-book fa-fw"></span> Job Detail History&nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-default btn-xs" data-toggle="collapse" data-target="#job_history">+</button>
-	</div>
-	<div id="job_history" class="panel-collapse collapse" >
-		<div class="panel-body">
-			<% if @job_detail_histories.empty? %>
-						<p>There is no job detail history for this employee.</p>
-			<% else %>	
-				<div class="table-responsive">
-					<table class="table table-striped table-hover">
-						<thead>
-							<tr>
-								<th>Change Date</th>
-								<th>Previous Job Title</th>
-								<th>Previous Department</th>
-								<th>Previous Location</th>
-								<th></th>
-							</tr>
-						</thead>
-						<tbody>
-							<% @job_detail_histories.each do |jdh| %>
-							<tr>
-								<td><%= jdh.change_date %></td>
-								<td><%= jdh.job_title.job_title unless jdh.job_title_id.blank? %></td>
-								<td><%= jdh.department.name unless jdh.department_id.blank? %></td>
-								<td><%= jdh.location.name unless jdh.location_id.blank? %></td>
-								<td>
-									<%= link_to job_detail_history_path(jdh.id), method: :delete, data: { confirm: 'Are you sure you want to delete this history?' }, :class => "btn btn-danger btn-xs" do %>
-										<i class="fa fa-trash-o fa-fw"></i> <%= t('button.delete') %>
-									<% end %>
-								</td>
-							</tr>
-							<% end %>
-						</tbody>
-					</table>
-				</div>
-			<% end %>
-		</div>
-	</div>
+<button type="button" class="btn btn-info" data-toggle="modal" data-target="#job-history-modal"><span class="fa fa-book fa-fw"></span> View Job History</button>
+
+<div class="modal fade" id="job-history-modal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span class="fa fa-times-circle"></span></button>
+                <h4 class="modal-title">Job Detail History</h4>
+            </div>
+            <div class="modal-body">
+	            <% if @job_detail_histories.empty? %>
+					<p>There is no job detail history for this employee.</p>
+				<% else %>	
+					<div class="table-responsive">
+						<table class="table table-striped table-hover">
+							<thead>
+								<tr>
+									<th>Change Date</th>
+									<th>Previous Job Title</th>
+									<th>Previous Department</th>
+									<th>Previous Location</th>
+									<th></th>
+								</tr>
+							</thead>
+							<tbody>
+								<% @job_detail_histories.each do |jdh| %>
+								<tr>
+									<td><%= jdh.change_date %></td>
+									<td><%= jdh.job_title.job_title unless jdh.job_title_id.blank? %></td>
+									<td><%= jdh.department.name unless jdh.department_id.blank? %></td>
+									<td><%= jdh.location.name unless jdh.location_id.blank? %></td>
+									<td>
+										<%= link_to job_detail_history_path(jdh.id), method: :delete, data: { confirm: 'Are you sure you want to delete this history?' }, :class => "btn btn-danger btn-xs" do %>
+											<i class="fa fa-trash-o fa-fw"></i> <%= t('button.delete') %>
+										<% end %>
+									</td>
+								</tr>
+								<% end %>
+							</tbody>
+						</table>
+					</div>
+				<% end %>
+            </div>
+        </div>
+    </div>
 </div>
+

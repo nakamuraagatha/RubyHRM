@@ -1,0 +1,1 @@
+(function(){jQuery(function(){var o;return o=$("#location_province").html(),console.log(o),$("#location_country").change(function(){var t,n;return t=$("#location_country :selected").text(),n=$(o).filter("optgroup[label='"+t+"']").html(),n?$("#location_province").html(n):void 0})})}).call(this);

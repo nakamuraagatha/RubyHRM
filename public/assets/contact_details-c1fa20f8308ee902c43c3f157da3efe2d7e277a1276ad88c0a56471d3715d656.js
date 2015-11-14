@@ -1,0 +1,1 @@
+(function(){jQuery(function(){var t;return t=$("#contact_detail_state").html(),console.log(t),$("#contact_detail_country").change(function(){var e,c;return e=$("#contact_detail_country :selected").text(),c=$(t).filter("optgroup[label='"+e+"']").html(),c?($("#contact_detail_state").html(c),$('label[for="contact_detail_State/Province"]').show()):void 0})})}).call(this);

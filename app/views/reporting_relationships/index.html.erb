@@ -38,7 +38,7 @@
 									<%= link_to edit_person_reporting_relationship_path(@person, rr.id), :class => "btn btn-warning btn-xs" do %>
 										<i class="fa fa-pencil fa-fw"></i> <%= t('button.edit') %>
 									<% end %>
-									<%= link_to person_reporting_relationship_path(@person, rr.id), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger btn-xs" do %>
+									<%= link_to person_reporting_relationship_path(@person, rr.id), method: :delete, data: { confirm: 'Delete Reporting Relationship?' }, :class => "btn btn-danger btn-xs" do %>
 										<i class="fa fa-trash-o fa-fw"></i> <%= t('button.delete') %>
 									<% end %>
 								</td>

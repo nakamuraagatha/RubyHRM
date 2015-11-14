@@ -61,7 +61,6 @@ Language.create(language_description: 'Swedish')
 Language.create(language_description: 'Danish')
 Language.create(language_description: 'Norwegian')
 Language.create(language_description: 'Turkish')
-Language.create(language_description: 'English')
 
 #Education Levels
 EducationLevel.create(education_level_description: 'GED')
@@ -342,8 +341,7 @@ Country.create(country_code: 'ZM', description: 'Zambia')
 Country.create(country_code: 'ZW', description: 'Zimbabwe')
 
 
-#States
-# USA
+#States - United States of America
 State.create(country_id: '236', state_code: 'AL', description: 'Alabama')
 State.create(country_id: '236', state_code: 'AZ', description: 'Arizona')
 State.create(country_id: '236', state_code: 'AR', description: 'Arkansas')
@@ -394,8 +392,7 @@ State.create(country_id: '236', state_code: 'WV', description: 'West Virginia')
 State.create(country_id: '236', state_code: 'WI', description: 'Wisconsin')
 State.create(country_id: '236', state_code: 'WY', description: 'Wyoming')
 
-#States
-#Canada
+#States - Canada
 State.create(country_id: '40', state_code: 'AB', description: 'Alberta')
 State.create(country_id: '40', state_code: 'BC', description: 'British Columbia')
 State.create(country_id: '40', state_code: 'MB', description: 'Manitoba')
@@ -406,6 +403,38 @@ State.create(country_id: '40', state_code: 'ON', description: 'Ontario')
 State.create(country_id: '40', state_code: 'PE', description: 'Prince Edward Island')
 State.create(country_id: '40', state_code: 'QC', description: 'Quebec')
 State.create(country_id: '40', state_code: 'SK', description: 'Saskatchewan')
+
+#States - Netherlands
+State.create(country_id: '157', state_code: 'DR', description: 'Drenthe')
+State.create(country_id: '157', state_code: 'FL', description: 'Flevoland')
+State.create(country_id: '157', state_code: 'FR', description: 'Friesland')
+State.create(country_id: '157', state_code: 'GE', description: 'Gelderland')
+State.create(country_id: '157', state_code: 'GR', description: 'Groningen')
+State.create(country_id: '157', state_code: 'LI', description: 'Limburg')
+State.create(country_id: '157', state_code: 'NB', description: 'North Brabant')
+State.create(country_id: '157', state_code: 'NH', description: 'North Holland')
+State.create(country_id: '157', state_code: 'OV', description: 'Overijssel')
+State.create(country_id: '157', state_code: 'UT', description: 'Utrecht')
+State.create(country_id: '157', state_code: 'ZE', description: 'Zeeland')
+State.create(country_id: '157', state_code: 'ZH', description: 'South Holland')
+
+#States - Germany
+State.create(country_id: '83', state_code: 'BW', description: 'Baden-Württemberg')
+State.create(country_id: '83', state_code: 'BY', description: 'Bavaria')
+State.create(country_id: '83', state_code: 'BE', description: 'Berlin')
+State.create(country_id: '83', state_code: 'BB', description: 'Brandenburg')
+State.create(country_id: '83', state_code: 'HB', description: 'Bremen')
+State.create(country_id: '83', state_code: 'HH', description: 'Hamburg')
+State.create(country_id: '83', state_code: 'HE', description: 'Hesse')
+State.create(country_id: '83', state_code: 'NI', description: 'Lower Saxony')
+State.create(country_id: '83', state_code: 'MV', description: 'Mecklenburg-Vorpommern')
+State.create(country_id: '83', state_code: 'NW', description: 'North Rhine-Westphalia')
+State.create(country_id: '83', state_code: 'RP', description: 'Rhineland-Palatinate')
+State.create(country_id: '83', state_code: 'SL', description: 'Saarland')
+State.create(country_id: '83', state_code: 'SN', description: 'Saxony')
+State.create(country_id: '83', state_code: 'ST', description: 'Saxony-Anhalt')
+State.create(country_id: '83', state_code: 'SH', description: 'Schleswig-Holstein')
+State.create(country_id: '83', state_code: 'TH', description: 'Thuringia')
 
 #System Languages/Locales
 SystemLanguage.create(language_code: 'af', language_description: 'Afrikaans')
@@ -685,6 +714,7 @@ Translation.create(locale: 'en', key: 'button.delete', value: 'Delete')
 Translation.create(locale: 'en', key: 'button.search', value: 'Search')
 Translation.create(locale: 'en', key: 'button.return_to_search', value: 'Return to Search')
 Translation.create(locale: 'en', key: 'button.add_pay_component', value: 'Add Pay Component')
+Translation.create(locale: 'en', key: 'button.upload', value: 'Upload')
 Translation.create(locale: 'en', key: 'page_header.departments', value: 'Departments')
 Translation.create(locale: 'en', key: 'page_header.locations', value: 'Locations')
 Translation.create(locale: 'en', key: 'page_header.search_results', value: 'Search Results')
@@ -709,6 +739,7 @@ Translation.create(locale: 'es', key: 'button.delete', value: 'Borrar')
 Translation.create(locale: 'es', key: 'button.search', value: 'Buscar')
 Translation.create(locale: 'es', key: 'button.return_to_search', value: 'Volver a la Búsqueda')
 Translation.create(locale: 'es', key: 'button.add_pay_component', value: 'Añadir componentes de Pago')
+Translation.create(locale: 'en', key: 'button.upload', value: 'Subir')
 Translation.create(locale: 'es', key: 'page_header.departments', value: 'Departamentos')
 Translation.create(locale: 'es', key: 'page_header.locations', value: 'Ubicaciones')
 Translation.create(locale: 'es', key: 'page_header.search_results', value: 'Resultados de la búsqueda')

@@ -24,36 +24,29 @@
         <div class="container-fluid">
             <div class="navbar-header">
                 <%= link_to "RubyHRM", root_path, :class => "navbar-brand" %>
-                <!--<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#links">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button> -->
+
                 <button type="button" class="btn btn-primary navbar-btn navbar-toggle collapsed" data-toggle="collapse" data-target="#links"><span class="fa fa-bars fa-fw"></span></button>
-                <button type="button" class="btn btn-primary navbar-btn navbar-toggle collapsed" data-toggle="collapse" data-target="#search"><span class="fa fa-search fa-fw"></span></button>
+
                 <span>&nbsp;&nbsp;</span> <!-- fix this! -->
                 <div class="btn-group">
-                    <%= button_tag(:type => "button", :class => "btn btn-primary navbar-btn dropdown-toggle", :data => { :html => true, :placement => "bottom", :content => "#{render 'layouts/home_menu'}", :container => "body", :toggle => "popover" }) do %>
+                    <%= button_tag(:type => "button", :class => "btn btn-primary navbar-btn", :data => { :html => true, :placement => "bottom", :content => "#{render 'layouts/home_menu'}", :container => "body", :toggle => "popover" }) do %>
                         <span class="fa fa-home fa-fw"></span>
                     <% end %>
                 </div>
             </div>
 
-            <%= render 'layouts/navbar_top' %>
+            <%= form_tag(searches_path, :method => "get", :id => "search-form", :class => "navbar-form navbar-left") do %>
+                <div class="input-group"> 
+                    <%= text_field_tag :global_search, params[:global_search], :placeholder => "Search", :class => "form-control" %>
+                    <div class="input-group-btn">
+                        <%= button_tag(:type => "submit", :name => nil, :class => "btn btn-primary") do %>
+                            <span class="fa fa-search fa-fw"></span>
+                        <% end %>
+                    </div> 
+                </div>
+            <% end %>
 
-            <div class="collapse navbar-collapse" id="search">
-                <%= form_tag(searches_path, :method => "get", :id => "search-form", :class => "navbar-form navbar-left") do %>
-                    <div class="input-group"> 
-                        <%= text_field_tag :global_search, params[:global_search], :placeholder => "Search", :class => "form-control" %>
-                        <div class="input-group-btn">
-                            <%= button_tag(:type => "submit", :name => nil, :class => "btn btn-primary") do %>
-                                <span class="fa fa-search fa-fw"></span>
-                            <% end %>
-                        </div> 
-                    </div>
-                <% end %>
-            </div>
+            <%= render 'layouts/navbar_top' %>            
         </div>
     </nav>
 
