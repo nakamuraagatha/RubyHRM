@@ -11,6 +11,8 @@ class JobTitlesController < ApplicationController
 		else
 			@job_titles = JobTitle.all
 		end
+		@count = @job_titles.count
+		@total_count = JobTitle.count
 	end
 
 	def show

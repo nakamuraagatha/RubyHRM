@@ -11,7 +11,7 @@
 <div class="row top15">
 	<div class="col-lg-12">	
 		<%= link_to new_person_reporting_relationship_path(@person), :class => 'btn btn-success' do %>
-			<i class="fa fa-plus fa-fw"></i> Add Supervisor
+			<i class="fa fa-plus fa-fw"></i> <%= t('button.add_supervisor') %>
 		<% end %>
 		<div class="top15">
 			<% if @reporting_relationships.empty? %>

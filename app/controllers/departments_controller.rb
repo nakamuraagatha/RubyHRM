@@ -3,7 +3,7 @@ class DepartmentsController < ApplicationController
   before_action :set_department, only: [:show, :edit, :update, :destroy]
   before_action :require_user
 
-  add_breadcrumb "Departments", :departments_path
+  add_breadcrumb I18n.t("page_header.departments"), :departments_path
 
 
   def index
@@ -12,6 +12,8 @@ class DepartmentsController < ApplicationController
     else
       @departments = Department.all
     end
+    @count = @departments.count
+    @total_count = Department.count
   end
 
   def new

@@ -11,6 +11,8 @@ class SkillsController < ApplicationController
 		else
 			@skills = Skill.all
 		end
+		@count = @skills.count
+		@total_count = Skill.count
 	end
 
 	def new

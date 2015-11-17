@@ -11,6 +11,8 @@ class UsersController < ApplicationController
 		else
 			@users = User.all.order("person_id ASC")
 		end
+		@count = @users.count
+		@total_count = User.count
 	end
 
 	def show

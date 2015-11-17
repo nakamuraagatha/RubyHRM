@@ -11,6 +11,8 @@ class PayGradesController < ApplicationController
 		else
 			@pay_grades = PayGrade.all
 		end
+		@count = @pay_grades.count
+		@total_count = PayGrade.count
 	end
 
 	def new

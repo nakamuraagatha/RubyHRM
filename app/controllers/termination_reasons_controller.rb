@@ -10,6 +10,8 @@ class TerminationReasonsController < ApplicationController
 		else
 			@termination_reasons = TerminationReason.all
 		end
+		@count = @termination_reasons.count
+		@total_count = TerminationReason.count
 	end
 
 	def new

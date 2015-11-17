@@ -10,6 +10,8 @@ class RelationshipsController < ApplicationController
 		else
 			@relationships = Relationship.all
 		end
+		@count = @relationships.count
+		@total_count = Relationship.count
 	end
 
 	def show

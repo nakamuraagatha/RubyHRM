@@ -10,4 +10,3 @@ jQuery ->
 		options = $(states).filter("optgroup[label='#{country}']").html()
 		if options
 			$('#contact_detail_state').html(options)
-			$('label[for="contact_detail_State/Province"]').show()

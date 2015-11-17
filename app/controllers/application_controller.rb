@@ -7,10 +7,9 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
 
-  add_breadcrumb "Dashboard", :root_path
+  add_breadcrumb I18n.t("menu.dashboard"), :root_path
 
   def current_user
-    #@current_user = User.find(session[:user_id]) if session[:user_id]
     current_user = User.find_by_auth_token(cookies[:auth_token]) if cookies[:auth_token]
   end
 
@@ -28,13 +27,13 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  private
-    def set_locale
-      #Set locale based on the current users preferred language in the user profile
-      if current_user 
-        I18n.locale = current_user.locale
-      else 
-        I18n.locale = request.env["HTTP_ACCEPT_LANGUAGE"]
-      end
+private
+  def set_locale
+    #Set locale based on the current users preferred language in the user profile
+    if current_user 
+      I18n.locale = current_user.locale
+    else 
+      I18n.locale = request.env["HTTP_ACCEPT_LANGUAGE"]
     end
+  end
 end

@@ -15,7 +15,7 @@
 		<div class="col-lg-3">
 			<%= f.collection_select :department_id, Department.all, :id, :name, { :include_blank => "Select Department" }, { :class => 'form-control' } %>
 		</div>
-		<%= f.label "Location", :class => 'col-lg-3 control-label' %>
+		<%= f.label :location_id, :class => 'col-lg-3 control-label' %>
 		<div class="col-lg-3">
 			<%= f.collection_select :location_id, Location.all, :id, :name, { :include_blank => "Select Location" }, { :class => 'form-control' } %>
 		</div>
@@ -31,11 +31,11 @@
 
 			<% if @person.active? %>
 				<%= link_to new_person_termination_path(@person), :class => 'btn btn-danger' do %>
-					<i class="fa fa-times-circle"></i> Terminate Employee
+					<i class="fa fa-times-circle"></i> <%= t('button.terminate_employee') %>
 				<% end %>
 			<% else %>
-				<%= link_to person_termination_path(@person, @person.id), method: :delete, data: { confirm: "Are you sure you want to reactive ?" }, :class => 'btn btn-danger' do %>
-					<i class="fa fa-refresh"></i> Re-activate Employee
+				<%= link_to person_termination_path(@person, @person.id), method: :delete, data: { confirm: "Re-activate this employee?" }, :class => 'btn btn-danger' do %>
+					<i class="fa fa-refresh"></i> <%= t('button.reactivate_employee') %>
 				<% end %>
 				<%= link_to person_termination_path(@person, @person.id), :class =>  'btn btn-link' do %>
 					Termination Date: <%= Termination.find_by_person_id(@person.id).termination_date %>

@@ -38,15 +38,11 @@
 		</div>
 	</div>
 
-	<div class="form-group"></div>
-	<div class="form-group"></div>
-
 	<div class="form-group">
-		<%= f.label "Provide User Details?", :class => 'col-lg-2 control-label' %>
-		<div class="col-lg-2">
-			<div class="checkbox">
-				<label data-toggle="collapse" data-target="#provide-user-details">
-					<%= check_box_tag "provide_user_details" %>
+		<div class="col-lg-offset-2 col-lg-2">
+			<div class="btn-group" data-toggle="buttons">
+				<label class="btn btn-default btn-xs active" data-toggle="collapse" data-target="#provide-user-details">
+					<%= check_box_tag "provide_user_details" %> Provide User Details?
 				</label>
 			</div>
 		</div>

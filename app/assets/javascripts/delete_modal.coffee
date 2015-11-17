@@ -5,7 +5,7 @@ $.rails.allowAction = (element) ->
     .removeAttr('class')
     .removeAttr('data-confirm')
     .addClass('btn').addClass('btn-danger')
-    .html("Delete")
+    .html("Confirm")
 
   modal_html = """
               <div class="modal fade" id="myModal">

@@ -11,6 +11,8 @@ class EducationLevelsController < ApplicationController
 		else
 			@education_levels = EducationLevel.all
 		end
+		@count = @education_levels.count
+		@total_count = EducationLevel.count
 	end
 
 	def new

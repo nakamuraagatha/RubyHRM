@@ -14,15 +14,3 @@
 		<%= render 'edit_form' %>
 	</div>
 </div>
-
-<script type="text/javascript">
-	var checkbox = document.getElementById('change_password');
-	var user_details_div = document.getElementById('user_fields');
-	checkbox.onchange = function() {
-		if(this.checked) {
-			user_details_div.style['display'] = 'block';
-		} else {
-			user_details_div.style['display'] = 'none';
-		}
-	};
-</script>

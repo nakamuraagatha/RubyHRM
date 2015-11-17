@@ -30,21 +30,17 @@
 		</div>
 	</div>
 
-	<div class="form-group"></div>
-	<div class="form-group"></div>
-
 	<div class="form-group">
-		<%= f.label "Change Password?", :class => 'col-lg-2 control-label' %>
-		<div class="col-lg-2">
-			<div class="checkbox">
-				<label>
-					<%= check_box_tag "change_password" %>
+		<div class="col-lg-offset-2 col-lg-2">
+			<div class="btn-group" data-toggle="buttons">
+				<label class="btn btn-default btn-xs active" data-toggle="collapse" data-target="#change-password">
+					<%= check_box_tag "change_password" %> <%= t('button.change_password') %>
 				</label>
 			</div>
 		</div>
 	</div>
 
-	<span id="user_fields" style="display:none;">
+	<div class="collapse" id="change-password">
 		<div class="form-group">
 			<%= f.label "Password", :class => 'col-lg-2 control-label' %>
 			<div class="col-lg-2">
@@ -57,7 +53,8 @@
 				<%= f.password_field :password_confirmation, :class => 'form-control' %>
 			</div>
 		</div>
-	</span>
+	</div>
+
 	<div class="form-group">
 		<div class="col-lg-offset-2 col-lg-10">
 			<%= button_tag(:type => "submit", :class => "btn btn-success") do %>

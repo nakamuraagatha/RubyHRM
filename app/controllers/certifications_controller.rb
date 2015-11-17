@@ -11,6 +11,8 @@ class CertificationsController < ApplicationController
 		else
 			@certifications = Certification.all
 		end
+		@count = @certifications.count
+		@total_count = Certification.count
 	end
 
 	def new

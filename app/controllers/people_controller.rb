@@ -10,6 +10,8 @@ class PeopleController < ApplicationController
 		else
 			@people = Person.includes(:job_detail).all.order("employee_id ASC")
 		end
+		@count = @people.count
+		@total_count = Person.count
 	end
 
 	def show

@@ -1,6 +1,7 @@
 class Person < ActiveRecord::Base
 	after_create :add_job_detail
 	after_create :add_contact_detail
+	after_create :set_employee_id
 
 	has_attached_file :photo, styles: {small: "15x15#", medium: "40x40#", large: "150x150#"}, default_url: "/images/missing_:style.png"
 	validates_attachment_content_type :photo, :content_type => /\Aimage\/.*\Z/
@@ -35,14 +36,20 @@ class Person < ActiveRecord::Base
 		self.preferred_first.present? ? "#{preferred_first} #{last_name}" : "#{first_name} #{last_name}"
 	end
 
-	#after the person is saved, create a job detail record with the person ID.
+	#After the person is saved, create a job detail record with the person ID.
 	def add_job_detail
 		JobDetail.create(person_id: self.id, start_date: DateTime.now.to_date)
 	end
 	
-	#after the person is saved, create a contact detail record with the person ID.
+	#After the person is saved, create a contact detail record with the person ID.
 	def add_contact_detail
 		ContactDetail.create(person_id: self.id)
+	end
+
+	#After the person is saved, update the employee ID to the correct ID that was created. 
+	#Solves issues with mutliple people enering a person at the same time getting the same employee ID
+	def set_employee_id
+		self.update_attributes(employee_id: 'EMP'.to_s + "#{sprintf '%04d', self.id}")
 	end
 
 	def active?

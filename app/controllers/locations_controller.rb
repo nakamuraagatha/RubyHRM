@@ -2,7 +2,7 @@ class LocationsController < ApplicationController
     before_action :set_location, only: [:show, :edit, :update, :destroy]
     before_action :require_user
     
-    add_breadcrumb "Locations", :locations_path
+    add_breadcrumb I18n.t("page_header.locations"), :locations_path
 
 
     def index
@@ -11,6 +11,8 @@ class LocationsController < ApplicationController
         else
             @locations = Location.all
         end
+        @count = @locations.count
+        @total_count = Location.count
     end
 
     def new
