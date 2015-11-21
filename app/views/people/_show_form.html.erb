@@ -89,10 +89,14 @@
 	</div>
 
 	<div class="form-group">
-		<div class="col-lg-10 col-lg-offset-2">
-			<%= link_to edit_person_path(@person), :class => 'btn btn-warning'  do %>
-				<i class="fa fa-pencil"></i> <%= t('button.edit') %>
-			<% end %>
+		<div class="form-footer">
+			<div class="form-footer-container">
+				<div class="col-lg-12">
+					<%= link_to edit_person_path(@person), :class => 'btn btn-warning'  do %>
+						<i class="fa fa-pencil"></i> <%= t('button.edit') %>
+					<% end %>
+				</div>
+			</div>
 		</div>
 	</div>
 <% end %>

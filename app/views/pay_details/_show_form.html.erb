@@ -37,13 +37,17 @@
 		</div>
 	</div>
 	<div class="form-group">
-		<div class="col-lg-10 col-lg-offset-2">
-			<%= link_to edit_person_pay_detail_path(@person, @pay_detail.id), :class => 'btn btn-warning' do %>
-				<i class="fa fa-pencil fa-fw"></i> <%= t('button.edit') %>
-			<% end %>
-			<%= link_to person_pay_details_path(@person), :class => 'btn btn-default' do %>
-				<i class="fa fa-arrow-left fa-fw"></i> <%= t('button.return_to_search') %>
-			<% end %>
+		<div class="form-footer">
+			<div class="form-footer-container">
+				<div class="col-lg-12">
+					<%= link_to edit_person_pay_detail_path(@person, @pay_detail.id), :class => 'btn btn-warning' do %>
+						<i class="fa fa-pencil fa-fw"></i> <%= t('button.edit') %>
+					<% end %>
+					<%= link_to person_pay_details_path(@person), :class => 'btn btn-default' do %>
+						<i class="fa fa-arrow-left fa-fw"></i> <%= t('button.return_to_search') %>
+					<% end %>
+				</div>
+			</div>
 		</div>
 	</div>
 <% end %>

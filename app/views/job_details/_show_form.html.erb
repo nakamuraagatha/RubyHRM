@@ -23,10 +23,6 @@
 
 	<div class="form-group">
 		<div class="col-lg-10 col-lg-offset-2 ">
-			<%= link_to edit_person_job_detail_path(@person, @person.id), :class => 'btn btn-warning' do %>
-				<span class="fa fa-pencil fa-fw"></span> <%= t('button.edit') %>
-			<% end %>
-
 			<%= render 'job_detail_history' %>
 
 			<% if @person.active? %>
@@ -41,6 +37,18 @@
 					Termination Date: <%= Termination.find_by_person_id(@person.id).termination_date %>
 				<% end %>
 			<% end %>
+		</div>
+	</div>
+	
+	<div class="form-group">
+		<div class="form-footer">
+			<div class="form-footer-container">
+				<div class="col-lg-12">
+					<%= link_to edit_person_job_detail_path(@person, @person.id), :class => 'btn btn-warning' do %>
+						<span class="fa fa-pencil fa-fw"></span> <%= t('button.edit') %>
+					<% end %>
+				</div>
+			</div>
 		</div>
 	</div>
 <% end %>

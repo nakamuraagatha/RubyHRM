@@ -54,13 +54,17 @@
 		</div>
 	</div>
 	<div class="form-group">
-		<div class="col-lg-offset-2 col-lg-10">
-			<%= link_to edit_location_path(@location), :class => 'btn btn-warning'  do %>
-				<i class="fa fa-pencil"></i> <%= t('button.edit') %>
-			<% end %>
-			<%= link_to locations_path, :class => 'btn btn-success'  do %>
-				<i class="fa fa-arrow-left"></i> <%= t('button.return_to_search') %>
-			<% end %>
+		<div class="form-footer">
+			<div class="form-footer-container">
+				<div class="col-lg-12">
+					<%= link_to edit_location_path(@location), :class => 'btn btn-warning'  do %>
+						<i class="fa fa-pencil"></i> <%= t('button.edit') %>
+					<% end %>
+					<%= link_to locations_path, :class => 'btn btn-success'  do %>
+						<i class="fa fa-arrow-left"></i> <%= t('button.return_to_search') %>
+					<% end %>
+				</div>
+			</div>
 		</div>
 	</div>
 <% end %>
