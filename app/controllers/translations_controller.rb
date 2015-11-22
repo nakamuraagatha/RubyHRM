@@ -29,7 +29,7 @@ class TranslationsController < ApplicationController
 	end
 
 	def new
-		add_breadcrumb "New Translation", :new_translations_path
+		add_breadcrumb "New Translation", :new_translation_path
 
 		@translation = Translation.new
 	end

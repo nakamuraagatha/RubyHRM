@@ -5,21 +5,28 @@
 	<div class="col-lg-10">
 		<div class="row">
 			<div class="col-lg-12">
-				<h2 class="media-heading"><%= @person.full_name %></h2>
-				<h4><%= @person.job_title.job_title unless @person.job_title.nil? %></h4>
+				<h3 class="media-heading"><%= @person.full_name %>
+					<% if @person.active? %>
+					<% else %>
+						<small>
+							<%= link_to "(terminated)", person_termination_path(@person, @person.id) %>
+						</small>
+					<% end %>
+				</h3>
+				<h5><%= @person.job_title.job_title unless @person.job_title.nil? %></h5>
 				<hr style="margin:8px auto">
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-lg-4">
-        		<h5><strong>Employee ID:</strong> <%= @person.employee_id %></h5>
-        		<h5><span class="fa fa-phone fa-fw"></span> <%= @person.contact_detail.business_phone %></h5>
-        		<h5><span class="fa fa-envelope fa-fw"></span> <%= @person.contact_detail.business_email %></h5>
+        		<h6><strong>Employee ID:</strong> <%= @person.employee_id %></h6>
+        		<h6><span class="fa fa-phone fa-fw"></span> <%= @person.contact_detail.business_phone %></h6>
+        		<h6><span class="fa fa-envelope fa-fw"></span> <%= @person.contact_detail.business_email %></h6>
         	</div>
         	<div class="col-lg-8">
-	        	<h5><strong>Department:</strong>  <%= @person.department.name unless @person.department.nil? %></h5>
-	        	<h5><strong>Location:</strong> <%= @person.location.name unless @person.location.nil? %></h5>
-	        	<h5><strong>Supervisor(s):</strong> <%= @person.reporting_relationships.map { |rr| rr.manager.full_name}.join(", ") %></h5>
+	        	<h6><strong>Department:</strong>  <%= @person.department.name unless @person.department.nil? %></h6>
+	        	<h6><strong>Location:</strong> <%= @person.location.name unless @person.location.nil? %></h6>
+	        	<h6><strong>Supervisor(s):</strong> <%= @person.reporting_relationships.map { |rr| rr.manager.full_name}.join(", ") %></h6>
         	</div>
         </div>
         <div class="row">
