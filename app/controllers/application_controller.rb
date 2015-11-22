@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
 
-  add_breadcrumb I18n.t("menu.dashboard"), :root_path
+  add_breadcrumb I18n.t('menu.dashboard'), :root_path
 
   def current_user
     current_user = User.find_by_auth_token(cookies[:auth_token]) if cookies[:auth_token]
